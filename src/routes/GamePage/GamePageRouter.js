@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import StartGamePage from './StartGamePage/StartGamePage'
 import CharSelectPage from './CharSelectPage/CharSelectPage'
 import CharCreatePage from './CharCreatePage/CharCreatePage'
+import PlayGamePage from './PlayGamePage/PlayGamePage'
 import CharSaveContext from './../../contexts/CharacterSaveContext'
 
 const emptyCharacter = {
@@ -23,6 +24,7 @@ export default class GamePage extends Component {
     characterOne: emptyCharacter,
     characterTwo: emptyCharacter,
     characterThree: createdCharacter,
+    selectedCharacter: emptyCharacter,
   }
   makeCharacterOne = (charData) => {
     console.log('Trying to make Char one! with data', charData);
@@ -64,12 +66,23 @@ export default class GamePage extends Component {
       characterThree: Object.assign(emptyCharacter),
     })
   }
+
+  selectCharacter = (charData) => {
+    const newChar = {
+      exist: true, ...charData
+    }
+    this.setState({
+      selectedCharacter: Object.assign(newChar),
+    })
+  }
+
   makeGameRoutes() {
     return (
       <>
         <Route exact path="/game" component={StartGamePage}></Route>
         <Route exact path="/game/select-char" component={CharSelectPage}></Route>
         <Route path="/game/create/:slotNum" component={CharCreatePage}></Route>
+        <Route path="/game/play" component={PlayGamePage}></Route>
       </>
     );
   }
@@ -84,6 +97,7 @@ export default class GamePage extends Component {
       deleteCharacterOne: this.deleteCharacterOne,
       deleteCharacterTwo: this.deleteCharacterTwo,
       deleteCharacterThree: this.deleteCharacterThree,
+      selectCharacter: this.selectCharacter,
     }
 
     return (
