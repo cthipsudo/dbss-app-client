@@ -4,6 +4,7 @@ import StartGamePage from './StartGamePage/StartGamePage'
 import CharSelectPage from './CharSelectPage/CharSelectPage'
 import CharCreatePage from './CharCreatePage/CharCreatePage'
 import CharSaveContext from './../../contexts/CharacterSaveContext'
+
 const emptyCharacter = {
   exist: false,
   name: null,
@@ -48,6 +49,21 @@ export default class GamePage extends Component {
       characterThree: Object.assign(newChar),
     })
   }
+  deleteCharacterOne = () => {
+    this.setState({
+      characterOne: Object.assign(emptyCharacter),
+    })
+  }
+  deleteCharacterTwo = () => {
+    this.setState({
+      characterTwo: Object.assign(emptyCharacter),
+    })
+  }
+  deleteCharacterThree = () => {
+    this.setState({
+      characterThree: Object.assign(emptyCharacter),
+    })
+  }
   makeGameRoutes() {
     return (
       <>
@@ -65,6 +81,9 @@ export default class GamePage extends Component {
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
+      deleteCharacterOne: this.deleteCharacterOne,
+      deleteCharacterTwo: this.deleteCharacterTwo,
+      deleteCharacterThree: this.deleteCharacterThree,
     }
 
     return (
