@@ -3,7 +3,35 @@ import { Route } from 'react-router-dom'
 import StartGamePage from './StartGamePage/StartGamePage'
 import CharSelectPage from './CharSelectPage/CharSelectPage'
 import CharCreatePage from './CharCreatePage/CharCreatePage'
+import CharSaveContext from './../../contexts/CharacterSaveContext'
+const emptyCharacter = {
+  exist: false,
+  name: null,
+  class: null,
+  race: null,
+}
+const createdCharacter = {
+  exist: true,
+  name: "Bob",
+  class: "Warrior",
+  race: "Human",
+}
+
 export default class GamePage extends Component {
+  state = {
+    characterOne: emptyCharacter,
+    characterTwo: emptyCharacter,
+    characterThree: createdCharacter,
+  }
+  makeCharacterOne = (charData) => {
+    console.log('Trying to make Char one! with data', charData);
+  }
+  makeCharacterTwo = (charData) => {
+    console.log('Trying to make Char two!');
+  }
+  makeCharacterThree = (charData) => {
+    console.log('Trying to make Char three!');
+  }
   makeGameRoutes() {
     return (
       <>
@@ -14,9 +42,20 @@ export default class GamePage extends Component {
     );
   }
   render() {
+    const value = {
+      characterOne: this.state.characterOne,
+      characterTwo: this.state.characterTwo,
+      characterThree: this.state.characterThree,
+      makeCharacterOne: this.makeCharacterOne,
+      makeCharacterTwo: this.makeCharacterTwo,
+      makeCharacterThree: this.makeCharacterThree,
+    }
+
     return (
       <>
-        {this.makeGameRoutes()}
+        <CharSaveContext.Provider value={value}>
+          {this.makeGameRoutes()}
+        </CharSaveContext.Provider>
       </>
     )
   }

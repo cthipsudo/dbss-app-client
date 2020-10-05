@@ -5,26 +5,48 @@ import CharacterSaveContext from '../../../contexts/CharacterSaveContext';
 
 import './CharCreate.css';
 export default class CharCreate extends Component {
-
+    state = {
+        createFunc: () => {},
+        characterDisplay: "human Picture here",
+    }
     static contextType = CharacterSaveContext;
 
     componentDidMount(){
         const slotNum = this.props.slot;
         const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
-        console.log(funcName);
-        console.log(this.context.makeCharacterOne());
-        this.context[funcName]();
+        this.setState({
+            createFunc: this.context[funcName],
+        });
     }
+    createCharacter = (ev) => {
+        ev.preventDefault();
+        const character = {
+            name: ev.target.character_name.value,
+            Pronoun:ev.target.character_pronoun.value, 
+            Class:ev.target.character_class.value,
+            Race:ev.target.character_race.value,
+        }
+        this.state.createFunc(character);
+    }
+    changeCharacterPortrait = (ev) => {
+        const characterRace = ev.target.value;
+        console.log()
+        this.setState({
+            characterDisplay: `${characterRace} Picture here`,
+        });
+    }
+
     render() {
+        //
         return (
             <section className="createCharSection">
                 <div>
                     <h1>Make a character:</h1>
-                    <form className="characterCreate" action="">
+                    <form className="characterCreate" onSubmit={(event) => this.createCharacter(event)}>
                         <div className="formInputs">
                             <div>
                                 <label htmlFor="character_name">Name:</label>
-                                <input type="text" name="character_name" id="characterName" />
+                                <input type="text" name="character_name" id="characterName"  required/>
                             </div>
                             <div>
                                 <label htmlFor="character_pronoun">Pronoun:</label>
@@ -36,6 +58,14 @@ export default class CharCreate extends Component {
                                 </select>
                             </div>
                             <div>
+                                <label htmlFor="character_race">Race:</label>
+                                <select name="character_race" id="characterRace" onChange={(ev) => this.changeCharacterPortrait(ev)}>
+                                    <option value="human">Human</option>
+                                    <option value="alien">Alien</option>
+                                    <option value="goblin">Goblin</option>
+                                </select>
+                            </div>
+                            <div>
                                 <label htmlFor="character_class">Class:</label>
                                 <select name="character_class" id="characterClass">
                                     <option value="space_wizard">Space Wizard</option>
@@ -43,16 +73,10 @@ export default class CharCreate extends Component {
                                     <option value="cosmic_warrior">Cosmic Warrior</option>
                                 </select>
                             </div>
-                            <div>
-                                <label htmlFor="character_race">Race:</label>
-                                <select name="character_race" id="characterRace">
-                                    <option value="human">Human</option>
-                                    <option value="alien">Alien</option>
-                                    <option value="goblin">Goblin</option>
-                                </select>
-                            </div>
                         </div>
-                        <p>[Character picture here, will change based on race and possibly class]</p>
+                        <div className="characterPortrait">
+                            {this.state.characterDisplay}
+                        </div>
                         <button type="submit">Create</button>
                     </form>
                 </div>

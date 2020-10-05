@@ -14,13 +14,13 @@ const createdCharacter = {
   race: "Human",
 }
 
-const CharacterSaveContext = React.createContext({
-  characterOne: createdCharacter,
-  characterTwo: emptyCharacter,
-  characterThree: emptyCharacter,
+export default React.createContext({
+  characterOne: null,
+  characterTwo: null,
+  characterThree: null,
   makeCharacterOne: () => {},
   makeCharacterTwo: () => {},
   makeCharacterThree: () => {},
 })
 
-export default CharacterSaveContext
+
