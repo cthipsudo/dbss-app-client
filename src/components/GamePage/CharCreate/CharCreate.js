@@ -27,6 +27,7 @@ export default class CharCreate extends Component {
             Race:ev.target.character_race.value,
         }
         this.state.createFunc(character);
+        this.props.goBack();
     }
     changeCharacterPortrait = (ev) => {
         const characterRace = ev.target.value;

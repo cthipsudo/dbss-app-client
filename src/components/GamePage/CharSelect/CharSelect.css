@@ -32,9 +32,12 @@ section.charSelect {
     justify-content: space-between;
 }
 
-.makeCharButton{
+.makeCharButton, .editCharButton{
     background-color: azure;
     padding: 10px 15px;
+}
+.editCharButton{
+    
 }
 .characterSlotButtons{
     display: flex;

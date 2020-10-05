@@ -25,12 +25,28 @@ export default class GamePage extends Component {
   }
   makeCharacterOne = (charData) => {
     console.log('Trying to make Char one! with data', charData);
+    const newChar = {
+      exist: true, ...charData
+    }
+    this.setState({
+      characterOne: Object.assign(newChar),
+    })
   }
   makeCharacterTwo = (charData) => {
-    console.log('Trying to make Char two!');
+    const newChar = {
+      exist: true, ...charData
+    }
+    this.setState({
+      characterTwo: Object.assign(newChar),
+    })
   }
   makeCharacterThree = (charData) => {
-    console.log('Trying to make Char three!');
+    const newChar = {
+      exist: true, ...charData
+    }
+    this.setState({
+      characterThree: Object.assign(newChar),
+    })
   }
   makeGameRoutes() {
     return (

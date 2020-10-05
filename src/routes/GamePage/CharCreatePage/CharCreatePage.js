@@ -7,7 +7,7 @@ export default class CharCreatePage extends Component {
     // }
     render() {
         return (
-            <CharCreateSection slot={this.props.match.params.slotNum}/>
+            <CharCreateSection slot={this.props.match.params.slotNum} goBack={this.props.history.goBack}/>
         )
     }
 }
