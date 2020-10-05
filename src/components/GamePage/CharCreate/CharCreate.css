@@ -1,0 +1,23 @@
+section.createCharSection {
+    min-height: 90vh;
+    padding: 5%;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+button {
+    margin-top: 5%;
+    width: 20%;
+}
+
+form.characterCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formInputs {
+    text-align: left;
+}

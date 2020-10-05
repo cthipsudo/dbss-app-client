@@ -1,0 +1,15 @@
+.appNav {
+    background-color:#aaa;
+    display: flex;
+    align-items: center;
+}
+.appNav #navTitle{
+    width: 20%;
+    padding-left: 2%;
+}
+ul.navList {
+    width: 80%;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+}

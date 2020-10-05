@@ -1,0 +1,12 @@
+
+  footer {
+    padding: 1% 0;
+    background-color: #aaa;
+  }
+
+  ul.navListFooter{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+  }

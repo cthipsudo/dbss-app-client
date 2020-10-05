@@ -1,0 +1,56 @@
+h1 {
+    margin-top: 0;
+}
+
+section.charSelect {
+    min-height: 90vh;
+    padding: 5%;
+    background-color: #bbb;
+    padding-top: 2%;
+}
+
+.characterSaves {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.characterContainer {
+    min-width: 32%;
+    margin-bottom: 10%;
+}
+
+.characterSlot {
+    border: solid 3px #000;
+    background: #fff;
+    padding: 10px;
+    margin: 0 8%;
+    margin-bottom: 20px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.makeCharButton{
+    background-color: azure;
+    padding: 10px 15px;
+}
+.characterSlotButtons{
+    display: flex;
+    justify-content: space-evenly;
+}
+#newChar {
+    font-size: 5.5em;
+    margin: 0;
+}
+
+#startGameButton {
+    margin-top: 5%;
+}
+
+@media all and (min-width: 500px) {
+    .characterSaves {
+        flex-direction: row;
+    }
+}
