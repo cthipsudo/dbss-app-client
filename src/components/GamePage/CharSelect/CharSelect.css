@@ -23,14 +23,18 @@ section.charSelect {
     border: solid 3px #000;
     background: #fff;
     padding: 10px;
-    margin: 0 8%;
     margin-bottom: 20px;
+    margin-top: 0;
     min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
+    
 }
-
+.characterSlot.created {
+    cursor: pointer;
+}
 .makeCharButton, .editCharButton{
     background-color: azure;
     padding: 10px 15px;

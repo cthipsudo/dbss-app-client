@@ -24,7 +24,7 @@ export default class GamePage extends Component {
     characterOne: emptyCharacter,
     characterTwo: emptyCharacter,
     characterThree: createdCharacter,
-    selectedCharacter: emptyCharacter,
+    characterSelected: emptyCharacter,
   }
   makeCharacterOne = (charData) => {
     console.log('Trying to make Char one! with data', charData);
@@ -71,8 +71,9 @@ export default class GamePage extends Component {
     const newChar = {
       exist: true, ...charData
     }
+    //console.log(newChar);
     this.setState({
-      selectedCharacter: Object.assign(newChar),
+      characterSelected: Object.assign(newChar),
     })
   }
 
@@ -91,6 +92,7 @@ export default class GamePage extends Component {
       characterOne: this.state.characterOne,
       characterTwo: this.state.characterTwo,
       characterThree: this.state.characterThree,
+      characterSelected: this.state.characterSelected,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,

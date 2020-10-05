@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CharacterSaveContext from '../../../../contexts/CharacterSaveContext'
 
 export default class Character extends Component {
+    static contextType = CharacterSaveContext;
+
     renderEmptyChar() {
         return (
             <div className="characterContainer">
@@ -18,9 +21,9 @@ export default class Character extends Component {
 
         return (
             <div className="characterContainer">
-                <div className="characterSlot">
+                <div className="characterSlot created" onClick={()=>this.context.selectCharacter(character)}>
                     <p>Existing Character Picture here</p>
-                    <p>{character.name}</p>
+                    <p>Name:{character.name}</p>
                 </div>
                 <div className="characterSlotButtons">
                     <Link className="editCharButton" to={`/game/edit/slot-${this.props.slot}`}>Edit</Link>

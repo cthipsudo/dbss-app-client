@@ -1,0 +1,65 @@
+.gameSpace{
+    padding: 0;
+}
+.displayAndQuestionContainer {
+    display: flex;
+}
+
+.playerProgress {
+    padding: 20px 0;
+}
+
+.spaceDisplay {
+    min-height: 80vh;
+    background: #ccc;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.spaceDisplay button {
+    margin-top: 10px;
+}
+
+.spaceDisplay .characterInfo {
+    display: flex;
+}
+
+.spaceDisplay .characterInfo div:nth-child(odd) {
+    background-color: #eee;
+}
+
+.questionDisplay {
+    min-height: 80vh;
+    background: #bbb;
+    width: 50%;
+}
+
+.questionDisplay p {
+    margin: 0;
+}
+
+.questionDisplay .questionContainer {
+    padding: 40px 10%;
+    background: #aaa;
+    height: 60%;
+}
+
+.questionDisplay .choiceContainer {
+    height: 40%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.questionDisplay .choiceContainer button {
+    border-style: none;
+    width: 50%;
+    border: white solid 3px;
+    cursor: pointer;
+    margin-top: 0;
+}
+
+.questionDisplay .choiceContainer button:hover {
+    background: #bbb;
+}
