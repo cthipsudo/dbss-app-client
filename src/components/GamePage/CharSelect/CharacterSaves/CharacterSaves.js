@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character'
-import CharacterSaveContext from '../../../../contexts/CharacterSaveContext'
+import GameContext from '../../../../contexts/GameContext'
 
 export default class CharacterSaves extends Component {
-    static contextType = CharacterSaveContext;
+    static contextType = GameContext;
 
     render() {
         //console.log(this.context.characterOne);

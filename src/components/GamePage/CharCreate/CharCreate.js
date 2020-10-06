@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CreateCharService from '../../../services/CreateCharacterServices';
 
-import CharacterSaveContext from '../../../contexts/CharacterSaveContext';
+import GameContext from '../../../contexts/GameContext';
 
 import './CharCreate.css';
 export default class CharCreate extends Component {
@@ -10,7 +10,7 @@ export default class CharCreate extends Component {
         characterDisplay: "human Picture here",
     }
 
-    static contextType = CharacterSaveContext;
+    static contextType = GameContext;
 
     componentDidMount(){
         const slotNum = this.props.slot;

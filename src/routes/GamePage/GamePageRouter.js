@@ -4,7 +4,7 @@ import StartGamePage from './StartGamePage/StartGamePage'
 import CharSelectPage from './CharSelectPage/CharSelectPage'
 import CharCreatePage from './CharCreatePage/CharCreatePage'
 import PlayGamePage from './PlayGamePage/PlayGamePage'
-import CharSaveContext from './../../contexts/CharacterSaveContext'
+import GameContext from '../../contexts/GameContext'
 
 const emptyCharacter = {
   exist: false,
@@ -15,8 +15,8 @@ const emptyCharacter = {
 const createdCharacter = {
   exist: true,
   name: "Bob",
-  class: "Warrior",
-  race: "Human",
+  class: "cosmic_warrior",
+  race: "human",
 }
 
 export default class GamePage extends Component {
@@ -25,9 +25,11 @@ export default class GamePage extends Component {
     characterTwo: emptyCharacter,
     characterThree: createdCharacter,
     characterSelected: emptyCharacter,
+    gameInSession: false,
+    loading: false,
   }
   makeCharacterOne = (charData) => {
-    console.log('Trying to make Char one! with data', charData);
+    //console.log('Trying to make Char one! with data', charData);
     const newChar = {
       exist: true, ...charData
     }
@@ -77,11 +79,18 @@ export default class GamePage extends Component {
     })
   }
 
+  startGameSession = () => {
+    console.log("Game start!");
+    this.setState({
+      gameInSession: true,
+    })
+  }
+
   makeGameRoutes() {
     return (
       <>
         <Route exact path="/game" component={StartGamePage}></Route>
-        <Route exact path="/game/select-char" component={CharSelectPage}></Route>
+        <Route path="/game/select-char" component={CharSelectPage}></Route>
         <Route path="/game/create/:slotNum" component={CharCreatePage}></Route>
         <Route path="/game/play" component={PlayGamePage}></Route>
       </>
@@ -93,6 +102,8 @@ export default class GamePage extends Component {
       characterTwo: this.state.characterTwo,
       characterThree: this.state.characterThree,
       characterSelected: this.state.characterSelected,
+      gameInSession: this.state.gameInSession,
+      loading: this.state.loading,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
@@ -100,13 +111,14 @@ export default class GamePage extends Component {
       deleteCharacterTwo: this.deleteCharacterTwo,
       deleteCharacterThree: this.deleteCharacterThree,
       selectCharacter: this.selectCharacter,
+      startGameSession: this.startGameSession,
     }
 
     return (
       <>
-        <CharSaveContext.Provider value={value}>
+        <GameContext.Provider value={value}>
           {this.makeGameRoutes()}
-        </CharSaveContext.Provider>
+        </GameContext.Provider>
       </>
     )
   }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CharacterSaveContext from '../../../../contexts/CharacterSaveContext'
+import GameContext from '../../../../contexts/GameContext'
 
 export default class Character extends Component {
-    static contextType = CharacterSaveContext;
+    static contextType = GameContext;
 
     renderEmptyChar() {
         return (

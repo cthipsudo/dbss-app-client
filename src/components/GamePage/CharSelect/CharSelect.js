@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CharacterSaves from './CharacterSaves/CharacterSaves'
-import CharacterSaveContext from '../../../contexts/CharacterSaveContext'
+import GameContext from '../../../contexts/GameContext'
 import './CharSelect.css'
 
 
 export default class CharSelect extends Component {
-    static contextType = CharacterSaveContext;
+    static contextType = GameContext;
 
     grabSelectedChar = () => {
         //console.log(this.context.characterSelected);
@@ -25,7 +25,7 @@ export default class CharSelect extends Component {
                 <h1>Choose your character:</h1>
                 <CharacterSaves />
                 {selectedCharText}
-                {selectedChar.exist && <Link to="/game/play" id="charSelectStart">Start!</Link>}
+                {selectedChar.exist && <Link to="/game/play" id="charSelectStart" onClick={() => this.context.startGameSession()}>Start!</Link>}
             </section>
         )
     }
