@@ -9,6 +9,7 @@ export default class CharCreate extends Component {
         createFunc: () => {},
         characterDisplay: "human Picture here",
     }
+
     static contextType = CharacterSaveContext;
 
     componentDidMount(){
@@ -22,9 +23,9 @@ export default class CharCreate extends Component {
         ev.preventDefault();
         const character = {
             name: ev.target.character_name.value,
-            Pronoun:ev.target.character_pronoun.value, 
-            Class:ev.target.character_class.value,
-            Race:ev.target.character_race.value,
+            pronoun:ev.target.character_pronoun.value, 
+            class:ev.target.character_class.value,
+            race:ev.target.character_race.value,
         }
         this.state.createFunc(character);
         this.props.goBack();
