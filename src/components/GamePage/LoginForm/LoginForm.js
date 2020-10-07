@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TokenService from '../../../services/token-service'
+import PlayerDataService from '../../../services/player-data-service'
 import AuthApiService from '../../../services/auth-api-service'
 import GameContext from '../../../contexts/GameContext'
 import { Button, Input } from '../../Utils/Utils'
@@ -8,8 +9,9 @@ export default class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
   }
+
   static contextType = GameContext;
-  
+
   state = { error: null }
 
   handleSubmitJwtAuth = ev => {
@@ -24,8 +26,9 @@ export default class LoginForm extends Component {
       .then(res => {
         user_name.value = ''
         password.value = ''
-        console.log(res);
+        PlayerDataService.savePlayerData({playerId: res.playerId})
         TokenService.saveAuthToken(res.authToken)
+        this.context.setLoginState()
         this.props.onLoginSuccess()
       })
       .catch(res => {

@@ -8,6 +8,10 @@ import './CharSelect.css'
 export default class CharSelect extends Component {
     static contextType = GameContext;
 
+    componentDidMount(){
+        //api call here
+    }
+
     grabSelectedChar = () => {
         //console.log(this.context.characterSelected);
         if (!this.context.characterSelected.exist) {
@@ -15,11 +19,12 @@ export default class CharSelect extends Component {
         } else {
             return (<p>{this.context.characterSelected.name} selected!</p>)
         }
-
     }
+
     render() {
         const selectedChar = this.context.characterSelected
         const selectedCharText = this.grabSelectedChar();
+        console.log(this.context.playerId)
         return (
             <section className="charSelect">
                 <h1>Choose your character:</h1>

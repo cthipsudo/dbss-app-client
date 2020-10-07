@@ -13,22 +13,16 @@ const emptyCharacter = {
   class: null,
   race: null,
 }
-const createdCharacter = {
-  exist: true,
-  name: "Bob",
-  class: "cosmic_warrior",
-  race: "human",
-}
 
 export default class GamePage extends Component {
   state = {
-    characterOne: emptyCharacter,
-    characterTwo: emptyCharacter,
-    characterThree: createdCharacter,
-    characterSelected: emptyCharacter,
+    characterOne: {},
+    characterTwo: {},
+    characterThree: {},
+    characterSelected: {},
     gameInSession: false,
     loading: false,
-    playerId: -1,
+    loggedIn: false,
   }
 
   makeCharacterOne = (charData) => {
@@ -88,9 +82,9 @@ export default class GamePage extends Component {
       gameInSession: true,
     })
   }
-  setPlayerId = (pId) => {
+  setLoginState = () => {
     this.setState({
-      playerId: pId,
+      loggedIn: true,
     })
   }
   makeGameRoutes() {
@@ -121,7 +115,7 @@ export default class GamePage extends Component {
       deleteCharacterThree: this.deleteCharacterThree,
       selectCharacter: this.selectCharacter,
       startGameSession: this.startGameSession,
-      setPlayerId: this.setPlayerId,
+      setLoginState: this.setLoginState,
     }
 
     return (
