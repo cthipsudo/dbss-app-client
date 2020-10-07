@@ -13,10 +13,11 @@ export default class PlayScreenMain extends Component {
     state = {
         questions: [],
         character: this.context.characterSelected,
-        question: null,
+        question: {},
         choices: [],
         progess: 0,
     }
+    
 
     componentDidMount() {
         const initalQuestions = GameFunctions.makeShuffledQuestions(STORE.QUESTIONS);
@@ -65,6 +66,10 @@ export default class PlayScreenMain extends Component {
     render() {
         console.log("Starting with question", this.state.question);
         console.log("With choices", this.state.choices);
+
+        if(!this.state.question.length){
+             //loading component here
+        }
         //const buttons = this.state.choices;
         return (
             <section className="gameSpace">
