@@ -28,7 +28,6 @@ export default class LoginForm extends Component {
         password.value = ''
         PlayerDataService.savePlayerData({playerId: res.playerId})
         TokenService.saveAuthToken(res.authToken)
-        this.context.setLoginState()
         this.props.onLoginSuccess()
       })
       .catch(res => {

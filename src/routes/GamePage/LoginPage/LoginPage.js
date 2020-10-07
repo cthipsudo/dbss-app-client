@@ -9,7 +9,6 @@ export default class LoginPage extends Component {
         },
     }
     handleLoginSuccess = () => {
-        console.log('tyring to go to char select');
         const { location, history } = this.props
         history.push('/game/select-char')
     }

@@ -2,28 +2,28 @@ import config from '../config'
 
 const PlayerDataService = {
   savePlayerData(PlayerData) {
-    window.localStorage.setItem(config.PLAYER_DATA, PlayerData)
+    window.localStorage.setItem(config.PLAYER_DATA, JSON.stringify(PlayerData))
   },
   saveCharData(CharData){
-    window.localStorage.setItem(config.CHAR_DATA, CharData)
+    window.localStorage.setItem(config.CHAR_DATA, JSON.stringify(CharData))
   },
   saveProgressData(ProgressData){
-    window.localStorage.setItem(config.PROGRESS_DATA, ProgressData)
+    window.localStorage.setItem(config.PROGRESS_DATA, JSON.stringify(ProgressData))
   },
   getPlayerData() {
-    return window.localStorage.getItem(config.PLAYER_DATA)
+    return JSON.parse(window.localStorage.getItem(config.PLAYER_DATA)) 
   },
   getCharData(){
-    return window.localStorage.getItem(config.CHAR_DATA)
+    return JSON.parse(window.localStorage.getItem(config.CHAR_DATA))
   },
   getProgressData(){
-    return window.localStorage.getItem(config.PROGRESS_DATA)
+    return JSON.parse(window.localStorage.getItem(config.PROGRESS_DATA))
   },
   clearPlayerData() {
     window.localStorage.removeItem(config.PLAYER_DATA)
   },
-  hasAuthPlayerData() {
-    return !!PlayerDataService.getAuthPlayerData()
+  hasPlayerData() {
+    return !!PlayerDataService.getPlayerData()
   },
 }
 

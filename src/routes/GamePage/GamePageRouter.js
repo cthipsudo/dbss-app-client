@@ -22,7 +22,6 @@ export default class GamePage extends Component {
     characterSelected: {},
     gameInSession: false,
     loading: false,
-    loggedIn: false,
   }
 
   makeCharacterOne = (charData) => {
@@ -82,9 +81,14 @@ export default class GamePage extends Component {
       gameInSession: true,
     })
   }
-  setLoginState = () => {
+  setLoginStateTrue = () => {
     this.setState({
       loggedIn: true,
+    })
+  }
+  setLoginStateFalse = () => {
+    this.setState({
+      loggedIn: false,
     })
   }
   makeGameRoutes() {
@@ -107,6 +111,7 @@ export default class GamePage extends Component {
       gameInSession: this.state.gameInSession,
       loading: this.state.loading,
       playerId: this.state.playerId,
+      loggedIn: this.state.loggedIn,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
@@ -115,7 +120,6 @@ export default class GamePage extends Component {
       deleteCharacterThree: this.deleteCharacterThree,
       selectCharacter: this.selectCharacter,
       startGameSession: this.startGameSession,
-      setLoginState: this.setLoginState,
     }
 
     return (

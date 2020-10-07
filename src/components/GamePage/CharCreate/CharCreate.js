@@ -23,7 +23,6 @@ export default class CharCreate extends Component {
         ev.preventDefault();
         const character = {
             name: ev.target.character_name.value,
-            pronoun:ev.target.character_pronoun.value, 
             class:ev.target.character_class.value,
             race:ev.target.character_race.value,
         }
@@ -49,15 +48,6 @@ export default class CharCreate extends Component {
                             <div>
                                 <label htmlFor="character_name">Name:</label>
                                 <input type="text" name="character_name" id="characterName"  required/>
-                            </div>
-                            <div>
-                                <label htmlFor="character_pronoun">Pronoun:</label>
-                                <select name="character_pronoun" id="characterPronoun">
-                                    <option value="he">He</option>
-                                    <option value="she">She</option>
-                                    <option value="they">They</option>
-                                    <option value="it">It</option>
-                                </select>
                             </div>
                             <div>
                                 <label htmlFor="character_race">Race:</label>

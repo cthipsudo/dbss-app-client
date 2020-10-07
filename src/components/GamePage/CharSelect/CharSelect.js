@@ -2,14 +2,52 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import CharacterSaves from './CharacterSaves/CharacterSaves'
 import GameContext from '../../../contexts/GameContext'
+import PlayerDataService from '../../../services/player-data-service'
+import GameServerService from '../../../services/game-server-service'
 import './CharSelect.css'
 
 
 export default class CharSelect extends Component {
     static contextType = GameContext;
 
-    componentDidMount(){
+    componentDidMount() {
         //api call here
+        //check for playerData in local 
+        if (PlayerDataService.hasPlayerData()) {
+            //Grab local player data
+            const playerData = PlayerDataService.getPlayerData();
+            GameServerService.getUserCharData(playerData.playerId)
+                .then(res => {
+                    //console.log(res)
+                    res.map(charData => {
+                        //console.log(charData);
+                        const charRefined = {
+                            name: charData.char_name,
+                            class: charData.class_name,
+                            race: charData.race_name,
+                        }
+                        switch (charData.slot_num) {
+                            case 1:
+                                this.context.makeCharacterOne(charRefined);
+                                break;
+                            case 2:
+                                this.context.makeCharacterTwo(charRefined);
+                                break;
+                            case 3:
+                                this.context.makeCharacterThree(charRefined);
+                                break;
+                            default:
+                        }
+                    })
+                })
+                .catch("set error state here")
+        } else {
+            console.log('Theres a guest session')
+            //resetCharData
+            this.context.deleteCharacterOne();
+            this.context.deleteCharacterTwo();
+            this.context.deleteCharacterThree();
+        }
     }
 
     grabSelectedChar = () => {
@@ -24,7 +62,6 @@ export default class CharSelect extends Component {
     render() {
         const selectedChar = this.context.characterSelected
         const selectedCharText = this.grabSelectedChar();
-        console.log(this.context.playerId)
         return (
             <section className="charSelect">
                 <h1>Choose your character:</h1>
