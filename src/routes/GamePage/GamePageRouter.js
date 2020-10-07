@@ -4,6 +4,7 @@ import StartGamePage from './StartGamePage/StartGamePage'
 import CharSelectPage from './CharSelectPage/CharSelectPage'
 import CharCreatePage from './CharCreatePage/CharCreatePage'
 import PlayGamePage from './PlayGamePage/PlayGamePage'
+import LoginPage from './LoginPage/LoginPage'
 import GameContext from '../../contexts/GameContext'
 
 const emptyCharacter = {
@@ -27,7 +28,9 @@ export default class GamePage extends Component {
     characterSelected: emptyCharacter,
     gameInSession: false,
     loading: false,
+    playerId: -1,
   }
+
   makeCharacterOne = (charData) => {
     //console.log('Trying to make Char one! with data', charData);
     const newChar = {
@@ -53,6 +56,7 @@ export default class GamePage extends Component {
       characterThree: Object.assign(newChar),
     })
   }
+
   deleteCharacterOne = () => {
     this.setState({
       characterOne: Object.assign(emptyCharacter),
@@ -78,18 +82,22 @@ export default class GamePage extends Component {
       characterSelected: Object.assign(newChar),
     })
   }
-
   startGameSession = () => {
     console.log("Game start!");
     this.setState({
       gameInSession: true,
     })
   }
-
+  setPlayerId = (pId) => {
+    this.setState({
+      playerId: pId,
+    })
+  }
   makeGameRoutes() {
     return (
       <>
         <Route exact path="/game" component={StartGamePage}></Route>
+        <Route path="/game/login" component={LoginPage}></Route>
         <Route path="/game/select-char" component={CharSelectPage}></Route>
         <Route path="/game/create/:slotNum" component={CharCreatePage}></Route>
         <Route path="/game/play" component={PlayGamePage}></Route>
@@ -104,6 +112,7 @@ export default class GamePage extends Component {
       characterSelected: this.state.characterSelected,
       gameInSession: this.state.gameInSession,
       loading: this.state.loading,
+      playerId: this.state.playerId,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
@@ -112,6 +121,7 @@ export default class GamePage extends Component {
       deleteCharacterThree: this.deleteCharacterThree,
       selectCharacter: this.selectCharacter,
       startGameSession: this.startGameSession,
+      setPlayerId: this.setPlayerId,
     }
 
     return (

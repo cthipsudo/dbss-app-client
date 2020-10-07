@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom'
-import GeneralNav from './components/Nav/Nav'
-import LandingPage from './routes/LandingPage/LandingPage'
-import GamePage from './routes/GamePage/GamePageRouter'
-
-import GeneralFooter from './components/Footer/Footer'
+import GeneralNav from '../Nav/Nav'
+import LandingPage from '../../routes/LandingPage/LandingPage'
+import GamePage from '../../routes/GamePage/GamePageRouter'
+import GeneralFooter from '../Footer/Footer'
 import './App.css';
 
 class App extends Component {
