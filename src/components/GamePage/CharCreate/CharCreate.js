@@ -15,6 +15,7 @@ export default class CharCreate extends Component {
     componentDidMount(){
         const slotNum = this.props.slot;
         const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
+        console.log(funcName);
         this.setState({
             createFunc: this.context[funcName],
         });

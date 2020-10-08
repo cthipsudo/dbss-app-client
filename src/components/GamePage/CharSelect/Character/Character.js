@@ -3,14 +3,19 @@ import { Link } from 'react-router-dom';
 import GameContext from '../../../../contexts/GameContext'
 import GameServerService from '../../../../services/game-server-service'
 import PlayerDataService from '../../../../services/player-data-service'
+import TokenService from '../../../../services/token-service'
 
 export default class Character extends Component {
     static contextType = GameContext;
-    deleteChar= () => {
-        const player = PlayerDataService.getPlayerData();
-        //console.log(player);
-        GameServerService.deleteUserCharSave(player.playerId, this.props.slot)
-        this.props.deleteChar()
+    deleteChar = () => {
+        //Check if we're logged in
+        if (TokenService.hasAuthToken()) {
+            const player = PlayerDataService.getPlayerData();
+            GameServerService.deleteUserCharSave(player.playerId, this.props.slot)
+            this.props.deleteChar()
+        } else {
+            this.props.deleteChar()
+        }
     }
     renderEmptyChar() {
         return (
@@ -28,7 +33,7 @@ export default class Character extends Component {
 
         return (
             <div className="characterContainer">
-                <div className="characterSlot created" onClick={()=>this.context.selectCharacter(character)}>
+                <div className="characterSlot created" onClick={() => this.context.selectCharacter(character)}>
                     <p>Existing Character Picture here</p>
                     <p>Name:{character.name}</p>
                 </div>

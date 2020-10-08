@@ -12,6 +12,10 @@ export default class StartScreen extends Component {
     handleLogoutClick = () => {
         TokenService.clearAuthToken();
         PlayerDataService.clearPlayerData();
+        this.context.cleanAllCharacterSlots();
+    }
+    handleGuestSessionStart = () => {
+        this.context.setGuestSessionTrue();
     }
     renderLogoutButtons = () => {
         return (
@@ -25,7 +29,7 @@ export default class StartScreen extends Component {
         return(
             <>
                 <Link id="loginButton" to="/game/login">Login</Link> 
-                <Link id="startButton" to="/game/select-char">Play as guest!</Link>
+                <Link id="startButton" to="/game/select-char" onClick={this.handleGuestSessionStart}>Play as guest!</Link>
             </>
         )
     }

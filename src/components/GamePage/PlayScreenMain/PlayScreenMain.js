@@ -64,6 +64,7 @@ export default class PlayScreenMain extends Component {
     }
 
     render() {
+        console.log("Questions", this.state.questions);
         console.log("Starting with question", this.state.question);
         console.log("With choices", this.state.choices);
 

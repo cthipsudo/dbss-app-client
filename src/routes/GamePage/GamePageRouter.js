@@ -21,6 +21,7 @@ export default class GamePage extends Component {
     characterThree: {},
     characterSelected: {},
     gameInSession: false,
+    guestSession: false,
     loading: false,
   }
 
@@ -65,7 +66,13 @@ export default class GamePage extends Component {
       characterThree: Object.assign(emptyCharacter),
     })
   }
-
+  cleanAllCharacterSlots = () => {
+    this.setState({
+      characterOne: Object.assign(emptyCharacter),
+      characterTwo: Object.assign(emptyCharacter),
+      characterThree: Object.assign(emptyCharacter),
+    })
+  }
   selectCharacter = (charData) => {
     const newChar = {
       exist: true, ...charData
@@ -81,16 +88,17 @@ export default class GamePage extends Component {
       gameInSession: true,
     })
   }
-  setLoginStateTrue = () => {
+  setGuestSessionTrue = () => {
     this.setState({
-      loggedIn: true,
+      guestSession: true,
     })
   }
-  setLoginStateFalse = () => {
+  setGuestSessionFalse = () => {
     this.setState({
-      loggedIn: false,
+      guestSession: false,
     })
   }
+  
   makeGameRoutes() {
     return (
       <>
@@ -110,16 +118,18 @@ export default class GamePage extends Component {
       characterSelected: this.state.characterSelected,
       gameInSession: this.state.gameInSession,
       loading: this.state.loading,
-      playerId: this.state.playerId,
-      loggedIn: this.state.loggedIn,
+      guestSession: this.state.guestSession,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
       deleteCharacterOne: this.deleteCharacterOne,
       deleteCharacterTwo: this.deleteCharacterTwo,
       deleteCharacterThree: this.deleteCharacterThree,
+      cleanAllCharacterSlots: this.cleanAllCharacterSlots,
       selectCharacter: this.selectCharacter,
       startGameSession: this.startGameSession,
+      setGuestSessionTrue: this.setGuestSessionTrue,
+      setGuestSessionFalse: this.setGuestSessionFalse,
     }
 
     return (
