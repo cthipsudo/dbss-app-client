@@ -9,6 +9,11 @@ export default class Character extends Component {
     static contextType = GameContext;
     deleteChar = () => {
         //Check if we're logged in
+        //Unselect Char if selected
+        if (this.context.characterSelected.exist) {
+            this.context.unselectCharacter();
+        }
+
         if (TokenService.hasAuthToken()) {
             const player = PlayerDataService.getPlayerData();
             GameServerService.deleteUserCharSave(player.playerId, this.props.slot)

@@ -82,6 +82,12 @@ export default class GamePage extends Component {
       characterSelected: Object.assign(newChar),
     })
   }
+  unselectCharacter = () => {
+    const newChar = {};
+    this.setState({
+      characterSelected:Object.assign(newChar),
+    })
+  }
   startGameSession = () => {
     console.log("Game start!");
     this.setState({
@@ -127,6 +133,7 @@ export default class GamePage extends Component {
       deleteCharacterThree: this.deleteCharacterThree,
       cleanAllCharacterSlots: this.cleanAllCharacterSlots,
       selectCharacter: this.selectCharacter,
+      unselectCharacter: this.unselectCharacter,
       startGameSession: this.startGameSession,
       setGuestSessionTrue: this.setGuestSessionTrue,
       setGuestSessionFalse: this.setGuestSessionFalse,

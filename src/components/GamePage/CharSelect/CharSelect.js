@@ -17,6 +17,8 @@ export default class CharSelect extends Component {
     }
 
     componentDidMount() {
+        //unselect character if selected
+        this.context.unselectCharacter();
         //api call here
         //check for playerData in local 
         if (PlayerDataService.hasPlayerData()) {
