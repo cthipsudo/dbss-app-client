@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import CreateCharService from '../../../services/CreateCharacterServices';
-
+import TokenService from '../../../services/token-service';
+import GameServerService from '../../../services/game-server-service'
+import PlayerDataService from '../../../services/player-data-service'
 import GameContext from '../../../contexts/GameContext';
 
 import './CharCreate.css';
 export default class CharCreate extends Component {
     state = {
-        createFunc: () => {},
+        createFunc: () => { },
         characterDisplay: "human Picture here",
     }
 
     static contextType = GameContext;
 
-    componentDidMount(){
+    componentDidMount() {
         const slotNum = this.props.slot;
         const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
         console.log(funcName);
@@ -24,11 +26,31 @@ export default class CharCreate extends Component {
         ev.preventDefault();
         const character = {
             name: ev.target.character_name.value,
-            class:ev.target.character_class.value,
-            race:ev.target.character_race.value,
+            class: Number(ev.target.character_class.value),
+            race: Number(ev.target.character_race.value),
         }
-        this.state.createFunc(character);
-        this.props.goBack();
+        console.log(character);
+        //if we're logged in, do the api create
+        //else do a normal create
+        if (TokenService.hasAuthToken()) {
+            //API Call here
+            const player = PlayerDataService.getPlayerData();
+            GameServerService.makeUserCharSave(player.playerId, this.props.slot, character)
+                .then(res => {
+
+                })
+
+            //Convert the response to string data
+            //this.state.createFunc(character);
+            //this.props.goBack();
+        } else {
+            //convert the char data to strings
+            const convertedChar = {
+
+            }
+            //this.state.createFunc(character);
+            //this.props.goBack();
+        }
     }
     changeCharacterPortrait = (ev) => {
         const characterRace = ev.target.value;
@@ -48,22 +70,22 @@ export default class CharCreate extends Component {
                         <div className="formInputs">
                             <div>
                                 <label htmlFor="character_name">Name:</label>
-                                <input type="text" name="character_name" id="characterName"  required/>
+                                <input type="text" name="character_name" id="characterName" required />
                             </div>
                             <div>
                                 <label htmlFor="character_race">Race:</label>
                                 <select name="character_race" id="characterRace" onChange={(ev) => this.changeCharacterPortrait(ev)}>
-                                    <option value="human">Human</option>
-                                    <option value="alien">Alien</option>
-                                    <option value="goblin">Goblin</option>
+                                    <option value="1">Human</option>
+                                    <option value="2">Alien</option>
+                                    <option value="3">Goblin</option>
                                 </select>
                             </div>
                             <div>
                                 <label htmlFor="character_class">Class:</label>
                                 <select name="character_class" id="characterClass">
-                                    <option value="space_wizard">Space Wizard</option>
-                                    <option value="astral_thief">Astral Thief</option>
-                                    <option value="cosmic_warrior">Cosmic Warrior</option>
+                                    <option value="1">Space Wizard</option>
+                                    <option value="2">Astral Thief</option>
+                                    <option value="3">Cosmic Warrior</option>
                                 </select>
                             </div>
                         </div>
