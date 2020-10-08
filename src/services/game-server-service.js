@@ -13,6 +13,14 @@ const GameServerService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json()
       )
+  },
+  deleteUserCharSave(playerId, slotNum){
+    return fetch(`${config.API_ENDPOINT}/char-save/${playerId}/${slotNum}`, {
+        method: 'DELETE',
+        headers: {
+          'authorization': `bearer ${TokenService.getAuthToken()}`
+        },
+      })
   }
 
 }

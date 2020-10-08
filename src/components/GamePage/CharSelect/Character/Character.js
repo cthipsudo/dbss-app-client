@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import GameContext from '../../../../contexts/GameContext'
+import GameServerService from '../../../../services/game-server-service'
+import PlayerDataService from '../../../../services/player-data-service'
 
 export default class Character extends Component {
     static contextType = GameContext;
-
+    deleteChar= () => {
+        const player = PlayerDataService.getPlayerData();
+        //console.log(player);
+        GameServerService.deleteUserCharSave(player.playerId, this.props.slot)
+        this.props.deleteChar()
+    }
     renderEmptyChar() {
         return (
             <div className="characterContainer">
@@ -27,7 +34,7 @@ export default class Character extends Component {
                 </div>
                 <div className="characterSlotButtons">
                     <Link className="editCharButton" to={`/game/edit/slot-${this.props.slot}`}>Edit</Link>
-                    <button onClick={()=>this.props.deleteChar()}>Delete</button>
+                    <button onClick={this.deleteChar}>Delete</button>
                 </div>
             </div>
         )

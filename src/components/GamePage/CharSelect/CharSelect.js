@@ -10,10 +10,18 @@ import './CharSelect.css'
 export default class CharSelect extends Component {
     static contextType = GameContext;
 
+    cleanCharSlot = () => {
+        this.context.deleteCharacterOne();
+        this.context.deleteCharacterTwo();
+        this.context.deleteCharacterThree();
+    }
+
     componentDidMount() {
         //api call here
         //check for playerData in local 
         if (PlayerDataService.hasPlayerData()) {
+            //Clean Char Slots
+            this.cleanCharSlot();
             //Grab local player data
             const playerData = PlayerDataService.getPlayerData();
             GameServerService.getUserCharData(playerData.playerId)
@@ -44,9 +52,7 @@ export default class CharSelect extends Component {
         } else {
             console.log('Theres a guest session')
             //resetCharData
-            this.context.deleteCharacterOne();
-            this.context.deleteCharacterTwo();
-            this.context.deleteCharacterThree();
+            this.cleanCharSlot();
         }
     }
 

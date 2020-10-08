@@ -15,7 +15,10 @@ export default class StartScreen extends Component {
     }
     renderLogoutButtons = () => {
         return (
-            <Link id="loginButton" onClick={this.handleLogoutClick} to="/game">Logout</Link>
+            <>
+                <Link id="loginButton" onClick={this.handleLogoutClick} to="/game">Logout</Link>
+                <Link id="startButton" to="/game/select-char">Continue</Link>
+            </>
         )
     }
     renderLoginButtons = () => {
