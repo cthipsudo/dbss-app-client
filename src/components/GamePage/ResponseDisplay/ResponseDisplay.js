@@ -3,10 +3,36 @@ import GameSessionContext from '../../../contexts/GameSessionContext';
 
 export default class ResponseDisplay extends Component {
     static contextType = GameSessionContext;
-    progressToQuestion = () =>{
+    state = {
+        responseText: "",
+        counter: 0,
+    }
+    progressToQuestion = () => {
         this.context.grabNewData();
         this.context.setResponseStateFalse();
     }
+
+    renderResponse = (responseText) => {
+        //console.log(responseText);
+        const textArr = responseText.split('');
+        let renderText = "";
+
+        this.renderInterval = setInterval(() => {
+            if (this.state.counter < textArr.length) {
+                renderText = this.state.responseText + textArr[this.state.counter];
+                //console.log(this.state.counter);
+                this.setState({
+                    responseText: renderText,
+                    counter: this.state.counter + 1,
+                })
+            }
+        }, 400);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.renderInterval);
+    }
+
     render() {
         let responseText = "";
         //Let response load in
@@ -14,12 +40,14 @@ export default class ResponseDisplay extends Component {
             //console.log(this.context.response);
             responseText = this.context.response.response
             //Sets the newlines
-            responseText = responseText.replace(/\\n/g, '\n')
+            responseText = responseText.replace(/\\n/g, '\n');
+            this.renderResponse(responseText);
         }
         return (
             <div className="responseDisplay">
                 <div className="responseContainer">
-                    <p className="noFormat">{responseText}</p>
+                    <p className="narrator">B.O.B.B.Y:</p>
+                    <p className="noFormat">{this.state.responseText}</p>
                     <button onClick={this.progressToQuestion}>Continue</button>
                 </div>
             </div>

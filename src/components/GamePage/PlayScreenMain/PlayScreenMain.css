@@ -1,6 +1,9 @@
 .noFormat{
     white-space: pre-wrap;
 }
+.narrator{
+    text-decoration: underline;
+}
 .charBox{
     display: flex;
     align-items: center;

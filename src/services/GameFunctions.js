@@ -29,10 +29,10 @@ function grabResponse(responses, questionId, choiceAlignment){
     return correctResponse;
 }
 function grabChoices(choiceList, charRace, charClass, question) {
-    console.log(choiceList);
+    //console.log(choiceList);
     // console.log(charRace);
     // console.log(charClass);
-    console.log(question);
+    //console.log(question);
 
     //We need to grab the right choices for the question asked
     const neededChoices = [];
