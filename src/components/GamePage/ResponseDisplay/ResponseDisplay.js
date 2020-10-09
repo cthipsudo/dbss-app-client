@@ -4,7 +4,7 @@ import GameSessionContext from '../../../contexts/GameSessionContext';
 export default class ResponseDisplay extends Component {
     static contextType = GameSessionContext;
     progressToQuestion = () =>{
-        Promise.all([this.context.grabNewQuestion(), this.context.grabNewChoices()])
+        this.context.grabNewData();
         this.context.setResponseStateFalse();
     }
     render() {

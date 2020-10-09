@@ -51,28 +51,18 @@ export default class PlayScreenMain extends Component {
 
     }
 
-    grabNewQuestion = () => {
+    grabNewData = () => {
         const newQuestion = this.state.questions[this.state.progess];
-        console.log();
-        this.setState({
-            question: Object.assign(newQuestion),
-        })
-        console.log("Should be the new question",this.state.question);
-    }
-
-    grabNewChoices = () => {
-        //console.log("grabbing choices");
-        let currentChoices = this.state.choices;
-        let currentQuestion = this.state.question;
+        let currentChoices = this.state.choiceBase;
         const charRace = this.state.character.race;
         const charClass = this.state.character.class;
-
-        const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass, currentQuestion)
+        const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass, newQuestion)
         console.log(newChoices);
         this.setState({
+            question: Object.assign(newQuestion),
             choices: newChoices,
         })
-
+        
     }
 
     setResponse = (choiceAlignment) => {
@@ -119,8 +109,7 @@ export default class PlayScreenMain extends Component {
             setResponse: this.setResponse,
             setResponseStateTrue: this.setResponseStateTrue,
             setResponseStateFalse: this.setResponseStateFalse,
-            grabNewChoices: this.grabNewChoices,
-            grabNewQuestion: this.grabNewQuestion,
+            grabNewData: this.grabNewData,
         }
 
         return (
