@@ -21,35 +21,33 @@ export default class PlayScreenMain extends Component {
         progess: 0,
     }
 
-
     componentDidMount() {
         //Grab the questions
-        GameServerService.getGameQuestions()
-            .then(data => {
-                //console.log(data);
-                this.setState({
-                    questions: data
-                });
-                //Grab the choices
-                GameServerService.getGameChoices()
-                    .then(data => {
-                        this.setState({
-                            choiceBase: data
-                        });
-                        const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
-                        const firstQuestion = initalQuestions[this.state.progess];
-                        const charRace = this.context.characterSelected.race;
-                        const charClass = this.context.characterSelected.class;
-                        const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
-                        //console.log("This is the question base", initalQuestions); 
-                        //console.log("Game loading starting with first question", firstQuestion);
-                        this.setState({
-                            questions: initalQuestions,
-                            question: firstQuestion,
-                            choices: initialChoices,
-                        });
-                    });
-            })
+        const p1 = GameServerService.getGameQuestions();
+        const p2 = GameServerService.getGameChoices();
+        const p3 = GameServerService.getGameResponses();
+        Promise.all([p1, p2, p3]).then(data => {
+            console.log(data)
+            this.setState({
+                questions: data[0],
+                choiceBase: data[1],
+                responseBase: data[2],
+            });
+            
+            const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
+            const firstQuestion = initalQuestions[this.state.progess];
+            const charRace = this.context.characterSelected.race;
+            const charClass = this.context.characterSelected.class;
+            const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
+            //console.log("This is the question base", initalQuestions); 
+            //console.log("Game loading starting with first question", firstQuestion);
+            this.setState({
+                questions: initalQuestions,
+                question: firstQuestion,
+                choices: initialChoices,
+            });
+        })
+
     }
 
     setinitialChoices = (question, char) => {

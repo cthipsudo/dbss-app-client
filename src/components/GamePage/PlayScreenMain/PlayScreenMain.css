@@ -1,6 +1,10 @@
 .noFormat{
     white-space: pre-wrap;
 }
+.charBox{
+    display: flex;
+    align-items: center;
+}
 
 .gameSpace{
     padding: 0;
