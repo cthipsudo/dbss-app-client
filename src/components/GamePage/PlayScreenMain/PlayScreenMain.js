@@ -28,7 +28,7 @@ export default class PlayScreenMain extends Component {
         const p2 = GameServerService.getGameChoices();
         const p3 = GameServerService.getGameResponses();
         Promise.all([p1, p2, p3]).then(data => {
-            console.log(data)
+            //console.log(data)
             this.setState({
                 questions: data[0],
                 choiceBase: data[1],
@@ -81,15 +81,25 @@ export default class PlayScreenMain extends Component {
     }
 
     setResponse = (choiceAlignment) => {
-        const gameResponse = GameFunctions.grabChoices(this.state.responseBase, this.state.question.id, choiceAlignment);
+        const gameResponse = GameFunctions.grabResponse(this.state.responseBase, this.state.question.id, choiceAlignment);
+        
         this.setState({
             response: gameResponse,
         })
     }
-    setResponseState = () => {
+    setResponseStateTrue = () => {
+        console.log(this.state.inResponseState)
         this.setState({
-            inResponseState: !this.state.inResponseState,
+            inResponseState: true
         })
+        console.log(this.state.inResponseState)
+    }
+    setResponseStateFalse = () => {
+        
+        this.setState({
+            inResponseState: false
+        })
+        
     }
 
     progressGame = () => {
@@ -111,7 +121,10 @@ export default class PlayScreenMain extends Component {
             character: this.state.character,
             progressGame: this.progressGame,
             setResponse: this.setResponse,
-            setResponseState: this.setResponseState,
+            setResponseStateTrue: this.setResponseStateTrue,
+            setResponseStateFalse: this.setResponseStateFalse,
+            grabNewChoices: this.grabNewChoices,
+            grabNewQuestion: this.grabNewQuestion,
         }
 
         return (

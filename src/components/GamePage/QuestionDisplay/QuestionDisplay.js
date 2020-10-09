@@ -4,6 +4,12 @@ import GameSessionContext from '../../../contexts/GameSessionContext';
 export default class QuestionDisplay extends Component {
     static contextType = GameSessionContext;
 
+    progressToResponse = (choiceAlignment) => {
+        this.context.setResponse(choiceAlignment);
+        this.context.progressGame();
+        this.context.setResponseStateTrue();
+    }
+
     render() {
         let questionText = "";
         let buttons = [];
@@ -16,9 +22,9 @@ export default class QuestionDisplay extends Component {
         }
         //Choices load in
         if (this.context.choices[0]) {
-            console.log(this.context.choices)
+           // console.log(this.context.choices)
             buttons = this.context.choices.map((choice, index) => {
-                return (<button key={index + choice.choice}>{choice.choice}</button>)
+                return (<button key={index + choice.choice} onClick={() => this.progressToResponse(choice.alignment)}>{choice.choice}</button>)
             })
         }
         return (

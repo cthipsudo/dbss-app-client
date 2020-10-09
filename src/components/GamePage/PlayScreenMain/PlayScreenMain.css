@@ -38,17 +38,17 @@
     background-color: #eee;
 }
 
-.questionDisplay {
+.questionDisplay, .responseDisplay {
     min-height: 80vh;
     background: #bbb;
     width: 50%;
 }
 
-.questionDisplay p {
+.questionDisplay p, .responseDisplay p {
     margin: 0;
 }
 
-.questionDisplay .questionContainer {
+.questionDisplay .questionContainer, .responseDisplay .responseContainer {
     padding: 40px 10%;
     background: #aaa;
     height: 60%;
