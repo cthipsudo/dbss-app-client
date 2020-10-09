@@ -6,6 +6,7 @@ import PlayerDataService from '../../../services/player-data-service'
 import GameContext from '../../../contexts/GameContext';
 
 import './CharCreate.css';
+import CreateCharacterService from '../../../services/CreateCharacterServices';
 export default class CharCreate extends Component {
     state = {
         createFunc: () => { },
@@ -25,11 +26,11 @@ export default class CharCreate extends Component {
     createCharacter = (ev) => {
         ev.preventDefault();
         const character = {
-            name: ev.target.character_name.value,
-            class: Number(ev.target.character_class.value),
-            race: Number(ev.target.character_race.value),
+            char_name: ev.target.character_name.value,
+            char_class: Number(ev.target.character_class.value),
+            char_race: Number(ev.target.character_race.value),
         }
-        console.log(character);
+        //console.log(character);
         //if we're logged in, do the api create
         //else do a normal create
         if (TokenService.hasAuthToken()) {
@@ -37,19 +38,19 @@ export default class CharCreate extends Component {
             const player = PlayerDataService.getPlayerData();
             GameServerService.makeUserCharSave(player.playerId, this.props.slot, character)
                 .then(res => {
+                    //Convert the response to string data
+                    const char = CreateCharacterService.translateCharResponse(res);
 
+                    this.state.createFunc(char);
+                    this.props.goBack();
                 })
-
-            //Convert the response to string data
-            //this.state.createFunc(character);
-            //this.props.goBack();
+                .catch("error context here");
         } else {
             //convert the char data to strings
-            const convertedChar = {
-
-            }
-            //this.state.createFunc(character);
-            //this.props.goBack();
+            const char = CreateCharacterService.translateCharResponse(character); 
+            //console.log(char);
+            this.state.createFunc(char);
+            this.props.goBack();
         }
     }
     changeCharacterPortrait = (ev) => {
