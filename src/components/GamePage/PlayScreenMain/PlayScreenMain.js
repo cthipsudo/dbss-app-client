@@ -51,29 +51,24 @@ export default class PlayScreenMain extends Component {
 
     }
 
-    setinitialChoices = (question, char) => {
-        return GameFunctions.grabChoices(question.choices, char.race, char.class).map((choice, index) => {
-            return (<button key={index + choice}> {choice} </button>)
-        })
-    }
     grabNewQuestion = () => {
         const newQuestion = this.state.questions[this.state.progess];
         console.log();
         this.setState({
-            question: newQuestion
+            question: Object.assign(newQuestion),
         })
+        console.log("Should be the new question",this.state.question);
     }
 
     grabNewChoices = () => {
         //console.log("grabbing choices");
-        let currentChoices = this.state.question.choices;
+        let currentChoices = this.state.choices;
+        let currentQuestion = this.state.question;
         const charRace = this.state.character.race;
         const charClass = this.state.character.class;
 
-        const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass).map((choice, index) => {
-            return (<button key={index + choice}> {choice} </button>)
-        })
-        // console.log(newChoices);
+        const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass, currentQuestion)
+        console.log(newChoices);
         this.setState({
             choices: newChoices,
         })
@@ -88,11 +83,11 @@ export default class PlayScreenMain extends Component {
         })
     }
     setResponseStateTrue = () => {
-        console.log(this.state.inResponseState)
+        //console.log(this.state.inResponseState)
         this.setState({
             inResponseState: true
         })
-        console.log(this.state.inResponseState)
+        //console.log(this.state.inResponseState)
     }
     setResponseStateFalse = () => {
         
@@ -119,6 +114,7 @@ export default class PlayScreenMain extends Component {
             choices: this.state.choices,
             response: this.state.response,
             character: this.state.character,
+            inResponseState: this.state.inResponseState,
             progressGame: this.progressGame,
             setResponse: this.setResponse,
             setResponseStateTrue: this.setResponseStateTrue,

@@ -7,7 +7,9 @@ export default class DisplayAndQuestion extends Component {
     static contextType = GameSessionContext;
 
     checkForResponseOrQuestion = () => {
+        //console.log(this.context.inResponseState);
         if(this.context.inResponseState){
+            //console.log("were in response state");
             return <ResponseDisplay />
         } else {
             return <QuestionDisplay />

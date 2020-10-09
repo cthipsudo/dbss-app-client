@@ -15,7 +15,7 @@ export default class QuestionDisplay extends Component {
         let buttons = [];
         //Let question load in
         if (this.context.question.question) {
-            //console.log(this.context.question);
+            console.log('loading a new question',this.context.question);
             questionText = this.context.question.question
             //Sets the newlines
             questionText = questionText.replace(/\\n/g, '\n')
