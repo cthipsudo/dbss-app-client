@@ -19,6 +19,7 @@ export default class PlayScreenMain extends Component {
         responseBase: [],
         response: {},
         progess: 0,
+        inResponseState: false,
     }
 
     componentDidMount() {
@@ -33,7 +34,7 @@ export default class PlayScreenMain extends Component {
                 choiceBase: data[1],
                 responseBase: data[2],
             });
-            
+
             const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
             const firstQuestion = initalQuestions[this.state.progess];
             const charRace = this.context.characterSelected.race;
@@ -79,6 +80,18 @@ export default class PlayScreenMain extends Component {
 
     }
 
+    setResponse = (choiceAlignment) => {
+        const gameResponse = GameFunctions.grabChoices(this.state.responseBase, this.state.question.id, choiceAlignment);
+        this.setState({
+            response: gameResponse,
+        })
+    }
+    setResponseState = () => {
+        this.setState({
+            inResponseState: !this.state.inResponseState,
+        })
+    }
+
     progressGame = () => {
         this.setState({
             progess: this.state.progess + 1
@@ -97,6 +110,8 @@ export default class PlayScreenMain extends Component {
             response: this.state.response,
             character: this.state.character,
             progressGame: this.progressGame,
+            setResponse: this.setResponse,
+            setResponseState: this.setResponseState,
         }
 
         return (

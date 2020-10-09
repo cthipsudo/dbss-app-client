@@ -17,7 +17,17 @@ function shuffle(array) {
 
     return array;
 };
-
+function grabResponse(responses, questionId, choiceAlignment){
+    let correctResponse = " ";
+    for(let i = 0; i < responses.length; i++){
+        const response = responses[i]
+        if(response.linkedTo === questionId 
+            && response.alignment === choiceAlignment){
+                correctResponse = response;
+        }
+    }
+    return correctResponse;
+}
 function grabChoices(choiceList, charRace, charClass, question) {
     //console.log(choiceList);
     // console.log(charRace);
@@ -148,4 +158,5 @@ export default {
     shuffle,
     grabChoices,
     makeShuffledQuestions,
+    grabResponse,
 };
