@@ -7,7 +7,9 @@ export default class QuestionDisplay extends Component {
 
     state = {
         questionText: "",
-        counter: 0
+        questionLength: 0,
+        counter: 0,
+        loading: false,
     }
 
     progressToResponse = (choiceAlignment) => {
@@ -25,20 +27,21 @@ export default class QuestionDisplay extends Component {
                 renderText= this.state.questionText + textArr[this.state.counter];
                 //console.log(this.state.counter);
                 this.setState({
+                    loading: true,
                     questionText: renderText,
                     counter: this.state.counter + 1,
+                })
+            } else{
+                //Done loading
+                this.setState({
+                    loading: false,
                 })
             }
         }, 500);
     }
 
-    componentWillUnmount(){
-        clearInterval(this.renderInterval);
-    }
-
-    render() {
+    grabQuestion = () => {
         let questionText = "";
-        let buttons = [];
         //Let question load in
         if (this.context.question.question) {
             //console.log('loading a new question',this.context.question);
@@ -46,19 +49,48 @@ export default class QuestionDisplay extends Component {
             //Sets the newlines
             questionText = questionText.replace(/\\n/g, '\n')
             this.renderQuestion(questionText)
+            if(this.state.questionLength === 0){
+                this.setState({
+                    questionLength: this.context.question.question.length,
+                }) 
+            }
+            //console.log(this.state.questionLength);
         }
+        clearInterval(this.renderInterval)
+        return this.state.questionText
+    };
+
+    componentDidMount(){
+        
+    }
+
+    componentWillUnmount(){
+        clearInterval(this.renderInterval);
+    }
+
+    checkQuestionDoneLoading(){
+        console.log(this.state.loading);
+        if(this.state.loading){
+            return true;
+        }
+        return false;
+    }
+
+    render() {
+        let buttons = [];
         //Choices load in
         if (this.context.choices[0]) {
             // console.log(this.context.choices)
             buttons = this.context.choices.map((choice, index) => {
-                return (<button key={index + choice.choice} onClick={() => this.progressToResponse(choice.alignment)}>{choice.choice}</button>)
+                return (<button key={index + choice.choice} onClick={() => this.progressToResponse(choice.alignment)} disabled={this.checkQuestionDoneLoading()} >{choice.choice}</button>)
             })
         }
+
         return (
             <div className="questionDisplay">
                 <div className="questionContainer">
                     <p className="narrator">B.O.B.B.Y:</p>
-                    <p className="noFormat">{this.state.questionText}</p>
+                    <p className="noFormat">{this.grabQuestion()}</p>
                 </div>
                 <div className="choiceContainer">
                     {buttons}

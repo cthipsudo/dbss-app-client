@@ -8,8 +8,17 @@ export default class ResponseDisplay extends Component {
         counter: 0,
     }
     progressToQuestion = () => {
-        this.context.grabNewData();
-        this.context.setResponseStateFalse();
+        //console.log(this.context.response)
+        if(this.context.response.game_ending){
+            console.log('Set the game to lose')
+            this.context.setGameLost();
+        }else if (this.context.lastQuestion) {
+            console.log('Set the game to complete');
+            this.context.setGameComplete();
+        } else {
+            this.context.grabNewData();
+            this.context.setResponseStateFalse();
+        }
     }
 
     renderResponse = (responseText) => {

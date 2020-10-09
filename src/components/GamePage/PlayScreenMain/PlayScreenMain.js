@@ -5,6 +5,7 @@ import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
+import WinScreen from '../ResultScreen/ResultScreen';
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
@@ -20,6 +21,9 @@ export default class PlayScreenMain extends Component {
         response: {},
         progess: 0,
         inResponseState: false,
+        lastQuestion: false,
+        gameComplete: false,
+        gameLost: false,
     }
 
     componentDidMount() {
@@ -57,17 +61,17 @@ export default class PlayScreenMain extends Component {
         const charRace = this.state.character.race;
         const charClass = this.state.character.class;
         const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass, newQuestion)
-        console.log(newChoices);
+        //console.log(newChoices);
         this.setState({
             question: Object.assign(newQuestion),
             choices: newChoices,
         })
-        
+
     }
 
     setResponse = (choiceAlignment) => {
         const gameResponse = GameFunctions.grabResponse(this.state.responseBase, this.state.question.id, choiceAlignment);
-        
+
         this.setState({
             response: gameResponse,
         })
@@ -80,17 +84,61 @@ export default class PlayScreenMain extends Component {
         //console.log(this.state.inResponseState)
     }
     setResponseStateFalse = () => {
-        
+
         this.setState({
             inResponseState: false
         })
-        
+
     }
 
     progressGame = () => {
         this.setState({
             progess: this.state.progess + 1
         })
+    }
+
+    setGameComplete = () => {
+        this.setState({
+            gameComplete: true,
+        })
+    }
+
+    setGameLost = () => {
+        this.setState({
+            gameLost: true,
+            gameComplete: true,
+        })
+    }
+
+    setLastQuestionTrue = () => {
+        this.setState({
+            lastQuestion: true,
+        });
+    }
+    renderGeneralScreens = () => {
+        //if we're in a question
+        if (this.state.question && this.state.question.id) {
+            //if we're at the last question
+            //console.log(this.state.question)
+            if (this.state.question.id === this.state.questions[this.state.questions.length - 1].id && this.state.lastQuestion !== true) {
+                console.log('At the last question');
+                this.setLastQuestionTrue();
+            }
+        }
+        if (this.state.gameComplete) {
+            return (
+                <>
+                    <WinScreen />
+                </>
+            )
+        } else {
+            return (
+                <section className="gameSpace">
+                    <PlayerProgression />
+                    <DisplayAndQuestion />
+                </section>
+            )
+        }
     }
 
     render() {
@@ -105,19 +153,20 @@ export default class PlayScreenMain extends Component {
             response: this.state.response,
             character: this.state.character,
             inResponseState: this.state.inResponseState,
+            lastQuestion: this.state.lastQuestion,
+            gameLost: this.state.gameLost,
             progressGame: this.progressGame,
             setResponse: this.setResponse,
             setResponseStateTrue: this.setResponseStateTrue,
             setResponseStateFalse: this.setResponseStateFalse,
             grabNewData: this.grabNewData,
+            setGameComplete: this.setGameComplete,
+            setGameLost: this.setGameLost,
         }
 
         return (
             <GameSessionContext.Provider value={value}>
-                <section className="gameSpace">
-                    <PlayerProgression />
-                    <DisplayAndQuestion />
-                </section>
+                {this.renderGeneralScreens()}
             </GameSessionContext.Provider>
         )
     }
