@@ -115,16 +115,9 @@ export default class PlayScreenMain extends Component {
             lastQuestion: true,
         });
     }
+    
     renderGeneralScreens = () => {
         //if we're in a question
-        if (this.state.question && this.state.question.id) {
-            //if we're at the last question
-            //console.log(this.state.question)
-            if (this.state.question.id === this.state.questions[this.state.questions.length - 1].id && this.state.lastQuestion !== true) {
-                console.log('At the last question');
-                this.setLastQuestionTrue();
-            }
-        }
         if (this.state.gameComplete) {
             return (
                 <>
@@ -149,6 +142,7 @@ export default class PlayScreenMain extends Component {
         }
         const value = {
             question: this.state.question,
+            questions: this.state.questions,
             choices: this.state.choices,
             response: this.state.response,
             character: this.state.character,
@@ -160,6 +154,7 @@ export default class PlayScreenMain extends Component {
             setResponseStateTrue: this.setResponseStateTrue,
             setResponseStateFalse: this.setResponseStateFalse,
             grabNewData: this.grabNewData,
+            setLastQuestionTrue: this.setLastQuestionTrue,
             setGameComplete: this.setGameComplete,
             setGameLost: this.setGameLost,
         }

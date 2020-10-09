@@ -6,6 +6,7 @@ export default class ResponseDisplay extends Component {
     state = {
         responseText: "",
         counter: 0,
+        questionLength: 1,
     }
     progressToQuestion = () => {
         //console.log(this.context.response)
@@ -33,6 +34,7 @@ export default class ResponseDisplay extends Component {
                 this.setState({
                     responseText: renderText,
                     counter: this.state.counter + 1,
+                    questionLength: textArr.length,
                 })
             }
         }, 400);
@@ -41,6 +43,13 @@ export default class ResponseDisplay extends Component {
     componentWillUnmount() {
         clearInterval(this.renderInterval);
     }
+
+    checkResponseDoneLoading(){
+        if(this.state.counter === this.state.questionLength){
+            return false;
+        }
+        return true;
+    };
 
     render() {
         let responseText = "";
@@ -55,9 +64,9 @@ export default class ResponseDisplay extends Component {
         return (
             <div className="responseDisplay">
                 <div className="responseContainer">
-                    <p className="narrator">B.O.B.B.Y:</p>
+                    <p className="narrator">B.O.B.B.Y.</p>
                     <p className="noFormat">{this.state.responseText}</p>
-                    <button onClick={this.progressToQuestion}>Continue</button>
+                    <button onClick={this.progressToQuestion} disabled={this.checkResponseDoneLoading()}>Continue</button>
                 </div>
             </div>
         )
