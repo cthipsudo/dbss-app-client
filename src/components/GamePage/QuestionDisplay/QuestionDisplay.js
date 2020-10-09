@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react';
 import { set } from 'date-fns';
 import React, { Component } from 'react';
 import GameSessionContext from '../../../contexts/GameSessionContext';
@@ -18,23 +19,27 @@ export default class QuestionDisplay extends Component {
         this.context.setResponseStateTrue();
     }
 
-
+    updateState = (renderText, textArr) => {
+        this.setState({
+            loading: true,
+            questionText: renderText,
+            counter: this.state.counter + 1,
+            questionLength: textArr.length
+        })
+    }
     renderQuestion = (questionText) => {
         const textArr = questionText.split('');
         let renderText = "";
-        this.intervalQuestion = setInterval(() => {
+        this.intervalQuestion = setInterval( () => {
             if (this.state.counter < textArr.length) {
                 renderText = this.state.questionText + textArr[this.state.counter];
                 //console.log(this.state.counter);
-                this.setState({
-                    loading: true,
-                    questionText: renderText,
-                    counter: this.state.counter + 1,
-                    questionLength: textArr.length
-                })
+                this.updateState(renderText, textArr)
             }
-        }, 500);
+        }, 600);
     }
+
+    
 
     grabQuestion = () => {
         let questionText = "";
@@ -60,6 +65,10 @@ export default class QuestionDisplay extends Component {
 
     componentDidMount() {
 
+    }
+
+    componentDidUpdate(){
+        
     }
 
     componentWillUnmount() {
