@@ -1,0 +1,75 @@
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: #444;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
+}
+
+h1{
+    margin-top: 5%;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+h2, h3, h4 {
+    margin-bottom: 0;
+}
+
+h4 {
+    margin-bottom: 1.3em;
+}
+
+p {
+    font-size: 1em;
+    margin: 0;
+}
+
+nav, footer {
+    padding: 1% 0;
+    background-color: #aaa;
+}
+
+header {
+    padding: 10px 0;
+}
+
+section {
+    min-height: 80vh;
+    padding: 5%;
+    padding-top: 0;
+    background-color: #bbb;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+section:nth-child(even) {
+    background-color: #ddd;
+}
+
+button {
+    margin-top: 25%;
+}
+
+.scoreHeader {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: underline;
+    width: 75%
+}
+
+.scoreEntry {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 75%;
+}
+
+.scoreEntry h2 {
+    justify-self: end;
+}

@@ -26,6 +26,14 @@ const GameServerService = {
           : res.json()
       )
   },
+  getGameScores() {
+    return fetch(`${config.API_ENDPOINT}/scoreboard`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
   getUserCharData(playerId) {
     return fetch(`${config.API_ENDPOINT}/char-save/${playerId}`, {
       headers: {
@@ -61,8 +69,23 @@ const GameServerService = {
           : res.json()
       )
 
-  }
+  },
 
+  makeNewScore(scoreData) {
+    return fetch(`${config.API_ENDPOINT}/scoreboard`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${config.TOKEN_KEY}`
+      },
+      body: JSON.stringify(scoreData),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  }
 }
 
 export default GameServerService

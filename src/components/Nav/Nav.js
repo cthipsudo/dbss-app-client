@@ -9,7 +9,7 @@ export default class GeneralNav extends Component {
                 <Link to='/' id="navTitle">DBSS</Link>
                 <ul className="navList">
                     <li><Link to='/game'>Play!</Link></li>
-                    <li><Link to='/about'>About</Link></li>
+                    <li><Link to='/scoreboard'>Scoreboard</Link></li>
                     <li><Link to='/contact-me'>Contact Me!</Link></li>
                 </ul>
             </nav>

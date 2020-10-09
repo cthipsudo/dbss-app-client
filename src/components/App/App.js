@@ -5,6 +5,7 @@ import LandingPage from '../../routes/LandingPage/LandingPage'
 import GamePage from '../../routes/GamePage/GamePageRouter'
 import GeneralFooter from '../Footer/Footer'
 import './App.css';
+import ScoreBoard from '../Scoreboard/Scoreboard';
 
 class App extends Component {
   renderMainRoutes() {
@@ -12,6 +13,7 @@ class App extends Component {
       <>
         <Route exact path="/" component={LandingPage}></Route>
         <Route path="/game" component={GamePage}></Route>
+        <Route path="/scoreboard" component={ScoreBoard}></Route>
       </>
     )
   }

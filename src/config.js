@@ -1,6 +1,6 @@
 export default {
     API_ENDPOINT: 'http://localhost:8000/api',
-    TOKEN_KEY: 'blogful-client-auth-token',
+    TOKEN_KEY: process.env.REACT_APP_GAME_TOKEN || 'false token',
     PLAYER_DATA: 'game-storage',
     CHAR_DATA: 'current-char',
     PROGRESS_DATA: 'current-progress'
