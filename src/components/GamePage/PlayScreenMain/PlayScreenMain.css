@@ -1,3 +1,7 @@
+.noFormat{
+    white-space: pre-wrap;
+}
+
 .gameSpace{
     padding: 0;
 }

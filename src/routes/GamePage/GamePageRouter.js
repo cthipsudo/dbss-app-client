@@ -26,7 +26,7 @@ export default class GamePage extends Component {
   }
 
   makeCharacterOne = (charData) => {
-    console.log('Trying to make Char one! with data', charData);
+    //console.log('Trying to make Char one! with data', charData);
     const newChar = {
       exist: true, ...charData
     }

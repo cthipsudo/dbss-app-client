@@ -2,6 +2,30 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 const GameServerService = {
+  getGameQuestions() {
+    return fetch(`${config.API_ENDPOINT}/questions`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  getGameChoices() {
+    return fetch(`${config.API_ENDPOINT}/choices`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
+  getGameResponses() {
+    return fetch(`${config.API_ENDPOINT}/responses`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
   getUserCharData(playerId) {
     return fetch(`${config.API_ENDPOINT}/char-save/${playerId}`, {
       headers: {

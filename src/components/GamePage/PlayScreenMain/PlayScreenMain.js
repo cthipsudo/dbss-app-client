@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PlayerProgression from '../PlayerProgress/PlayerProgress'
-
+import DisplayAndQuestion from '../DisplayAndQuestion/DisplayAndQuestion'
 import GameContext from '../../../contexts/GameContext';
-import STORE from '../../../STORE';
+import GameSessionContext from '../../../contexts/GameSessionContext';
+import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
-
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
@@ -14,24 +14,42 @@ export default class PlayScreenMain extends Component {
         questions: [],
         character: this.context.characterSelected,
         question: {},
+        choiceBase: [],
         choices: [],
+        responseBase: [],
+        response: {},
         progess: 0,
     }
-    
+
 
     componentDidMount() {
-        const initalQuestions = GameFunctions.makeShuffledQuestions(STORE.QUESTIONS);
-        const firstQuestion = initalQuestions[this.state.progess];
-        const charRace = this.context.characterSelected.race;
-        const charClass = this.context.characterSelected.class;
-        const initialChoices = GameFunctions.grabChoices(STORE.CHOICES, charRace, charClass, firstQuestion);
-        //console.log("This is the question base", initalQuestions);
-        //console.log("Game loading starting with first question", firstQuestion);
-        this.setState({
-            questions: initalQuestions,
-            question: firstQuestion,
-            choices: initialChoices,
-        });
+        //Grab the questions
+        GameServerService.getGameQuestions()
+            .then(data => {
+                //console.log(data);
+                this.setState({
+                    questions: data
+                });
+                //Grab the choices
+                GameServerService.getGameChoices()
+                    .then(data => {
+                        this.setState({
+                            choiceBase: data
+                        });
+                        const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
+                        const firstQuestion = initalQuestions[this.state.progess];
+                        const charRace = this.context.characterSelected.race;
+                        const charClass = this.context.characterSelected.class;
+                        const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
+                        //console.log("This is the question base", initalQuestions); 
+                        //console.log("Game loading starting with first question", firstQuestion);
+                        this.setState({
+                            questions: initalQuestions,
+                            question: firstQuestion,
+                            choices: initialChoices,
+                        });
+                    });
+            })
     }
 
     setinitialChoices = (question, char) => {
@@ -48,7 +66,7 @@ export default class PlayScreenMain extends Component {
     }
 
     grabNewChoices = () => {
-        console.log("grabbing choices");
+        //console.log("grabbing choices");
         let currentChoices = this.state.question.choices;
         const charRace = this.state.character.race;
         const charClass = this.state.character.class;
@@ -63,40 +81,33 @@ export default class PlayScreenMain extends Component {
 
     }
 
-    render() {
-        console.log("Questions", this.state.questions);
-        console.log("Starting with question", this.state.question);
-        console.log("With choices", this.state.choices);
+    progressGame = () => {
+        this.setState({
+            progess: this.state.progess + 1
+        })
+    }
 
-        if(!this.state.question.length){
-             //loading component here
+    render() {
+        if (!this.state.question.length) {
+            //loading
+        } else {
+            //done loading
         }
-        //const buttons = this.state.choices;
+        const value = {
+            question: this.state.question,
+            choices: this.state.choices,
+            response: this.state.response,
+            character: this.state.character,
+            progressGame: this.progressGame,
+        }
+
         return (
-            <section className="gameSpace">
-                <PlayerProgression />
-                <div className="displayAndQuestionContainer">
-                    <div className="spaceDisplay">
-                        <div className="characterInfo">
-                            <div>Character <br /> Picture</div>
-                            <div>Character Name</div>
-                        </div>
-                        <button>Show Inventory</button>
-                        <p>[background Rocket in space]</p>
-                    </div>
-                    <div className="questionDisplay">
-                        <div className="questionContainer">
-                            <p>Question here/Question Response:</p>
-                        </div>
-                        <div className="choiceContainer">
-                            <button>Choice 1</button>
-                            <button>Choice 2</button>
-                            <button>Choice 3</button>
-                            <button>Choice 4</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <GameSessionContext.Provider value={value}>
+                <section className="gameSpace">
+                    <PlayerProgression />
+                    <DisplayAndQuestion />
+                </section>
+            </GameSessionContext.Provider>
         )
     }
 }

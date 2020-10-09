@@ -52,7 +52,7 @@ export default class CharSelect extends Component {
                 })
                 .catch("set error state here")
         } else {
-            console.log('Theres a guest session')
+            //console.log('Theres a guest session')
             //resetCharData if we're not in guest session
             // if(!this.context.guestSession){
             //     console.log('I clean')

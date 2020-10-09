@@ -26,10 +26,10 @@ function grabChoices(choiceList, charRace, charClass, question) {
 
     //We need to grab the right choices for the question asked
     const neededChoices = [];
-
+    //Loop through
     for (let i = 0; i < choiceList.length; i++) {
         const choice = choiceList[i];
-        if (choice.linkedTo === question.questionId) {
+        if (choice.linkedTo === question.id) {
             switch (choice.choiceType) {
                 case charRace:
                     neededChoices.push(choice);
