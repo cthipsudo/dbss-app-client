@@ -29,28 +29,11 @@ p {
     margin: 0;
 }
 
-nav, footer {
-    padding: 1% 0;
-    background-color: #aaa;
-}
 
 header {
     padding: 10px 0;
 }
 
-section {
-    min-height: 80vh;
-    padding: 5%;
-    padding-top: 0;
-    background-color: #bbb;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-section:nth-child(even) {
-    background-color: #ddd;
-}
 
 button {
     margin-top: 25%;
