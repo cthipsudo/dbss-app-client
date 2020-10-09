@@ -62,7 +62,6 @@ export default class CharSelect extends Component {
     }
 
     grabSelectedChar = () => {
-        //console.log(this.context.characterSelected);
         if (!this.context.characterSelected.exist) {
             return (<p>No Character Selected!</p>)
         } else {

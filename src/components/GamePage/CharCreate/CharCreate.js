@@ -54,8 +54,7 @@ export default class CharCreate extends Component {
         }
     }
     changeCharacterPortrait = (ev) => {
-        const characterRace = ev.target.value;
-        console.log()
+        const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
         this.setState({
             characterDisplay: `${characterRace} Picture here`,
         });

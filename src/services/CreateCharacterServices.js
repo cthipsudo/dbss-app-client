@@ -46,6 +46,22 @@ const CreateCharacterService = {
 
         return newChar;
     },
+    translateCharRace(race){
+        let translatedRace = "";
+        switch (Number(race)) {
+            case 1:
+                translatedRace = "human"
+                break;
+            case 2:
+                translatedRace = "alien"
+                break;
+            case 3:
+                translatedRace = "goblin"
+                break;
+            default:
+        }
+        return translatedRace;
+    },
 }
 
 export default CreateCharacterService
