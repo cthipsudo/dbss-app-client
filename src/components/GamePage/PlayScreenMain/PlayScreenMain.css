@@ -77,19 +77,22 @@
     height: 60%;
 }
 
-.questionDisplay .questionContainer {
+.questionDisplay .questionContainer,
+.responseDisplay .responseContainer {
     padding-top: 20px;
     background-color: #000;
     color: lightgreen;
     border: solid 2px lightgreen;
 }
 
-.questionDisplay .questionContainer p {
+.questionDisplay .questionContainer p,
+.responseDisplay .responseContainer p {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 300;
 }
 
-.questionDisplay .questionContainer p.narrator {
+.questionDisplay .questionContainer p.narrator,
+.responseDisplay .responseContainer p.narrator {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 500;
 }

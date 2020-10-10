@@ -45,7 +45,7 @@ export default class QuestionDisplay extends Component {
         let renderText = "";
         let counter = 0;
         //GOES HERE
-        this.renderInterval = setInterval( async () => {
+        this.renderInterval = setInterval( () => {
             if (counter < textArr.length && counter === this.state.counter) {
                 counter++;
                 renderText = this.state.questionText + textArr[this.state.counter];

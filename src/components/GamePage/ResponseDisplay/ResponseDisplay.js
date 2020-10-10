@@ -22,9 +22,11 @@ export default class ResponseDisplay extends Component {
     renderResponse = (responseText) => {
         const textArr = responseText.split('');
         let renderText = "";
+        let counter = 0;
 
         this.renderInterval = setInterval(() => {
-            if (this.state.counter < textArr.length) {
+            if (counter < textArr.length && counter === this.state.counter) {
+                counter++;
                 renderText = this.state.responseText + textArr[this.state.counter];
                 this.setState({
                     responseText: renderText,
@@ -32,7 +34,7 @@ export default class ResponseDisplay extends Component {
                     questionLength: textArr.length,
                 })
             }
-        }, 400);
+        }, 70);
     }
 
     componentWillUnmount() {
