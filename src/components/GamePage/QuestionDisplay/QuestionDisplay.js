@@ -51,10 +51,6 @@ export default class QuestionDisplay extends Component {
                 renderText = this.state.questionText + textArr[this.state.counter];
                 this.updateState(renderText, textArr);
             }
-            if(counter === textArr.length){
-                //safety clear
-                clearInterval(this.renderInterval)
-            }
         }, 60);
     }
 
@@ -70,6 +66,7 @@ export default class QuestionDisplay extends Component {
     }
 
     componentWillUnmount() {
+        //console.log(this.renderInterval);
         clearInterval(this.renderInterval);
         //If it leaves, check if we're at the alst question
         if (this.context.question.id === this.context.questions[this.context.questions.length - 1].id && this.context.lastQuestion !== true) {
