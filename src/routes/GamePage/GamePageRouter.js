@@ -20,6 +20,7 @@ export default class GamePage extends Component {
     characterTwo: {},
     characterThree: {},
     characterSelected: {},
+    editingCharacter: false,
     gameInSession: false,
     guestSession: false,
     loading: false,
@@ -101,6 +102,16 @@ export default class GamePage extends Component {
       guestSession: false,
     })
   }
+  setEditingCharacterTrue = () => {
+    this.setState({
+      editingCharacter: true
+    })
+  }
+  setEditingCharacterFalse = () => {
+    this.setState({
+      editingCharacter: false
+    })
+  }
   
   makeGameRoutes() {
     return (
@@ -109,6 +120,7 @@ export default class GamePage extends Component {
         <Route path="/game/login" component={LoginPage}></Route>
         <Route path="/game/select-char" component={CharSelectPage}></Route>
         <Route path="/game/create/:slotNum" component={CharCreatePage}></Route>
+        <Route path="/game/edit/:slotNum" component={CharCreatePage}></Route>
         <Route path="/game/play" component={PlayGamePage}></Route>
       </>
     );
@@ -122,6 +134,7 @@ export default class GamePage extends Component {
       gameInSession: this.state.gameInSession,
       loading: this.state.loading,
       guestSession: this.state.guestSession,
+      editingCharacter: this.state.editingCharacter,
       makeCharacterOne: this.makeCharacterOne,
       makeCharacterTwo: this.makeCharacterTwo,
       makeCharacterThree: this.makeCharacterThree,
@@ -134,6 +147,8 @@ export default class GamePage extends Component {
       startGameSession: this.startGameSession,
       setGuestSessionTrue: this.setGuestSessionTrue,
       setGuestSessionFalse: this.setGuestSessionFalse,
+      setEditingCharacterTrue: this.setEditingCharacterTrue,
+      setEditingCharacterFalse: this.setEditingCharacterFalse,
     }
 
     return (

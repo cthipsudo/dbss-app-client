@@ -66,7 +66,6 @@ export default class QuestionDisplay extends Component {
     }
 
     componentWillUnmount() {
-        //console.log(this.renderInterval);
         clearInterval(this.renderInterval);
         //If it leaves, check if we're at the alst question
         if (this.context.question.id === this.context.questions[this.context.questions.length - 1].id && this.context.lastQuestion !== true) {
