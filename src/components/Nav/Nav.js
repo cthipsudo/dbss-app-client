@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import './Nav.css';
 
 export default class GeneralNav extends Component {
-    render(){
+    render() {
         return (
             <nav className='appNav'>
-                <Link to='/' id="navTitle">DBSS</Link>
+
                 <ul className="navList">
+                    <Link to='/' id="navTitle">DBSS</Link>
                     <li><Link to='/game'>Play!</Link></li>
                     <li><Link to='/scoreboard'>Scoreboard</Link></li>
                     {/* <li><Link to='/contact-me'>Contact Me!</Link></li> */}

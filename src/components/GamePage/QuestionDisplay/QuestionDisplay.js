@@ -50,8 +50,8 @@ export default class QuestionDisplay extends Component {
             //Sets the newlines
             questionText = questionText.replace(/\\n/g, '\n')
             this.renderQuestion(questionText)
-
         }
+        return <p className="noFormat">{this.state.questionText}</p>
     };
 
     checkQuestionDoneLoading() {
@@ -60,10 +60,6 @@ export default class QuestionDisplay extends Component {
         }
         return true;
     };
-    componentDidMount() {
-        console.log('current question',this.context.question); 
-        this.grabQuestion();
-    }
 
     componentWillUnmount() {
         clearInterval(this.intervalQuestion);
@@ -87,7 +83,7 @@ export default class QuestionDisplay extends Component {
             <div className="questionDisplay">
                 <div className="questionContainer">
                     <p className="narrator">B.O.B.B.Y.</p>
-                    <p className="noFormat">{this.state.questionText}</p>
+                    {this.grabQuestion()}
                 </div>
                 <div className="choiceContainer">
                     {buttons}
