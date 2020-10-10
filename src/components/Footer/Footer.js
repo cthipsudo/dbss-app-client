@@ -11,7 +11,7 @@ export default class Footer extends Component {
                 <ul className="navListFooter">
                     <li><Link to='/game'>Play!</Link></li>
                     <li><Link to='/scoreboard'>Scoreboard</Link></li>
-                    <li><Link to='/contact-me'>Contact Me!</Link></li>
+                    {/* <li><Link to='/contact-me'>Contact Me!</Link></li> */}
                 </ul>
             </footer>
         )

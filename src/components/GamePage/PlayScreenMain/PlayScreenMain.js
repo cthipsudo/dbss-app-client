@@ -5,7 +5,7 @@ import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
-import ResultScreen from '../ResultScreen/ResultScreen';
+import ResultScreen from '../ResultSection/ResultSection';
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
@@ -33,7 +33,6 @@ export default class PlayScreenMain extends Component {
         const p2 = GameServerService.getGameChoices();
         const p3 = GameServerService.getGameResponses();
         Promise.all([p1, p2, p3]).then(data => {
-            //console.log(data)
             this.setState({
                 questions: data[0],
                 choiceBase: data[1],
@@ -45,8 +44,6 @@ export default class PlayScreenMain extends Component {
             const charRace = this.context.characterSelected.race;
             const charClass = this.context.characterSelected.class;
             const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
-            //console.log("This is the question base", initalQuestions); 
-            //console.log("Game loading starting with first question", firstQuestion);
             this.setState({
                 questions: initalQuestions,
                 question: firstQuestion,
@@ -62,7 +59,6 @@ export default class PlayScreenMain extends Component {
         const charRace = this.state.character.race;
         const charClass = this.state.character.class;
         const newChoices = GameFunctions.grabChoices(currentChoices, charRace, charClass, newQuestion)
-        //console.log(newChoices);
         this.setState({
             question: Object.assign(newQuestion),
             choices: newChoices,
@@ -78,11 +74,9 @@ export default class PlayScreenMain extends Component {
         })
     }
     setResponseStateTrue = () => {
-        //console.log(this.state.inResponseState)
         this.setState({
             inResponseState: true
         })
-        //console.log(this.state.inResponseState)
     }
     setResponseStateFalse = () => {
 

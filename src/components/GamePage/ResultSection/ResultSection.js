@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 
-export default class ResultScreen extends Component {
+export default class ResultSection extends Component {
     static contextType = GameSessionContext;
     state = {
         playAgain: false
@@ -51,7 +51,6 @@ export default class ResultScreen extends Component {
                     playAgain: true
                 })
             )
-        //console.log(score);
     }
 
     render() {

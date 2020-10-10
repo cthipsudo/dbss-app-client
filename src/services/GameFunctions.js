@@ -30,10 +30,6 @@ function grabResponse(responses, questionId, choiceAlignment) {
     return correctResponse;
 }
 function grabChoices(choiceList, charRace, charClass, question) {
-    //console.log(choiceList);
-    // console.log(charRace);
-    // console.log(charClass);
-    //console.log(question);
 
     //We need to grab the right choices for the question asked
     const neededChoices = [];
@@ -56,7 +52,6 @@ function grabChoices(choiceList, charRace, charClass, question) {
         }
     }
 
-    //console.log(neededChoices);
     return neededChoices;
 }
 function linkQuestionsTogetherInSets(questions) {
@@ -73,9 +68,8 @@ function linkQuestionsTogetherInSets(questions) {
         const question = questions[i]
         //Check if the questions linkedTo matches up
         if (linkedTo !== question.linkedTo) {
-            //We found a new set!
-            //console.log("New Set, set for question:", question.linkedTo);
 
+            //We found a new set!
             //Push the set into the final array
             finalArr.push(setHolderArr)
 
@@ -100,7 +94,6 @@ function linkQuestionsTogetherInSets(questions) {
 
     //Shift out the first set since intialization issues
     finalArr.shift();
-    //console.log(finalArr);
 
 
     return finalArr;
@@ -124,7 +117,6 @@ function removeQuestionsFromSets(STORE) {
 }
 function makeShuffledQuestions(QUESTIONS) {
     //Working with these questions
-    //console.log("Working with these questions", QUESTIONS);
     //Removed the first question since its fixed
     const firstQ = QUESTIONS.shift();
 
@@ -138,20 +130,16 @@ function makeShuffledQuestions(QUESTIONS) {
 
     //Shuffle the questions that can be shuffled
     shuffledStore = shuffle(shuffledStore);
-    //console.log(shuffledStore);
 
     //Add the first question back in the shuffled store and ORIGINAL
     shuffledStore.unshift([firstQ]);
     QUESTIONS.unshift(firstQ);
-    //console.log(shuffledStore);
 
     // //Add the last offical question
     // shuffledStore.push([LastQuestionHere]) 
 
     //Remove the sets from the shuffledStores
-    //console.log("This is the shuffled store in sets", shuffledStore);
     const finalArr = removeQuestionsFromSets(shuffledStore);
-    //console.log("This is the shuffled store out of their sets", finalArr);
     return finalArr;
 }
 
@@ -199,7 +187,6 @@ function setUpScoreList(scores) {
             </div>
         )
     } else {
-        //console.log(scores);
 
         //Push the first 3 scores
         scoreList.push(

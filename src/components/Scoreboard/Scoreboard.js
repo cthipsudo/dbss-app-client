@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import React, { Component } from 'react';
 import GameServerService from '../../services/game-server-service';
 import GameFunctions from '../../services/GameFunctions';
@@ -15,14 +13,12 @@ export default class ScoreBoard extends Component {
         //grab the scores
         GameServerService.getGameScores()
             .then(res => {
-                //console.log(res)
                 this.setState({
                     scoreBase: res
                 })
             })
         GameServerService.getRecentGameScores()
             .then(res => {
-                //console.log(res);
                 this.setState({
                     recentScoreBase: res
                 })
@@ -30,10 +26,8 @@ export default class ScoreBoard extends Component {
     }
 
     renderScores = () => {
-        //console.log('Trying to render scores');
         let scores = [];
         if (this.state.topScores) {
-            //console.log('Grabbing Top Scores')
             scores = this.state.scoreBase;
         } else {
             scores = this.state.recentScoreBase;
@@ -59,7 +53,6 @@ export default class ScoreBoard extends Component {
         //Check if scores are loaded
         if (this.state.scoreBase && this.state.recentScoreBase) {
             scoreEntries = this.renderScores();
-            //console.log(scoreEntries);
         }
         let title = "Top";
         if (!this.state.topScores) {

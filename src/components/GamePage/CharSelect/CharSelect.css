@@ -39,9 +39,6 @@ section.charSelect {
     background-color: azure;
     padding: 10px 15px;
 }
-.editCharButton{
-    
-}
 .characterSlotButtons{
     display: flex;
     justify-content: space-evenly;
