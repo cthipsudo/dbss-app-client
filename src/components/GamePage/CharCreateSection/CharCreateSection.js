@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import CreateCharService from '../../../services/CreateCharacterServices';
 import TokenService from '../../../services/token-service';
 import GameServerService from '../../../services/game-server-service'
 import PlayerDataService from '../../../services/player-data-service'
-import CreateCharacterService from '../../../services/CreateCharacterServices';
+import CreateCharacterService from '../../../services/create-character-services';
 import GameContext from '../../../contexts/GameContext';
 
 import './CharCreateSection.css';
@@ -12,6 +11,10 @@ export default class CharCreateSection extends Component {
     state = {
         createFunc: () => { },
         characterDisplay: "human Picture here",
+        char_name: '',
+        char_race: 1,
+        char_class: 1,
+
     }
 
     static contextType = GameContext;
@@ -19,49 +22,98 @@ export default class CharCreateSection extends Component {
     createCharacter = (ev) => {
         ev.preventDefault();
         const character = {
-            char_name: ev.target.character_name.value,
-            char_class: Number(ev.target.character_class.value),
-            char_race: Number(ev.target.character_race.value),
+            char_name: this.state.char_name,
+            char_class: Number(this.state.char_class),
+            char_race: Number(this.state.char_race),
         }
         //if we're logged in, do the api create
         //else do a normal create
         if (TokenService.hasAuthToken()) {
             //API Call here
             const player = PlayerDataService.getPlayerData();
-            GameServerService.makeUserCharSave(player.playerId, this.props.slot, character)
-                .then(res => {
-                    //Convert the response to string data
-                    const char = CreateCharacterService.translateCharResponse(res);
-
-                    this.state.createFunc(char);
-                    this.props.goBack();
-                })
-                .catch("error context here");
+            if (this.context.editingCharacter) {
+                GameServerService.updateUserCharSave(player.playerId, this.props.slot, character)
+                    .then(res => {
+                        this.context.setEditingCharacterFalse();
+                        this.props.goBack();
+                    })
+            } else {
+                GameServerService.makeUserCharSave(player.playerId, this.props.slot, character)
+                    .then(res => {
+                        //Convert the response to string data
+                        const char = CreateCharacterService.translateCharResponse(res);
+                        this.state.createFunc(char);
+                        this.props.goBack();
+                    })
+                    .catch("error context here");
+            }
         } else {
             //convert the char data to strings
-            const char = CreateCharacterService.translateCharResponse(character); 
-            this.state.createFunc(char);
-            this.props.goBack();
+            if (this.context.editingCharacter) {
+                const char = CreateCharacterService.translateCharResponse(character);
+                this.state.createFunc(char);
+                this.context.setEditingCharacterFalse();
+                this.props.goBack();
+            } else {
+                const char = CreateCharacterService.translateCharResponse(character);
+                this.state.createFunc(char);
+                this.props.goBack();
+            }
         }
     }
-    
+
     changeCharacterPortrait = (ev) => {
         const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
+        this.handleChangeRace(ev);
         this.setState({
             characterDisplay: `${characterRace} Picture here`,
         });
     }
 
+    handleChangeName = (ev) => {
+        this.setState({ char_name: ev.target.value })
+    }
+    handleChangeClass = (ev) => {
+        this.setState({ char_class: ev.target.value })
+    }
+    handleChangeRace = (ev) => {
+        this.setState({ char_race: ev.target.value })
+    }
+
     componentDidMount() {
         const slotNum = this.props.slot;
-        const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
+        const funcName = CreateCharacterService.findSlotFunctionBySlot(slotNum);
         this.setState({
             createFunc: this.context[funcName],
         });
+
+        //If we're editing a char
+        if (this.context.editingCharacter) {
+            let selectedChar = {};
+            switch (slotNum) {
+                case "slot-1":
+                    selectedChar = this.context.characterOne;
+                    break;
+                case "slot-2":
+                    selectedChar = this.context.characterTwo;
+                    break;
+                case "slot-3":
+                    selectedChar = this.context.characterThree;
+                    break;
+                default:
+                    selectedChar = {};
+            }
+            selectedChar = CreateCharacterService.translateCharDataToNum(selectedChar);
+            this.setState({
+                char_name: selectedChar.char_name,
+                char_race: selectedChar.char_race,
+                char_class: selectedChar.char_class,
+            })
+        }
     }
 
     render() {
-        //
+        const { char_name, char_race, char_class } = this.state;
         return (
             <section className="createCharSection">
                 <div>
@@ -70,11 +122,11 @@ export default class CharCreateSection extends Component {
                         <div className="formInputs">
                             <div>
                                 <label htmlFor="character_name">Name:</label>
-                                <input type="text" name="character_name" id="characterName" required />
+                                <input type="text" name="character_name" id="characterName" value={char_name} onChange={this.handleChangeName} required />
                             </div>
                             <div>
                                 <label htmlFor="character_race">Race:</label>
-                                <select name="character_race" id="characterRace" onChange={(ev) => this.changeCharacterPortrait(ev)}>
+                                <select name="character_race" id="characterRace" value={char_race} onChange={this.changeCharacterPortrait}>
                                     <option value="1">Human</option>
                                     <option value="2">Alien</option>
                                     <option value="3">Goblin</option>
@@ -82,7 +134,7 @@ export default class CharCreateSection extends Component {
                             </div>
                             <div>
                                 <label htmlFor="character_class">Class:</label>
-                                <select name="character_class" id="characterClass">
+                                <select name="character_class" id="characterClass" value={char_class} onChange={this.handleChangeClass}>
                                     <option value="1">Space Wizard</option>
                                     <option value="2">Astral Thief</option>
                                     <option value="3">Cosmic Warrior</option>

@@ -78,7 +78,22 @@ const GameServerService = {
       )
 
   },
+  updateUserCharSave(playerId, slotNum, charData) {
+    return fetch(`${config.API_ENDPOINT}/char-save/${playerId}/${slotNum}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`
+      },
+      body: JSON.stringify(charData),
+    })
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
 
+  },
   makeNewScore(scoreData) {
     return fetch(`${config.API_ENDPOINT}/scoreboard`, {
       method: 'POST',
