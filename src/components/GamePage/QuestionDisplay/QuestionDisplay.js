@@ -3,18 +3,14 @@ import React, { Component } from 'react';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 
 export default class QuestionDisplay extends Component {
-    constructor() {
-        super();
-        this.intervalQuestion = null
-    }
-
+    
     static contextType = GameSessionContext;
 
     state = {
         questionText: "",
         questionLength: 1,
-        counter: 0,
         loading: false,
+        counter: 0,
     }
 
     progressToResponse = (choiceAlignment) => {
@@ -27,21 +23,11 @@ export default class QuestionDisplay extends Component {
         this.setState({
             loading: true,
             questionText: renderText,
+            questionLength: textArr.length,
             counter: this.state.counter + 1,
-            questionLength: textArr.length
         })
     }
 
-    renderQuestion = (questionText) => {
-        const textArr = questionText.split('');
-        let renderText = "";
-        this.intervalQuestion = setInterval( () => {
-            if (this.state.counter < textArr.length) {
-                renderText = this.state.questionText + textArr[this.state.counter];
-                this.updateState(renderText, textArr)
-            }
-        }, 600);
-    }
     grabQuestion = () => {
         let questionText = "";
         //Let question load in
@@ -54,6 +40,24 @@ export default class QuestionDisplay extends Component {
         return <p className="noFormat">{this.state.questionText}</p>
     };
 
+    renderQuestion = (questionText) => {
+        const textArr = questionText.split('');
+        let renderText = "";
+        let counter = 0;
+        //GOES HERE
+        this.renderInterval = setInterval( async () => {
+            if (counter < textArr.length && counter === this.state.counter) {
+                counter++;
+                renderText = this.state.questionText + textArr[this.state.counter];
+                this.updateState(renderText, textArr);
+            }
+            if(counter === textArr.length){
+                //safety clear
+                clearInterval(this.renderInterval)
+            }
+        }, 60);
+    }
+
     checkQuestionDoneLoading() {
         if (this.state.counter === this.state.questionLength) {
             return false;
@@ -61,8 +65,12 @@ export default class QuestionDisplay extends Component {
         return true;
     };
 
+    componentDidMount() {
+
+    }
+
     componentWillUnmount() {
-        clearInterval(this.intervalQuestion);
+        clearInterval(this.renderInterval);
         //If it leaves, check if we're at the alst question
         if (this.context.question.id === this.context.questions[this.context.questions.length - 1].id && this.context.lastQuestion !== true) {
             this.context.setLastQuestionTrue();
