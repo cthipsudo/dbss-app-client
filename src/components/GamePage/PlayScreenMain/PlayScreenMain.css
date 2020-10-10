@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap');
+
 .noFormat{
     white-space: pre-wrap;
 }
@@ -29,6 +31,24 @@
     align-items: flex-start;
 }
 
+.initalsField {
+    display: flex;
+    flex-direction: column;
+    
+}
+.initalsField #formInitials {
+    text-transform: uppercase;
+    border-style: none;
+    letter-spacing: 15px;
+    text-align: center;
+    padding: 10px 0 0;
+    font-size: 30px;
+    width: 40%;
+    align-self: center;
+    background: none;
+    border-bottom: solid 3px #000;
+}
+
 .spaceDisplay button {
     margin-top: 10px;
 }
@@ -55,6 +75,23 @@
     padding: 40px 10%;
     background: #aaa;
     height: 60%;
+}
+
+.questionDisplay .questionContainer {
+    padding-top: 20px;
+    background-color: #000;
+    color: lightgreen;
+    border: solid 2px lightgreen;
+}
+
+.questionDisplay .questionContainer p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
+}
+
+.questionDisplay .questionContainer p.narrator {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
 }
 
 .questionDisplay .choiceContainer {

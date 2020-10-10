@@ -66,6 +66,7 @@ button {
     justify-content: space-between;
     text-align: center;
     width: 75%;
+    text-transform: uppercase;
 }
 
 .scoreEntry h2 {
