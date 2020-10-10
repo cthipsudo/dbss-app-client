@@ -3,10 +3,11 @@ import CreateCharService from '../../../services/CreateCharacterServices';
 import TokenService from '../../../services/token-service';
 import GameServerService from '../../../services/game-server-service'
 import PlayerDataService from '../../../services/player-data-service'
+import CreateCharacterService from '../../../services/CreateCharacterServices';
 import GameContext from '../../../contexts/GameContext';
 
 import './CharCreate.css';
-import CreateCharacterService from '../../../services/CreateCharacterServices';
+
 export default class CharCreate extends Component {
     state = {
         createFunc: () => { },
