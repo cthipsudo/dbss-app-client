@@ -156,40 +156,80 @@ function makeShuffledQuestions(QUESTIONS) {
 }
 
 function setUpScoreList(scores) {
-
-    if(scores.length === 0){
-        return <p>No scores found :(</p>
-    }
-    //console.log(scores);
     let scoreList = [];
-    //Push the first 3 scores
-    scoreList.push(
-        <div className="scoreEntry" key={scores[0].id}>
-            <h2>{scores[0].nick_name}</h2>
-            <h2>{scores[0].score}</h2>
-        </div>
-    )
-    scoreList.push(
-        <div className="scoreEntry" key={scores[1].id}>
-            <h3>{scores[1].nick_name}</h3>
-            <h3>{scores[1].score}</h3>
-        </div>
-    )
-    scoreList.push(
-        <div className="scoreEntry" key={scores[2].id}>
-            <h4>{scores[2].nick_name}</h4>
-            <h4>{scores[2].score}</h4>
-        </div>
-    )
-    //Loop and Push the remaining scores
-
-    for (let i = 3; i < scores.length; i++) {
+    if (scores.length === 0) {
+        return <p>No scores found :(</p>
+    } else if (scores.length === 1) {
         scoreList.push(
-            <div className="scoreEntry" key={scores[i].id}>
-                <p>{scores[i].nick_name}</p>
-                <p>{scores[i].score}</p>
+            <div className="scoreEntry" key={scores[0].id}>
+                <h2>{scores[0].nick_name}</h2>
+                <h2>{scores[0].score}</h2>
             </div>
         )
+    } else if (scores.length === 2) {
+        scoreList.push(
+            <div className="scoreEntry" key={scores[0].id}>
+                <h2>{scores[0].nick_name}</h2>
+                <h2>{scores[0].score}</h2>
+            </div>
+        )
+        scoreList.push(
+            <div className="scoreEntry" key={scores[1].id}>
+                <h3>{scores[1].nick_name}</h3>
+                <h3>{scores[1].score}</h3>
+            </div>
+        )
+    } else if (scores.length === 3) {
+        scoreList.push(
+            <div className="scoreEntry" key={scores[0].id}>
+                <h2>{scores[0].nick_name}</h2>
+                <h2>{scores[0].score}</h2>
+            </div>
+        )
+        scoreList.push(
+            <div className="scoreEntry" key={scores[1].id}>
+                <h3>{scores[1].nick_name}</h3>
+                <h3>{scores[1].score}</h3>
+            </div>
+        )
+        scoreList.push(
+            <div className="scoreEntry" key={scores[2].id}>
+                <h4>{scores[2].nick_name}</h4>
+                <h4>{scores[2].score}</h4>
+            </div>
+        )
+    } else {
+        //console.log(scores);
+
+        //Push the first 3 scores
+        scoreList.push(
+            <div className="scoreEntry" key={scores[0].id}>
+                <h2>{scores[0].nick_name}</h2>
+                <h2>{scores[0].score}</h2>
+            </div>
+        )
+        scoreList.push(
+            <div className="scoreEntry" key={scores[1].id}>
+                <h3>{scores[1].nick_name}</h3>
+                <h3>{scores[1].score}</h3>
+            </div>
+        )
+        scoreList.push(
+            <div className="scoreEntry" key={scores[2].id}>
+                <h4>{scores[2].nick_name}</h4>
+                <h4>{scores[2].score}</h4>
+            </div>
+        )
+        //Loop and Push the remaining scores
+
+        for (let i = 3; i < scores.length; i++) {
+            scoreList.push(
+                <div className="scoreEntry" key={scores[i].id}>
+                    <p>{scores[i].nick_name}</p>
+                    <p>{scores[i].score}</p>
+                </div>
+            )
+        }
     }
 
     return scoreList;
