@@ -39,6 +39,21 @@ button {
     margin-top: 25%;
 }
 
+.underline{
+    text-decoration: underline;
+}
+.scoreFilter{
+    display: flex;
+    align-self: flex-end;
+    padding: 0 10px;
+}
+.scoreFilter p {
+    margin: 3px;
+    cursor: pointer;
+}
+.scoreFilter p:hover {
+    color: #fff;
+}
 .scoreHeader {
     display: flex;
     justify-content: space-between;
@@ -55,4 +70,12 @@ button {
 
 .scoreEntry h2 {
     justify-self: end;
+}
+
+.scoreSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    padding-top: 3%;
 }

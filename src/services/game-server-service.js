@@ -34,6 +34,14 @@ const GameServerService = {
           : res.json()
       )
   },
+  getRecentGameScores() {
+    return fetch(`${config.API_ENDPOINT}/scoreboard/recent`)
+      .then(res =>
+        (!res.ok)
+          ? res.json().then(e => Promise.reject(e))
+          : res.json()
+      )
+  },
   getUserCharData(playerId) {
     return fetch(`${config.API_ENDPOINT}/char-save/${playerId}`, {
       headers: {

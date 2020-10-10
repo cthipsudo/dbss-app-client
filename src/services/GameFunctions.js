@@ -1,3 +1,4 @@
+import React from 'react';
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -17,13 +18,13 @@ function shuffle(array) {
 
     return array;
 };
-function grabResponse(responses, questionId, choiceAlignment){
+function grabResponse(responses, questionId, choiceAlignment) {
     let correctResponse = " ";
-    for(let i = 0; i < responses.length; i++){
+    for (let i = 0; i < responses.length; i++) {
         const response = responses[i]
-        if(response.linkedTo === questionId 
-            && response.alignment === choiceAlignment){
-                correctResponse = response;
+        if (response.linkedTo === questionId
+            && response.alignment === choiceAlignment) {
+            correctResponse = response;
         }
     }
     return correctResponse;
@@ -54,7 +55,7 @@ function grabChoices(choiceList, charRace, charClass, question) {
             }
         }
     }
-    
+
     //console.log(neededChoices);
     return neededChoices;
 }
@@ -154,9 +155,46 @@ function makeShuffledQuestions(QUESTIONS) {
     return finalArr;
 }
 
+function setUpScoreList(scores) {
+    //console.log(scores);
+    let scoreList = [];
+    //Push the first 3 scores
+    scoreList.push(
+        <div className="scoreEntry" key={scores[0].id}>
+            <h2>{scores[0].nick_name}</h2>
+            <h2>{scores[0].score}</h2>
+        </div>
+    )
+    scoreList.push(
+        <div className="scoreEntry" key={scores[1].id}>
+            <h3>{scores[1].nick_name}</h3>
+            <h3>{scores[1].score}</h3>
+        </div>
+    )
+    scoreList.push(
+        <div className="scoreEntry" key={scores[2].id}>
+            <h4>{scores[2].nick_name}</h4>
+            <h4>{scores[2].score}</h4>
+        </div>
+    )
+    //Loop and Push the remaining scores
+
+    for (let i = 3; i < scores.length; i++) {
+        scoreList.push(
+            <div className="scoreEntry" key={scores[i].id}>
+                <p>{scores[i].nick_name}</p>
+                <p>{scores[i].score}</p>
+            </div>
+        )
+    }
+
+    return scoreList;
+}
+
 export default {
     shuffle,
     grabChoices,
     makeShuffledQuestions,
     grabResponse,
+    setUpScoreList,
 };

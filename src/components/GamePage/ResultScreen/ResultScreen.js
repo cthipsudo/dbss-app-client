@@ -16,6 +16,9 @@ export default class ResultScreen extends Component {
             return (
                 <section className="winScreen">
                     <h1>You won!</h1>
+                    <form>
+                        
+                    </form>
                 </section>
             )
         }

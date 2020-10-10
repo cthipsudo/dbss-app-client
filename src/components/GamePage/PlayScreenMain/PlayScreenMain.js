@@ -5,7 +5,7 @@ import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
-import WinScreen from '../ResultScreen/ResultScreen';
+import ResultScreen from '../ResultScreen/ResultScreen';
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
@@ -121,7 +121,7 @@ export default class PlayScreenMain extends Component {
         if (this.state.gameComplete) {
             return (
                 <>
-                    <WinScreen />
+                    <ResultScreen />
                 </>
             )
         } else {
