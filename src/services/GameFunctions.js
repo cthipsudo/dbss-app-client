@@ -156,6 +156,10 @@ function makeShuffledQuestions(QUESTIONS) {
 }
 
 function setUpScoreList(scores) {
+
+    if(scores.length === 0){
+        return <p>No scores found :(</p>
+    }
     //console.log(scores);
     let scoreList = [];
     //Push the first 3 scores

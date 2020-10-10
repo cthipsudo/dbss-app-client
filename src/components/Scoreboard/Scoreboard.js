@@ -38,6 +38,7 @@ export default class ScoreBoard extends Component {
         } else {
             scores = this.state.recentScoreBase;
         }
+        //scores = []
         return GameFunctions.setUpScoreList(scores)
     }
 
