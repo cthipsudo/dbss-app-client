@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Character from '../Character/Character'
-import GameContext from '../../../../contexts/GameContext'
+import GameContext from '../../../contexts/GameContext'
 
 export default class CharacterSaves extends Component {
     static contextType = GameContext;
 
     render() {
-        //console.log(this.context.characterOne);
         return (
             <div className="characterSaves">
                 <Character className="characterOne" character={this.context.characterOne} slot={1} deleteChar={this.context.deleteCharacterOne}></Character>

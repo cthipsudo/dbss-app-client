@@ -4,7 +4,7 @@ import TokenService from '../../../services/token-service';
 import PlayerDataService from '../../../services/player-data-service';
 import GameContext from '../../../contexts/GameContext';
 
-import './StartScreen.css'
+import './StartSection.css'
 
 export default class StartScreen extends Component {
     static contextType = GameContext;

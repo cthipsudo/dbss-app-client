@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
-import StartGamePage from './StartGamePage/StartGamePage'
-import CharSelectPage from './CharSelectPage/CharSelectPage'
-import CharCreatePage from './CharCreatePage/CharCreatePage'
-import PlayGamePage from './PlayGamePage/PlayGamePage'
-import LoginPage from './LoginPage/LoginPage'
+import StartGamePage from '../StartGamePage/StartGamePage'
+import CharSelectPage from '../CharSelectPage/CharSelectPage'
+import CharCreatePage from '../CharCreatePage/CharCreatePage'
+import PlayGamePage from '../PlayGamePage/PlayGamePage'
+import LoginPage from '../LoginPage/LoginPage'
 import GameContext from '../../contexts/GameContext'
 
 const emptyCharacter = {
@@ -26,7 +26,6 @@ export default class GamePage extends Component {
   }
 
   makeCharacterOne = (charData) => {
-    //console.log('Trying to make Char one! with data', charData);
     const newChar = {
       exist: true, ...charData
     }
@@ -77,7 +76,6 @@ export default class GamePage extends Component {
     const newChar = {
       exist: true, ...charData
     }
-    //console.log(newChar);
     this.setState({
       characterSelected: Object.assign(newChar),
     })
@@ -89,7 +87,6 @@ export default class GamePage extends Component {
     })
   }
   startGameSession = () => {
-    console.log("Game start!");
     this.setState({
       gameInSession: true,
     })

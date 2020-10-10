@@ -6,9 +6,9 @@ import PlayerDataService from '../../../services/player-data-service'
 import CreateCharacterService from '../../../services/CreateCharacterServices';
 import GameContext from '../../../contexts/GameContext';
 
-import './CharCreate.css';
+import './CharCreateSection.css';
 
-export default class CharCreate extends Component {
+export default class CharCreateSection extends Component {
     state = {
         createFunc: () => { },
         characterDisplay: "human Picture here",
@@ -19,7 +19,6 @@ export default class CharCreate extends Component {
     componentDidMount() {
         const slotNum = this.props.slot;
         const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
-        console.log(funcName);
         this.setState({
             createFunc: this.context[funcName],
         });
@@ -31,7 +30,6 @@ export default class CharCreate extends Component {
             char_class: Number(ev.target.character_class.value),
             char_race: Number(ev.target.character_race.value),
         }
-        //console.log(character);
         //if we're logged in, do the api create
         //else do a normal create
         if (TokenService.hasAuthToken()) {
@@ -49,7 +47,6 @@ export default class CharCreate extends Component {
         } else {
             //convert the char data to strings
             const char = CreateCharacterService.translateCharResponse(character); 
-            //console.log(char);
             this.state.createFunc(char);
             this.props.goBack();
         }

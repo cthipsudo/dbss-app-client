@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import CharacterSaves from './CharacterSaves/CharacterSaves'
+import CharacterSaves from '../CharacterSaves/CharacterSaves'
 import GameContext from '../../../contexts/GameContext'
 import PlayerDataService from '../../../services/player-data-service'
 import GameServerService from '../../../services/game-server-service'
@@ -28,9 +28,7 @@ export default class CharSelect extends Component {
             const playerData = PlayerDataService.getPlayerData();
             GameServerService.getUserCharData(playerData.playerId)
                 .then(res => {
-                    //console.log(res)
-                    res.map(charData => {
-                        //console.log(charData);
+                    return res.map(charData => {
                         const charRefined = {
                             name: charData.char_name,
                             class: charData.class_name,
@@ -48,6 +46,7 @@ export default class CharSelect extends Component {
                                 break;
                             default:
                         }
+                        return "Char created"
                     })
                 })
                 .catch("set error state here")

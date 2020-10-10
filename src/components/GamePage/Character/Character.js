@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import GameContext from '../../../../contexts/GameContext'
-import GameServerService from '../../../../services/game-server-service'
-import PlayerDataService from '../../../../services/player-data-service'
-import TokenService from '../../../../services/token-service'
+import GameContext from '../../../contexts/GameContext'
+import GameServerService from '../../../services/game-server-service'
+import PlayerDataService from '../../../services/player-data-service'
+import TokenService from '../../../services/token-service'
 
 export default class Character extends Component {
     static contextType = GameContext;

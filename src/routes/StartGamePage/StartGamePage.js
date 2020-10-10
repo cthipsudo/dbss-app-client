@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StartSection from '../../../components/GamePage/StartScreen/StartScreen'
+import StartSection from '../../components/GamePage/StartSection/StartSection'
 export default class CharSelectPage extends Component {
     render() {
         return (

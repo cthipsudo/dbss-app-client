@@ -80,7 +80,6 @@ const GameServerService = {
   },
 
   makeNewScore(scoreData) {
-    //console.log(config.TOKEN_KEY);
     return fetch(`${config.API_ENDPOINT}/scoreboard`, {
       method: 'POST',
       headers: {

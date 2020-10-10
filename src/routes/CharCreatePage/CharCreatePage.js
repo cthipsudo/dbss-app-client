@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CharCreateSection from '../../../components/GamePage/CharCreate/CharCreate'
+import CharCreateSection from '../../components/GamePage/CharCreateSection/CharCreateSection'
 
 export default class CharCreatePage extends Component {
     // static defaultProps = {

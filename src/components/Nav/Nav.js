@@ -10,7 +10,7 @@ export default class GeneralNav extends Component {
                 <ul className="navList">
                     <li><Link to='/game'>Play!</Link></li>
                     <li><Link to='/scoreboard'>Scoreboard</Link></li>
-                    <li><Link to='/contact-me'>Contact Me!</Link></li>
+                    {/* <li><Link to='/contact-me'>Contact Me!</Link></li> */}
                 </ul>
             </nav>
         )
