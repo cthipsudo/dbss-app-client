@@ -43,7 +43,7 @@ export default class Character extends Component {
                     <p>Name:{character.name}</p>
                 </div>
                 <div className="characterSlotButtons">
-                    {/* <Link className="editCharButton" to={`/game/edit/slot-${this.props.slot}`}>Edit</Link> */}
+                    <Link className="editCharButton" to={`/game/edit/slot-${this.props.slot}`} onClick={this.context.setEditingCharacterTrue}>Edit</Link>
                     <button onClick={this.deleteChar}>Delete</button>
                 </div>
             </div>

@@ -16,13 +16,6 @@ export default class CharCreateSection extends Component {
 
     static contextType = GameContext;
 
-    componentDidMount() {
-        const slotNum = this.props.slot;
-        const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
-        this.setState({
-            createFunc: this.context[funcName],
-        });
-    }
     createCharacter = (ev) => {
         ev.preventDefault();
         const character = {
@@ -51,10 +44,19 @@ export default class CharCreateSection extends Component {
             this.props.goBack();
         }
     }
+    
     changeCharacterPortrait = (ev) => {
         const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
         this.setState({
             characterDisplay: `${characterRace} Picture here`,
+        });
+    }
+
+    componentDidMount() {
+        const slotNum = this.props.slot;
+        const funcName = CreateCharService.findSlotFunctionBySlot(slotNum);
+        this.setState({
+            createFunc: this.context[funcName],
         });
     }
 
