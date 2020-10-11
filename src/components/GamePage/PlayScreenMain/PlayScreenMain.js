@@ -129,6 +129,12 @@ export default class PlayScreenMain extends Component {
         }
     }
 
+    updateScore = (addScore) => {
+        this.setState({
+            score: this.state.score + addScore,
+        })
+    }
+
     render() {
         if (!this.state.question.length) {
             //loading
@@ -153,6 +159,7 @@ export default class PlayScreenMain extends Component {
             setLastQuestionTrue: this.setLastQuestionTrue,
             setGameComplete: this.setGameComplete,
             setGameLost: this.setGameLost,
+            updateScore: this.updateScore,
         }
 
         return (
