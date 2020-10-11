@@ -52,7 +52,7 @@
 .questionDisplay .questionContainer h1.narrator,
 .responseDisplay .responseContainer h1.narrator {
     font-family: 'IBM Plex Mono', monospace;
-    margin-top: 1% 0;
+    margin: 1% 0;
     font-weight: 500;
 }
 
