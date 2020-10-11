@@ -36,6 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -50px;
 }
 
 .characterInfo .characterHealthAndName {
@@ -61,8 +62,12 @@
 
 .volumeSection {
     background-color: #000;
-    color: lightgreen;
-    margin: 1% 2% 0;
+    color: #90EE90;
+    border: solid 2px #90EE90;
+    border-bottom: none;
+    padding: 2% 2% 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .volumeSection .volumeIcon {
@@ -76,8 +81,8 @@
     padding: 0;
     background-color: #000;
     height: 100%;
-    color: lightgreen;
-    border: solid 2px lightgreen;
+    color: #90EE90;
+    border: solid 2px #90EE90;
     border-top: none;
     flex-grow: 1;
 }
