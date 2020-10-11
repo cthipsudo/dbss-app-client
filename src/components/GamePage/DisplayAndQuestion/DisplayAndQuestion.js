@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SpaceDisplay from '../SpaceDisplay/SpaceDisplay'
 import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 import ResponseDisplay from '../ResponseDisplay/ResponseDisplay'
 import GameSessionContext from '../../../contexts/GameSessionContext';
@@ -17,7 +16,6 @@ export default class DisplayAndQuestion extends Component {
     render() {
         return (
             <div className="displayAndQuestionContainer">
-                <SpaceDisplay />
                 {this.checkForResponseOrQuestion()}
             </div>
         )

@@ -14,72 +14,29 @@
 .gameSpace{
     padding: 0;
 }
-.displayAndQuestionContainer {
-    display: flex;
-}
 
 .playerProgress {
     padding: 20px 0;
 }
 
-.spaceDisplay {
-    min-height: 80vh;
-    background: #ccc;
-    width: 50%;
+.displayAndQuestionContainer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.initalsField {
-    display: flex;
-    flex-direction: column;
-    
-}
-.initalsField #formInitials {
-    text-transform: uppercase;
-    border-style: none;
-    letter-spacing: 15px;
-    text-align: center;
-    padding: 10px 0 0;
-    font-size: 30px;
-    width: 40%;
-    align-self: center;
-    background: none;
-    border-bottom: solid 3px #000;
-}
-
-.spaceDisplay button {
-    margin-top: 10px;
-}
-
-.spaceDisplay .characterInfo {
-    display: flex;
-}
-
-.spaceDisplay .characterInfo div:nth-child(odd) {
-    background-color: #eee;
 }
 
 .questionDisplay, .responseDisplay {
     min-height: 80vh;
     background: #bbb;
-    width: 50%;
+    width: 100%;
 }
 
-.questionDisplay p, .responseDisplay p {
-    margin: 0;
-}
-
-.questionDisplay .questionContainer, .responseDisplay .responseContainer {
-    padding: 40px 10%;
-    background: #aaa;
-    height: 60%;
-}
+.questionDisplay .questionContainer .characterInfo{
+    display: flex;
+  }
 
 .questionDisplay .questionContainer,
 .responseDisplay .responseContainer {
-    padding-top: 20px;
+    padding: 0 0 10%;
+    height: 60%;
     background-color: #000;
     color: lightgreen;
     border: solid 2px lightgreen;
@@ -89,11 +46,13 @@
 .responseDisplay .responseContainer p {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 300;
+    margin: 0;
 }
 
-.questionDisplay .questionContainer p.narrator,
-.responseDisplay .responseContainer p.narrator {
+.questionDisplay .questionContainer h1.narrator,
+.responseDisplay .responseContainer h1.narrator {
     font-family: 'IBM Plex Mono', monospace;
+    margin-top: 1% 0;
     font-weight: 500;
 }
 
@@ -124,4 +83,22 @@
 
 .questionDisplay .choiceContainer button.choices:disabled {
     background-color: #000;
+}
+
+.initalsField {
+    display: flex;
+    flex-direction: column;
+    
+}
+.initalsField #formInitials {
+    text-transform: uppercase;
+    border-style: none;
+    letter-spacing: 15px;
+    text-align: center;
+    padding: 10px 0 0;
+    font-size: 30px;
+    width: 40%;
+    align-self: center;
+    background: none;
+    border-bottom: solid 3px #000;
 }
