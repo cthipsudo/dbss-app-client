@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
-import soundFile from '../../music/farewell-princess.mp3'
+import SoundFile from '../../music/farewell-princess.mp3'
 import Sound from 'react-sound'
 export default class GameMusic extends Component {
     constructor(props) {
@@ -35,7 +35,7 @@ export default class GameMusic extends Component {
             <div className="volumeSection">
                 <FontAwesomeIcon icon={this.state.volume} onClick={this.changeStatus} className="volumeIcon"/>
                 <Sound 
-                url={soundFile}
+                url={SoundFile}
                 playStatus={this.state.status}
                 loop={true}
                 volume={20}

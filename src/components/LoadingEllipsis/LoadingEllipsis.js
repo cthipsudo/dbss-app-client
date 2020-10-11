@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './LoadingEllipsis.css'
+
 export default class LoadingEllipsis extends Component {
     render() {
         return (

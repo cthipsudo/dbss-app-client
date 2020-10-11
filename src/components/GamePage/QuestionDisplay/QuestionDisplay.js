@@ -9,10 +9,13 @@ export default class QuestionDisplay extends Component {
     static contextType = GameSessionContext;
 
     state = {
+        fullQuestion: "",
         questionText: "",
         questionLength: 1,
         loading: false,
         counter: 0,
+        rendering: true,
+        questionClass: "noFormat"
     }
 
     progressToResponse = (choiceAlignment, score) => {
@@ -28,6 +31,8 @@ export default class QuestionDisplay extends Component {
             questionText: renderText,
             questionLength: textArr.length,
             counter: this.state.counter + 1,
+            fullQuestion: textArr.join(''),
+            questionClass: "noFormat loading",
         })
     }
 
@@ -40,7 +45,12 @@ export default class QuestionDisplay extends Component {
             questionText = questionText.replace(/\\n/g, '\n')
             this.renderQuestion(questionText)
         }
-        return <p className="noFormat">{this.state.questionText}</p>
+        //question is fully rendered
+        let questionClass = this.state.questionClass;
+        if(this.state.counter === this.state.questionLength){
+            questionClass = "noFormat"
+        }
+        return <p className={questionClass} onClick={this.fullyRenderQuestion}>{this.state.questionText}</p>
     };
 
     grabChoices = () => {
@@ -56,8 +66,12 @@ export default class QuestionDisplay extends Component {
                 </button>)
             })
         }
-        buttons = GameFunctions.shuffle(buttons)
-        return buttons
+        //prevents shuffling when fully rendering question
+
+        console.log('shuffling');
+        buttons = GameFunctions.shuffle(buttons);
+
+        return buttons;
     }
 
     grabLoaders = () => {
@@ -85,7 +99,7 @@ export default class QuestionDisplay extends Component {
         let counter = 0;
         //GOES HERE
         this.renderInterval = setInterval(() => {
-            if (counter < textArr.length && counter === this.state.counter) {
+            if (counter < textArr.length && counter === this.state.counter && this.state.rendering) {
                 counter++;
                 renderText = this.state.questionText + textArr[this.state.counter];
                 this.updateState(renderText, textArr);
@@ -93,11 +107,25 @@ export default class QuestionDisplay extends Component {
         }, 55);
     }
 
+    fullyRenderQuestion = () => {
+        //prevent constant rendering on click
+        if(this.state.counter !== this.state.questionLength){
+            console.log('render full!');
+            this.setState({
+                rendering: false,
+                questionText: this.state.fullQuestion,
+                counter: this.state.questionLength,
+                questionClass: "noFormat"
+            })
+        }
+    }
     checkQuestionDoneLoading() {
         if (this.state.counter === this.state.questionLength) {
+            //done loading
             return false;
+        }else {
+            return true;
         }
-        return true;
     };
 
     componentDidMount() {

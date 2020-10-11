@@ -85,6 +85,11 @@
 .questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
     margin: 0;
     padding: 0 4% 4%;
+    
+}
+
+.questionDisplay .questionContainer p.loading, .responseDisplay .responseContainer p.loading {
+    cursor: pointer; 
 }
 
 .questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
