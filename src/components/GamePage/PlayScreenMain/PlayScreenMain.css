@@ -126,6 +126,15 @@
     background-color: #000;
 }
 
+.responseContainer .continue{
+    cursor: pointer;
+}
+
+.responseContainer .continue:hover{
+    cursor: pointer;
+    color: darkgreen;
+}
+
 .initalsField {
     display: flex;
     flex-direction: column;
