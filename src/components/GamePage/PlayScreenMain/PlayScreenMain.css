@@ -37,6 +37,8 @@
     align-items: center;
     justify-content: space-between;
     margin-top: -50px;
+    width: 50%;
+    padding-left: 2%;
 }
 
 .characterInfo .characterHealthAndName {

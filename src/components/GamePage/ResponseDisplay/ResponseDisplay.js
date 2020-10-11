@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CharacterInfo from '../ChararacterInfo/CharacterInfo'
 import GameSessionContext from '../../../contexts/GameSessionContext';
 
 export default class ResponseDisplay extends Component {
@@ -83,6 +84,7 @@ export default class ResponseDisplay extends Component {
         return (
             <div className="responseDisplay">
                 <div className="responseContainer">
+                    <CharacterInfo />
                     <p className="narrator">B.O.B.B.Y.</p>
                     <p className={responseClass} onClick={this.fullyRenderResponse}>{this.state.responseText}</p>
                     { this.state.counter === this.state.questionLength && <p className="continue" onClick={this.progressToQuestion} disabled={this.checkResponseDoneLoading()}>Continue</p>}
