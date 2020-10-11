@@ -117,8 +117,8 @@ export default class QuestionDisplay extends Component {
         return (
             <div className="questionDisplay">
                 <div className="questionContainer">
-                    <h1 className="narrator">B.O.B.B.Y.</h1>
                     <CharacterInfo />
+                    <h1 className="narrator">B.O.B.B.Y.</h1>
                     {this.grabQuestion()}
                 </div>
                 <div className="choiceContainer">

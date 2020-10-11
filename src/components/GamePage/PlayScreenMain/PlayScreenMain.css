@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap');
-
-.noFormat{
+.noFormat {
     white-space: pre-wrap;
 }
-.narrator{
+
+.narrator {
     text-decoration: underline;
 }
-.charBox{
+
+.charBox {
     display: flex;
     align-items: center;
 }
 
-.gameSpace{
+.gameSpace {
     padding: 0;
 }
 
@@ -29,12 +30,38 @@
     width: 100%;
 }
 
-.questionDisplay .questionContainer .characterInfo{
+.questionDisplay .questionContainer .characterInfo {
     display: flex;
-  }
+    align-items: center;
+    justify-content: space-between;
+}
 
-.questionDisplay .questionContainer,
+.questionDisplay .questionContainer .characterInfo .characterPicAndName {
+    display: flex;
+    align-items: center;
+}
+.questionDisplay .questionContainer .characterInfo .characterName {
+    padding-left: 20px;
+}
+.questionDisplay .questionContainer .characterInfo .characterName h2{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+.questionDisplay .questionContainer .characterInfo .characterPicture {
+    border-right: solid 1px lightgreen;
+    border-bottom: solid 1px lightgreen;
+}
+
+.questionDisplay .questionContainer .characterInfo .characterHealth {
+    margin: 0;
+    margin-right: 2%;
+}
+
+.questionDisplay .questionContainer, 
 .responseDisplay .responseContainer {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 300;
     padding: 0 0 10%;
     height: 60%;
     background-color: #000;
@@ -42,16 +69,13 @@
     border: solid 2px lightgreen;
 }
 
-.questionDisplay .questionContainer p,
+.questionDisplay .questionContainer p, 
 .responseDisplay .responseContainer p {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
     margin: 0;
+    padding: 0 4%;
 }
 
-.questionDisplay .questionContainer h1.narrator,
-.responseDisplay .responseContainer h1.narrator {
-    font-family: 'IBM Plex Mono', monospace;
+.questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
     margin: 1% 0;
     font-weight: 500;
 }
@@ -62,8 +86,7 @@
     flex-wrap: wrap;
 }
 
-.questionDisplay .choiceContainer button,
-.questionDisplay .choiceContainer div.loader {
+.questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {
     border-style: none;
     width: 50%;
     border: white solid 3px;
@@ -88,8 +111,8 @@
 .initalsField {
     display: flex;
     flex-direction: column;
-    
 }
+
 .initalsField #formInitials {
     text-transform: uppercase;
     border-style: none;
