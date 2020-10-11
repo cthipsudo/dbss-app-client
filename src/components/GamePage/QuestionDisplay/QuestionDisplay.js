@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import GameSessionContext from '../../../contexts/GameSessionContext';
-
+import GameFunctions from '../../../services/GameFunctions';
+import LoadingEllipsis from '../../LoadingEllipsis/LoadingEllipsis';
 export default class QuestionDisplay extends Component {
-    
+
     static contextType = GameSessionContext;
 
     state = {
@@ -13,8 +14,9 @@ export default class QuestionDisplay extends Component {
         counter: 0,
     }
 
-    progressToResponse = (choiceAlignment) => {
+    progressToResponse = (choiceAlignment, score) => {
         this.context.setResponse(choiceAlignment);
+        this.context.updateScore(score);
         this.context.progressGame();
         this.context.setResponseStateTrue();
     }
@@ -40,12 +42,48 @@ export default class QuestionDisplay extends Component {
         return <p className="noFormat">{this.state.questionText}</p>
     };
 
+    grabChoices = () => {
+        let buttons = []
+        if (this.context.choices[0]) {
+            buttons = this.context.choices.map((choice, index) => {
+                return (<button
+                    key={index + choice.choice}
+                    onClick={() => this.progressToResponse(choice.alignment, choice.score)}
+                    className="choices"
+                    disabled={this.checkQuestionDoneLoading()}>
+                    {choice.choice}
+                </button>)
+            })
+        }
+        buttons = GameFunctions.shuffle(buttons)
+        return buttons
+    }
+
+    grabLoaders = () => {
+        return (
+            <>
+                <div className="loader">
+                    <LoadingEllipsis />
+                </div>
+                <div className="loader">
+                    <LoadingEllipsis />
+                </div>
+                <div className="loader">
+                    <LoadingEllipsis />
+                </div>
+                <div className="loader">
+                    <LoadingEllipsis />
+                </div>
+            </>
+        )
+    }
+
     renderQuestion = (questionText) => {
         const textArr = questionText.split('');
         let renderText = "";
         let counter = 0;
         //GOES HERE
-        this.renderInterval = setInterval( () => {
+        this.renderInterval = setInterval(() => {
             if (counter < textArr.length && counter === this.state.counter) {
                 counter++;
                 renderText = this.state.questionText + textArr[this.state.counter];
@@ -75,14 +113,6 @@ export default class QuestionDisplay extends Component {
 
 
     render() {
-        let buttons = [];
-        //Choices load in
-        if (this.context.choices[0]) {
-            buttons = this.context.choices.map((choice, index) => {
-                return (<button key={index + choice.choice} onClick={() => this.progressToResponse(choice.alignment)} disabled={this.checkQuestionDoneLoading()} >{choice.choice}</button>)
-            })
-        }
-
         return (
             <div className="questionDisplay">
                 <div className="questionContainer">
@@ -90,7 +120,8 @@ export default class QuestionDisplay extends Component {
                     {this.grabQuestion()}
                 </div>
                 <div className="choiceContainer">
-                    {buttons}
+                    {this.state.counter === this.state.questionLength && this.grabChoices()}
+                    {this.state.counter !== this.state.questionLength && this.grabLoaders()}
                 </div>
             </div>
         )

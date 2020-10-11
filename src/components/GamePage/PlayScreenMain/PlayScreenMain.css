@@ -103,7 +103,8 @@
     flex-wrap: wrap;
 }
 
-.questionDisplay .choiceContainer button {
+.questionDisplay .choiceContainer button,
+.questionDisplay .choiceContainer div.loader {
     border-style: none;
     width: 50%;
     border: white solid 3px;
@@ -113,4 +114,14 @@
 
 .questionDisplay .choiceContainer button:hover {
     background: #bbb;
+}
+
+.questionDisplay .choiceContainer div.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.questionDisplay .choiceContainer button.choices:disabled {
+    background-color: #000;
 }
