@@ -7,8 +7,7 @@ section.createCharSection {
     justify-content: space-evenly;
 }
 
-button {
-    margin-top: 5%;
+button[type="submit"] {
     width: 20%;
 }
 

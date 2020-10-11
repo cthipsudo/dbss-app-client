@@ -68,9 +68,7 @@ export default class CharCreateSection extends Component {
     changeCharacterPortrait = (ev) => {
         //const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
         this.handleChangeRace(ev);
-        console.log('change');
         let portrait = "";
-        console.log(this.state.char_race);
         switch(ev.target.value){
             case '1':
                 portrait = Astronaut;
@@ -161,7 +159,7 @@ export default class CharCreateSection extends Component {
                             </div>
                         </div>
                         <div className="characterPortrait">
-                            <img src={this.state.characterDisplay}/>
+                            <img src={this.state.characterDisplay} alt="character portrait"/>
                         </div>
                         <button type="submit">Create</button>
                     </form>

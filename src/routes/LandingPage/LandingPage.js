@@ -4,8 +4,6 @@ import AboutSection from '../../components/LandingPage/AboutGameSection/AboutGam
 import AboutScoreBoardSection from '../../components/LandingPage/AboutScoreBoardSection/AboutScoreBoardSection'
 import PlayGameSection from '../../components/LandingPage/PlayGameSection/PlayGameSection'
 
-import './LandingPage.css'
-
 export default class LandingPage extends Component {
   render() {
     return (

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CharacterPicture from '../CharacterPicture/CharacterPicture';
 import CharacterName from '../CharacterName/CharacterName';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameMusic from '../../GameMusic/GameMusic'
