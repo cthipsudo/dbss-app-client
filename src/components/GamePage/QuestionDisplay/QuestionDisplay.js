@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameFunctions from '../../../services/GameFunctions';
 import LoadingEllipsis from '../../LoadingEllipsis/LoadingEllipsis';
+import CharacterInfo from '../ChararacterInfo/CharacterInfo';
 export default class QuestionDisplay extends Component {
 
     static contextType = GameSessionContext;
@@ -116,7 +117,8 @@ export default class QuestionDisplay extends Component {
         return (
             <div className="questionDisplay">
                 <div className="questionContainer">
-                    <p className="narrator">B.O.B.B.Y.</p>
+                    <h1 className="narrator">B.O.B.B.Y.</h1>
+                    <CharacterInfo />
                     {this.grabQuestion()}
                 </div>
                 <div className="choiceContainer">
