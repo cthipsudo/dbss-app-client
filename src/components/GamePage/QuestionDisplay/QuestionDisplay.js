@@ -1,9 +1,9 @@
-
 import React, { Component } from 'react';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameFunctions from '../../../services/GameFunctions';
 import LoadingEllipsis from '../../LoadingEllipsis/LoadingEllipsis';
 import CharacterInfo from '../ChararacterInfo/CharacterInfo';
+
 export default class QuestionDisplay extends Component {
 
     static contextType = GameSessionContext;
@@ -90,7 +90,7 @@ export default class QuestionDisplay extends Component {
                 renderText = this.state.questionText + textArr[this.state.counter];
                 this.updateState(renderText, textArr);
             }
-        }, 60);
+        }, 55);
     }
 
     checkQuestionDoneLoading() {
@@ -120,6 +120,7 @@ export default class QuestionDisplay extends Component {
                     <CharacterInfo />
                     <h1 className="narrator">B.O.B.B.Y.</h1>
                     {this.grabQuestion()}
+
                 </div>
                 <div className="choiceContainer">
                     {this.state.counter === this.state.questionLength && this.grabChoices()}

@@ -17,6 +17,7 @@ export default class DisplayAndQuestion extends Component {
         return (
             <div className="displayAndQuestionContainer">
                 {this.checkForResponseOrQuestion()}
+                
             </div>
         )
     }

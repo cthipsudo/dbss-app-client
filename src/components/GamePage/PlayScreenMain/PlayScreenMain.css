@@ -30,47 +30,55 @@
     width: 100%;
 }
 
-.questionDisplay .questionContainer .characterInfo {
+.characterInfo {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.questionDisplay .questionContainer .characterInfo .characterPicAndName {
+.characterInfo .characterHealthAndName {
     display: flex;
     align-items: center;
+    margin-left: 2%;
 }
-.questionDisplay .questionContainer .characterInfo .characterName {
+
+.characterInfo .characterName {
     padding-left: 20px;
 }
-.questionDisplay .questionContainer .characterInfo .characterName h2{
+
+.characterInfo .characterName h2 {
     margin: 0;
     display: flex;
     justify-content: center;
 }
-.questionDisplay .questionContainer .characterInfo .characterPicture {
-    border-right: solid 1px lightgreen;
-    border-bottom: solid 1px lightgreen;
-}
 
-.questionDisplay .questionContainer .characterInfo .characterHealth {
+.characterInfo .characterHealth {
     margin: 0;
-    margin-right: 2%;
+    font-size: 2em;
 }
 
-.questionDisplay .questionContainer, 
-.responseDisplay .responseContainer {
+.volumeSection {
+    background-color: #000;
+    color: lightgreen;
+    margin: 1% 2% 0;
+}
+
+.volumeSection .volumeIcon {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.questionDisplay .questionContainer, .responseDisplay .responseContainer {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 300;
     padding: 0 0 10%;
-    height: 60%;
     background-color: #000;
     color: lightgreen;
     border: solid 2px lightgreen;
+    border-top: none;
 }
 
-.questionDisplay .questionContainer p, 
-.responseDisplay .responseContainer p {
+.questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
     margin: 0;
     padding: 0 4%;
 }

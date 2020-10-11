@@ -7,7 +7,7 @@ export default class CharacterName extends Component {
     render(){
         return(
             <div className="characterName">
-                <h2 className>{this.context.character.name}</h2>
+                <h2>{this.context.character.name}</h2>
             </div>
         )
     }
