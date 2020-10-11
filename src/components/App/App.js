@@ -22,6 +22,7 @@ class App extends Component {
       <div className="App">
         <GeneralNav></GeneralNav>
         <main className="appMain">{this.renderMainRoutes()}</main>
+        <div className="push"></div>
         <GeneralFooter></GeneralFooter>
       </div>
     );

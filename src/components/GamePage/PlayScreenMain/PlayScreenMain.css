@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap');
-
 .noFormat {
     white-space: pre-wrap;
 }
@@ -15,7 +14,6 @@
 
 .gameSpace {
     padding: 0;
-    height: 100vh;
 }
 
 .playerProgress {
@@ -23,12 +21,15 @@
 }
 
 .displayAndQuestionContainer {
-    height: 100vh;
+    
 }
 
 .questionDisplay, .responseDisplay {
     background: #bbb;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .characterInfo {
@@ -78,11 +79,12 @@
     color: lightgreen;
     border: solid 2px lightgreen;
     border-top: none;
+    flex-grow: 1;
 }
 
 .questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
     margin: 0;
-    padding: 0 4%;
+    padding: 0 4% 4%;
 }
 
 .questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
@@ -94,6 +96,7 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 1;
 }
 
 .questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {

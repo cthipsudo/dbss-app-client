@@ -47,8 +47,14 @@ table {
 	border-spacing: 0;
 }
 
+
 * {
   box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 body {
@@ -68,7 +74,8 @@ p {
   min-height: 100vh;
 }
 .appMain{
-  padding-bottom: 2.5rem;
+  min-height: 100%;
+  margin-bottom: -50px;
 }
 
 
@@ -94,9 +101,6 @@ section:nth-child(even) {
     background-color: azure;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
+#footer, .push {
+  height: 50px;
 }

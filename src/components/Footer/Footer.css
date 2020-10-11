@@ -1,13 +1,12 @@
 
-  footer {
+  footer#footer {
     padding: 1% 0;
+    height: 100px;
     background-color: #aaa;
   }
 
   ul.navListFooter{
-    margin: 0;
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
-    padding: 0;
   }
