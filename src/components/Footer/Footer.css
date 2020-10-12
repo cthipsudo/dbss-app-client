@@ -1,6 +1,7 @@
 
-  footer {
+  footer#footer {
     padding: 1% 0;
+    height: 100px;
     background-color: #aaa;
   }
 
@@ -8,5 +9,4 @@
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
-    padding: 0;
   }

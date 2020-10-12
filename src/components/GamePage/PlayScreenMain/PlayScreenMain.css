@@ -21,19 +21,26 @@
 }
 
 .displayAndQuestionContainer {
-    display: flex;
+    
 }
-
 .questionDisplay, .responseDisplay {
-    min-height: 80vh;
     background: #bbb;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+.questionDisplay{
+    
 }
 
 .characterInfo {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: -50px;
+    width: 50%;
+    padding-left: 2%;
 }
 
 .characterInfo .characterHealthAndName {
@@ -59,8 +66,12 @@
 
 .volumeSection {
     background-color: #000;
-    color: lightgreen;
-    margin: 1% 2% 0;
+    color: #90EE90;
+    border: solid 2px #90EE90;
+    border-bottom: none;
+    padding: 2% 2% 0;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .volumeSection .volumeIcon {
@@ -71,16 +82,23 @@
 .questionDisplay .questionContainer, .responseDisplay .responseContainer {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 300;
-    padding: 0 0 10%;
+    padding: 0;
     background-color: #000;
-    color: lightgreen;
-    border: solid 2px lightgreen;
+    height: 100%;
+    color: #90EE90;
+    border: solid 2px #90EE90;
     border-top: none;
+    flex-grow: 1;
 }
 
 .questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
     margin: 0;
-    padding: 0 4%;
+    padding: 0 4% 4%;
+    
+}
+
+.questionDisplay .questionContainer p.loading, .responseDisplay .responseContainer p.loading {
+    cursor: pointer; 
 }
 
 .questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
@@ -88,10 +106,16 @@
     font-weight: 500;
 }
 
+.questionDisplay .questionContainer{
+    height: 0;
+    flex-grow: 3;
+}
+
 .questionDisplay .choiceContainer {
-    height: 40%;
+    height: 0;
     display: flex;
     flex-wrap: wrap;
+    flex-grow: 2;
 }
 
 .questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {
@@ -114,6 +138,15 @@
 
 .questionDisplay .choiceContainer button.choices:disabled {
     background-color: #000;
+}
+
+.responseContainer .continue{
+    cursor: pointer;
+}
+
+.responseContainer .continue:hover{
+    cursor: pointer;
+    color: darkgreen;
 }
 
 .initalsField {

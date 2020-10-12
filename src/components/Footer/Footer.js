@@ -6,8 +6,7 @@ import './Footer.css'
 export default class Footer extends Component {
     render() {
         return (
-            <footer>
-                <p>General Footer here</p>
+            <footer id="footer">
                 <ul className="navListFooter">
                     <li><Link to='/game'>Play!</Link></li>
                     <li><Link to='/scoreboard'>Scoreboard</Link></li>

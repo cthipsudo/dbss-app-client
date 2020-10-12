@@ -4,13 +4,16 @@ import GameServerService from '../../../services/game-server-service'
 import PlayerDataService from '../../../services/player-data-service'
 import CreateCharacterService from '../../../services/create-character-services';
 import GameContext from '../../../contexts/GameContext';
+import Astronaut from '../../../images/astronaut.svg';
+import Alien from '../../../images/ufo.svg';
+import Goblin from '../../../images/goblin.svg';
 
 import './CharCreateSection.css';
 
 export default class CharCreateSection extends Component {
     state = {
         createFunc: () => { },
-        characterDisplay: "human Picture here",
+        characterDisplay: Astronaut,
         char_name: '',
         char_race: 1,
         char_class: 1,
@@ -63,10 +66,24 @@ export default class CharCreateSection extends Component {
     }
 
     changeCharacterPortrait = (ev) => {
-        const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
+        //const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
         this.handleChangeRace(ev);
+        let portrait = "";
+        switch(ev.target.value){
+            case '1':
+                portrait = Astronaut;
+                break;
+            case '2':
+                portrait = Alien;
+                break;
+            case '3':
+                portrait = Goblin;
+                break;
+            default:
+                portrait = Astronaut;
+        }
         this.setState({
-            characterDisplay: `${characterRace} Picture here`,
+            characterDisplay: portrait,
         });
     }
 
@@ -142,7 +159,7 @@ export default class CharCreateSection extends Component {
                             </div>
                         </div>
                         <div className="characterPortrait">
-                            {this.state.characterDisplay}
+                            <img src={this.state.characterDisplay} alt="character portrait"/>
                         </div>
                         <button type="submit">Create</button>
                     </form>
