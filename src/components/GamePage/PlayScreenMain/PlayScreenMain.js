@@ -5,6 +5,8 @@ import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
+import FareWellPrincess from '../../../music/farewell-princess.mp3'
+import VideoGameLand from '../../../music/video-game-land.mp3';
 import ResultScreen from '../ResultSection/ResultSection';
 import './PlayScreenMain.css'
 
@@ -26,6 +28,7 @@ export default class PlayScreenMain extends Component {
         lastQuestion: false,
         gameComplete: false,
         gameLost: false,
+        song: FareWellPrincess,
     }
 
     componentDidMount() {
@@ -111,6 +114,17 @@ export default class PlayScreenMain extends Component {
             lastQuestion: true,
         });
     }
+
+    updateScore = (addScore) => {
+        this.setState({
+            score: this.state.score + addScore,
+        })
+    }
+    updateSong = (song) => {
+        this.setState({
+            song: VideoGameLand,
+        })
+    }
     
     renderGeneralScreens = () => {
         //if we're in a question
@@ -130,12 +144,7 @@ export default class PlayScreenMain extends Component {
         }
     }
 
-    updateScore = (addScore) => {
-        this.setState({
-            score: this.state.score + addScore,
-        })
-    }
-
+    
     render() {
         if (!this.state.question.length) {
             //loading
@@ -153,6 +162,7 @@ export default class PlayScreenMain extends Component {
             gameLost: this.state.gameLost,
             score: this.state.score,
             health: this.state.health,
+            song: this.state.song,
             progressGame: this.progressGame,
             setResponse: this.setResponse,
             setResponseStateTrue: this.setResponseStateTrue,

@@ -42,7 +42,7 @@ export default class QuestionDisplay extends Component {
         if (this.context.question.question) {
             questionText = this.context.question.question
             //Sets the newlines
-            questionText = questionText.replace(/\\n/g, '\n')
+            questionText = GameFunctions.translateServerText(questionText, this.context.character.name);
             this.renderQuestion(questionText)
         }
         //question is fully rendered
