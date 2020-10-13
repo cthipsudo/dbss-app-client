@@ -4,7 +4,7 @@ import PlayScreenMain from './PlayScreenMain'
 import { BrowserRouter } from 'react-router-dom'
 import GameContext from '../../../contexts/GameContext';
 
-it.skip('PlayScreenMain Renders without crashing', () => {
+it('PlayScreenMain Renders without crashing', () => {
     const div = document.createElement('div');
     const value = {
         
