@@ -1,12 +1,37 @@
 
   footer#footer {
-    padding: 1% 0;
-    height: 100px;
-    background-color: #aaa;
+    padding: 4% 0;
+    font-size: 0.8em;
+    background-color: #050d18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
   }
 
-  ul.navListFooter{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
+  footer#footer a {
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 2px 2px 1px #1f1f1f;
+  }
+
+  footer#footer a:hover {
+    color: #E98731;
+  }
+
+  footer#footer p.footerSpacer{
+    color: #050d18;
+    margin: 0 10px;
+  }
+
+  @media all and (min-width: 600px){
+    footer#footer p.footerSpacer{
+      color: #fff;
+    }
+
+    footer#footer {
+      padding: 1% 0;
+      flex-direction: row;
+    }
   }
