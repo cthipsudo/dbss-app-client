@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
+import GameSessionContext from '../../contexts/GameSessionContext';
 import SoundFile from '../../music/farewell-princess.mp3'
 import Sound from 'react-sound'
 export default class GameMusic extends Component {
+    static contextType = GameSessionContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -35,7 +37,7 @@ export default class GameMusic extends Component {
             <div className="volumeSection">
                 <FontAwesomeIcon icon={this.state.volume} onClick={this.changeStatus} className="volumeIcon"/>
                 <Sound 
-                url={SoundFile}
+                url={this.context.song}
                 playStatus={this.state.status}
                 loop={true}
                 volume={20}

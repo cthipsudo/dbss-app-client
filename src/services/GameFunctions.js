@@ -222,10 +222,20 @@ function setUpScoreList(scores) {
     return scoreList;
 }
 
+function translateServerText(text, charName){
+    //console.log('new translation');
+    let translatedText = text;
+    translatedText = translatedText.replace(/\\n/g, '\n');
+    translatedText = translatedText.replace(/{name}/g, `${charName}`)
+    //translatedText = translatedText.replace(/{play}/g, ``)
+    return translatedText; 
+}
+
 export default {
     shuffle,
     grabChoices,
     makeShuffledQuestions,
     grabResponse,
     setUpScoreList,
+    translateServerText, 
 };

@@ -5,6 +5,8 @@ import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameServerService from '../../../services/game-server-service';
 import GameFunctions from '../../../services/GameFunctions';
+import FareWellPrincess from '../../../music/farewell-princess.mp3'
+import VideoGameLand from '../../../music/video-game-land.mp3';
 import ResultScreen from '../ResultSection/ResultSection';
 import './PlayScreenMain.css'
 
@@ -12,6 +14,7 @@ export default class PlayScreenMain extends Component {
     static contextType = GameContext;
 
     state = {
+        error: null,
         questions: [],
         character: this.context.characterSelected,
         question: {},
@@ -26,6 +29,7 @@ export default class PlayScreenMain extends Component {
         lastQuestion: false,
         gameComplete: false,
         gameLost: false,
+        song: FareWellPrincess,
     }
 
     componentDidMount() {
@@ -33,24 +37,31 @@ export default class PlayScreenMain extends Component {
         const p1 = GameServerService.getGameQuestions();
         const p2 = GameServerService.getGameChoices();
         const p3 = GameServerService.getGameResponses();
-        Promise.all([p1, p2, p3]).then(data => {
-            this.setState({
-                questions: data[0],
-                choiceBase: data[1],
-                responseBase: data[2],
-            });
+        Promise.all([p1, p2, p3])
+            .then(data => {
+                this.setState({
+                    questions: data[0],
+                    choiceBase: data[1],
+                    responseBase: data[2],
+                    error: null,
+                })
+            .catch(res => {
+                this.setState({
+                    error: res.error,
+                })
+            })
 
-            const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
-            const firstQuestion = initalQuestions[this.state.progess];
-            const charRace = this.context.characterSelected.race;
-            const charClass = this.context.characterSelected.class;
-            const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
-            this.setState({
-                questions: initalQuestions,
-                question: firstQuestion,
-                choices: initialChoices,
-            });
-        })
+                const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
+                const firstQuestion = initalQuestions[this.state.progess];
+                const charRace = this.context.characterSelected.race;
+                const charClass = this.context.characterSelected.class;
+                const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
+                this.setState({
+                    questions: initalQuestions,
+                    question: firstQuestion,
+                    choices: initialChoices,
+                });
+            })
 
     }
 
@@ -111,7 +122,18 @@ export default class PlayScreenMain extends Component {
             lastQuestion: true,
         });
     }
-    
+
+    updateScore = (addScore) => {
+        this.setState({
+            score: this.state.score + addScore,
+        })
+    }
+    updateSong = (song) => {
+        this.setState({
+            song: VideoGameLand,
+        })
+    }
+
     renderGeneralScreens = () => {
         //if we're in a question
         if (this.state.gameComplete) {
@@ -121,8 +143,10 @@ export default class PlayScreenMain extends Component {
                 </>
             )
         } else {
+            const { error } = this.state;
             return (
                 <section className="gameSpace">
+                    {error && <p>{error}</p>}
                     <PlayerProgression />
                     <DisplayAndQuestion />
                 </section>
@@ -130,11 +154,6 @@ export default class PlayScreenMain extends Component {
         }
     }
 
-    updateScore = (addScore) => {
-        this.setState({
-            score: this.state.score + addScore,
-        })
-    }
 
     render() {
         if (!this.state.question.length) {
@@ -153,6 +172,7 @@ export default class PlayScreenMain extends Component {
             gameLost: this.state.gameLost,
             score: this.state.score,
             health: this.state.health,
+            song: this.state.song,
             progressGame: this.progressGame,
             setResponse: this.setResponse,
             setResponseStateTrue: this.setResponseStateTrue,
