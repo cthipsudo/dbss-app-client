@@ -31,13 +31,24 @@ export default class GameMusic extends Component {
         }
         
     }
+    grabSong = () => {
+         //setSongDefaults
+         let songUrl = "";
+         if(this.context.song){
+             songUrl = this.context.song
+         }else{
+             songUrl = SoundFile
+         }
+         return songUrl;
+    }
 
     render() {
+       
         return (
             <div className="volumeSection">
                 <FontAwesomeIcon icon={this.state.volume} onClick={this.changeStatus} className="volumeIcon"/>
                 <Sound 
-                url={this.context.song}
+                url={this.grabSong()}
                 playStatus={this.state.status}
                 loop={true}
                 volume={20}

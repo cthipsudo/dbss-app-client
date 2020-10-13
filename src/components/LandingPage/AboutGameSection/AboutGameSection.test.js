@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import AboutGameSection from './AboutGameSection'
 import { BrowserRouter } from 'react-router-dom'
 
-it('App Renders without crashing', () => {
+it('AboutGameSection Renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <AboutGameSection />
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);
