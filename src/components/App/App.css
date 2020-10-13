@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&family=Sansita+Swashed:wght@600&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -58,9 +60,9 @@ html, body {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
   font-size: 20px;
-  color: #444;
+  color: #fff;
   text-align: center;
   line-height: 1.5;
 }
@@ -80,17 +82,19 @@ p {
 
 
 header {
-  padding: 12% 0;
+  padding: 12% 0 15%;
 }
 
 section {
   min-height: 200px;
   padding: 6% 0;
-  background-color: #bbb;
+  background: url('../../images/black-galaxy-downscaled.jpg');
+  background-attachment: fixed;
 }
 
 section:nth-child(even) {
-  background-color: #ddd;
+  background-image: none;
+  background-color: #050d18;
 }
 
 .playButton{
