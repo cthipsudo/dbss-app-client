@@ -17,13 +17,14 @@ export default class CharCreateSection extends Component {
         char_name: '',
         char_race: 1,
         char_class: 1,
-
+        error: null,
     }
 
     static contextType = GameContext;
 
     createCharacter = (ev) => {
         ev.preventDefault();
+        this.setState({ error: null })
         const character = {
             char_name: this.state.char_name,
             char_class: Number(this.state.char_class),
@@ -48,7 +49,9 @@ export default class CharCreateSection extends Component {
                         this.state.createFunc(char);
                         this.props.goBack();
                     })
-                    .catch("error context here");
+                    .catch(res => {
+                        this.setState({ error: res.error })
+                    });
             }
         } else {
             //convert the char data to strings
@@ -69,7 +72,7 @@ export default class CharCreateSection extends Component {
         //const characterRace = CreateCharacterService.translateCharRace(ev.target.value);
         this.handleChangeRace(ev);
         let portrait = "";
-        switch(ev.target.value){
+        switch (ev.target.value) {
             case '1':
                 portrait = Astronaut;
                 break;
@@ -95,6 +98,19 @@ export default class CharCreateSection extends Component {
     }
     handleChangeRace = (ev) => {
         this.setState({ char_race: ev.target.value })
+    }
+
+    grabInitalPortrait = (charRaceValue) => {
+        switch(charRaceValue){
+            case 1:
+                return Astronaut;
+            case 2:
+                return Alien;
+            case 3: 
+                return Goblin;
+            default:
+                return Astronaut;
+        }
     }
 
     componentDidMount() {
@@ -125,12 +141,13 @@ export default class CharCreateSection extends Component {
                 char_name: selectedChar.char_name,
                 char_race: selectedChar.char_race,
                 char_class: selectedChar.char_class,
+                characterDisplay: this.grabInitalPortrait(selectedChar.char_race),
             })
         }
     }
 
     render() {
-        const { char_name, char_race, char_class } = this.state;
+        const { char_name, char_race, char_class, error } = this.state;
         return (
             <section className="createCharSection">
                 <div>
@@ -159,8 +176,9 @@ export default class CharCreateSection extends Component {
                             </div>
                         </div>
                         <div className="characterPortrait">
-                            <img src={this.state.characterDisplay} alt="character portrait"/>
+                            <img src={this.state.characterDisplay} alt="character portrait" />
                         </div>
+                        {error && <p>{error}</p>}
                         <button type="submit">Create</button>
                     </form>
                 </div>

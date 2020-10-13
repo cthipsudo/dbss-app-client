@@ -14,6 +14,7 @@ export default class PlayScreenMain extends Component {
     static contextType = GameContext;
 
     state = {
+        error: null,
         questions: [],
         character: this.context.characterSelected,
         question: {},
@@ -36,24 +37,31 @@ export default class PlayScreenMain extends Component {
         const p1 = GameServerService.getGameQuestions();
         const p2 = GameServerService.getGameChoices();
         const p3 = GameServerService.getGameResponses();
-        Promise.all([p1, p2, p3]).then(data => {
-            this.setState({
-                questions: data[0],
-                choiceBase: data[1],
-                responseBase: data[2],
-            });
+        Promise.all([p1, p2, p3])
+            .then(data => {
+                this.setState({
+                    questions: data[0],
+                    choiceBase: data[1],
+                    responseBase: data[2],
+                    error: null,
+                })
+            .catch(res => {
+                this.setState({
+                    error: res.error,
+                })
+            })
 
-            const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
-            const firstQuestion = initalQuestions[this.state.progess];
-            const charRace = this.context.characterSelected.race;
-            const charClass = this.context.characterSelected.class;
-            const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
-            this.setState({
-                questions: initalQuestions,
-                question: firstQuestion,
-                choices: initialChoices,
-            });
-        })
+                const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
+                const firstQuestion = initalQuestions[this.state.progess];
+                const charRace = this.context.characterSelected.race;
+                const charClass = this.context.characterSelected.class;
+                const initialChoices = GameFunctions.grabChoices(this.state.choiceBase, charRace, charClass, firstQuestion);
+                this.setState({
+                    questions: initalQuestions,
+                    question: firstQuestion,
+                    choices: initialChoices,
+                });
+            })
 
     }
 
@@ -125,7 +133,7 @@ export default class PlayScreenMain extends Component {
             song: VideoGameLand,
         })
     }
-    
+
     renderGeneralScreens = () => {
         //if we're in a question
         if (this.state.gameComplete) {
@@ -144,7 +152,7 @@ export default class PlayScreenMain extends Component {
         }
     }
 
-    
+
     render() {
         if (!this.state.question.length) {
             //loading

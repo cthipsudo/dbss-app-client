@@ -8,6 +8,9 @@ import './CharSelect.css'
 
 
 export default class CharSelect extends Component {
+    state = {
+        error: null,
+    }
     static contextType = GameContext;
 
     cleanCharSlot = () => {
@@ -28,6 +31,7 @@ export default class CharSelect extends Component {
             const playerData = PlayerDataService.getPlayerData();
             GameServerService.getUserCharData(playerData.playerId)
                 .then(res => {
+                    this.setState({ error: null })
                     return res.map(charData => {
                         const charRefined = {
                             name: charData.char_name,
@@ -49,9 +53,11 @@ export default class CharSelect extends Component {
                         return "Char created"
                     })
                 })
-                .catch("set error state here")
+                .catch(res => {
+                    this.setState({ error: res.error })
+                })
         } else {
-            
+
         }
     }
 
@@ -64,12 +70,14 @@ export default class CharSelect extends Component {
     }
 
     render() {
+        const { error } = this.state;
         const selectedChar = this.context.characterSelected
         const selectedCharText = this.grabSelectedChar();
         return (
             <section className="charSelect">
                 <h1>Choose your character:</h1>
                 <CharacterSaves />
+                {error && <p>{error}</p>}
                 {selectedCharText}
                 {selectedChar.exist && <Link to="/game/play" id="charSelectStart" onClick={() => this.context.startGameSession()}>Start!</Link>}
             </section>
