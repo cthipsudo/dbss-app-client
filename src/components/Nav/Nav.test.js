@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import Nav from './Nav'
 import { BrowserRouter } from 'react-router-dom'
 
-it('App Renders without crashing', () => {
+it('Nav Renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <Nav />
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);

@@ -7,6 +7,9 @@ import TokenService from '../../../services/token-service'
 
 export default class Character extends Component {
     static contextType = GameContext;
+    static defaultProps = {
+        character: {}
+    }
     deleteChar = () => {
         //Check if we're logged in
         //Unselect Char if selected

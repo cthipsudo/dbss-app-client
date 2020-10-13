@@ -5,9 +5,13 @@ export default class CharacterName extends Component {
     static contextType = GameSessionContext;
 
     render(){
+        let name = "";
+        if(!this.context.character === null){
+            name = name.context.character.name
+        }
         return(
             <div className="characterName">
-                <h2>{this.context.character.name}</h2>
+                <h2>{name}</h2>
             </div>
         )
     }

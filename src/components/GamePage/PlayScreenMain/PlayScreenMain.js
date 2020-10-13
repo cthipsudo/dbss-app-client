@@ -16,7 +16,7 @@ export default class PlayScreenMain extends Component {
     state = {
         error: null,
         questions: [],
-        character: this.context.characterSelected,
+        character: null,
         question: {},
         choiceBase: [],
         choices: [],
@@ -34,6 +34,10 @@ export default class PlayScreenMain extends Component {
 
     componentDidMount() {
         //Grab the questions
+        //console.log();
+        this.setState({
+            character: this.context.characterSelected
+        })
         const p1 = GameServerService.getGameQuestions();
         const p2 = GameServerService.getGameChoices();
         const p3 = GameServerService.getGameResponses();
@@ -45,11 +49,6 @@ export default class PlayScreenMain extends Component {
                     responseBase: data[2],
                     error: null,
                 })
-            .catch(res => {
-                this.setState({
-                    error: res.error,
-                })
-            })
 
                 const initalQuestions = GameFunctions.makeShuffledQuestions(this.state.questions);
                 const firstQuestion = initalQuestions[this.state.progess];
@@ -62,7 +61,11 @@ export default class PlayScreenMain extends Component {
                     choices: initialChoices,
                 });
             })
-
+            .catch(res => {
+                this.setState({
+                    error: res.error,
+                })
+            })
     }
 
     grabNewData = () => {

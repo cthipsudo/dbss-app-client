@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import ScoreBoard from './ScoreBoard'
 import { BrowserRouter } from 'react-router-dom'
 
-it('App Renders without crashing', () => {
+it('ScoreBoard Renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <ScoreBoard />
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);

@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
+import LoadingEllipsis from './LoadingEllipsis'
 import { BrowserRouter } from 'react-router-dom'
 
-it('App Renders without crashing', () => {
+it('LoadingEllipsis Renders without crashing', () => {
   const div = document.createElement('div');
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <LoadingEllipsis />
     </BrowserRouter>,
     div);
   ReactDOM.unmountComponentAtNode(div);
