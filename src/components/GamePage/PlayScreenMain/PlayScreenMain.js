@@ -143,8 +143,10 @@ export default class PlayScreenMain extends Component {
                 </>
             )
         } else {
+            const { error } = this.state;
             return (
                 <section className="gameSpace">
+                    {error && <p>{error}</p>}
                     <PlayerProgression />
                     <DisplayAndQuestion />
                 </section>
