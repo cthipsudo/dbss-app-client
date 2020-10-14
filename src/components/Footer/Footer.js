@@ -10,7 +10,7 @@ export default class Footer extends Component {
                 <p className="footerSpacer">|</p>
                 <p>All Rights Reserved.</p>
                 <p className="footerSpacer">|</p>
-                <a href="https://oscarthipp.com/"><p>See my other works!</p></a>
+                <a href="https://oscarthipp.com/"><p>See my other projects!</p></a>
             </footer>
         )
     }

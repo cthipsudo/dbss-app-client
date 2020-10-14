@@ -8,8 +8,8 @@ export default class ScoreBoard extends Component {
         scoreBase: null,
         recentScoreBase: null,
         topScores: false,
-        classNameRecent: "inactive",
-        classNameTop: "",
+        classNameRecent: "",
+        classNameTop: "inactive",
     }
     componentDidMount() {
         //grab the scores

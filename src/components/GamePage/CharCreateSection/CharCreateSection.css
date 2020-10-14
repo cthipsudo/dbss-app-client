@@ -8,7 +8,8 @@ section.createCharSection {
 }
 
 button[type="submit"] {
-    width: 20%;
+    width: 100%;
+    cursor: pointer;
 }
 
 form.characterCreate {

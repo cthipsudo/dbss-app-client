@@ -2,7 +2,9 @@
     background-color: #050d18;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     border-bottom: #fff solid 2px;
+    padding: 0 5%;
 }
 .appNav a {
     color: #fff;
@@ -16,13 +18,12 @@
 .appNav #navTitle{
     display: flex;
     flex-direction: column;
-    width: 100%;
     font-family: 'Sansita Swashed', cursive;
+    margin: 0 20px;
 }
 ul.navList {
     font-family: 'Sansita Swashed', cursive;
     padding-left: 0;
-    width: 100%;
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
@@ -31,6 +32,10 @@ ul.navList {
 ul.navList li {
     height: auto;
     margin: 30px 0;
+}
+
+ul.navList li.wordBreak{
+    word-break: break-word;
 }
 
 ul.navList a {

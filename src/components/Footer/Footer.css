@@ -1,12 +1,12 @@
 
   footer#footer {
-    padding: 4% 0;
-    font-size: 0.8em;
+    padding: 8% 2%;
+    font-size: 0.5em;
     background-color: #050d18;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: rows;
     height: auto;
   }
 
@@ -21,17 +21,17 @@
   }
 
   footer#footer p.footerSpacer{
-    color: #050d18;
+    color: #fff;
     margin: 0 10px;
   }
 
   @media all and (min-width: 600px){
     footer#footer p.footerSpacer{
-      color: #fff;
+      
     }
 
     footer#footer {
-      padding: 1% 0;
-      flex-direction: row;
+      padding: 2% 0;
+      font-size: 0.8em;
     }
   }

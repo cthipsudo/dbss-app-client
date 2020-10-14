@@ -139,6 +139,9 @@
 .questionDisplay .choiceContainer button.choices:disabled {
     background-color: #000;
 }
+.responseContainer .noFormat {
+    font-size: 0.8em;
+}
 
 .responseContainer .continue{
     cursor: pointer;

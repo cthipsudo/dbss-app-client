@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PlayerProgression from '../PlayerProgress/PlayerProgress'
+import GameNav from '../GameNav/GameNav'
 import DisplayAndQuestion from '../DisplayAndQuestion/DisplayAndQuestion'
 import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
@@ -8,6 +8,7 @@ import GameFunctions from '../../../services/GameFunctions';
 import FareWellPrincess from '../../../music/farewell-princess.mp3'
 import VideoGameLand from '../../../music/video-game-land.mp3';
 import ResultScreen from '../ResultSection/ResultSection';
+
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
@@ -156,7 +157,7 @@ export default class PlayScreenMain extends Component {
             return (
                 <section className="gameSpace" ref={this.myRef}>
                     {error && <p>{error}</p>}
-                    <PlayerProgression />
+                    <GameNav />
                     <DisplayAndQuestion />
                 </section>
             )

@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import PlayerProgress from './PlayerProgress'
+import GameNav from './GameNav'
 import { BrowserRouter } from 'react-router-dom'
 import GameContext from '../../../contexts/GameContext';
 
-it('PlayerProgress Renders without crashing', () => {
+it('GameNav Renders without crashing', () => {
     const div = document.createElement('div');
     const value = {
         progress: 0
@@ -12,7 +12,7 @@ it('PlayerProgress Renders without crashing', () => {
     ReactDOM.render(
         <BrowserRouter>
             <GameContext.Provider value={value}>
-                <PlayerProgress />
+                <GameNav />
             </GameContext.Provider>
         </BrowserRouter>,
         div);

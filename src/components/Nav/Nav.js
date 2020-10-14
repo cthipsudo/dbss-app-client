@@ -14,7 +14,7 @@ export default class GeneralNav extends Component {
                     <p>Silence and Stardust</p>
                 </Link>
                 <ul className="navList" id="menu">
-                    <li><Link to='/scoreboard'>Scoreboard</Link></li>
+                    <li className="wordBreak"><Link to='/scoreboard'>Scoreboard</Link></li>
                 </ul>
 
             </nav>

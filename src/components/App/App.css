@@ -1,54 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500&family=Sansita+Swashed:wght@600&display=swap');
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 * {
   box-sizing: border-box;
@@ -71,15 +62,15 @@ p {
   font-size: 1em;
 }
 
-.App{
+.App {
   position: relative;
   min-height: 100vh;
 }
-.appMain{
+
+.appMain {
   min-height: 100%;
   margin-bottom: -50px;
 }
-
 
 header {
   padding: 12% 2% 15%;
@@ -101,36 +92,98 @@ section:nth-child(even) {
 
 section.lpSection {
   padding: 6% 3%;
+  padding-bottom: 40px;
 }
 
-section.lpSection h3{
+section.lpSection h3 {
   font-family: 'Sansita Swashed', cursive;
-  font-size: 3em;
-  margin-bottom: 4%;
+  font-size: 1.8em;
+  margin-bottom: 10%;
   text-shadow: 2px 2px 1px #1f1f1f;
   line-height: 1;
 }
+
 section.lpSection p {
-  margin-bottom: 4%;
+  margin-bottom: 9%;
+  padding: 0 2%;
 }
 
-.playButton{
-    border-style: solid;
-    border: solid #000 2px;
-    cursor: pointer;
-    padding: 10px 15px;
-    background-color: azure;
+section.lpSection a {
+  text-decoration: none;
+  font-size: 0.8em;
+}
+
+section.lpSection.bottom {
+  padding-bottom: 0;
+  min-height: 0;
+}
+
+section.lpSection a:hover {
+  color: #E98731;
+}
+
+section.loginSection {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section.loginSection h1 {
+  font-size: 2em;
+  font-family: 'Sansita Swashed', cursive;
+  line-height: 1.3;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  margin: 50px 0;
+}
+
+a.playButton {
+  border-style: solid;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 15px;
+}
+
+a.buttonWhite {
+  background-color: #fff;
+  color: #050d18;
+  padding: 10px 15px;
+  text-shadow: 2px 2px 1px #fff;
+}
+
+.buttonWhite:hover {
+  background-color: #fff;
+  padding: 10px 15px;
 }
 
 #footer, .push {
   height: 50px;
 }
 
-@media all and (min-width: 1280px){
-  header.lpHeader{
-      height: 91vh;
+@media all and (min-width: 469px) {
+  header h1, section.startScreen h1, section.loginSection h1 {
+    font-size: 4em;
+  }
+  header h2 {
+    font-size: 2em;
+  }
+  section.lpSection h3 {
+    font-size: 3em;
+    margin-bottom: 4%;
+  }
+  .responseContainer .noFormat {
+    font-size: 0.9em;
+  }
+}
+
+@media all and (min-width: 1280px) {
+  header.lpHeader {
+    height: 91vh;
   }
   section.lpSection {
     padding: 3% 17%;
+  }
+  .responseContainer .noFormat {
+    font-size: 1em;
   }
 }
