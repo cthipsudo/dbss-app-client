@@ -72,6 +72,10 @@ p {
   margin-bottom: -50px;
 }
 
+.mobileHidden{
+  display: none;
+}
+
 header {
   padding: 12% 2% 15%;
   border-bottom: solid 2px #fff;
@@ -211,8 +215,18 @@ a.buttonWhite {
 }
 
 @media all and (min-width: 1280px) {
+  .mobileHidden{
+    display: initial;
+    
+  }
+  img.mobileHidden{
+    height: 500px;
+  }
   header.lpHeader {
     height: 91vh;
+  }
+  header h2 {
+    margin-bottom: 40px;
   }
   section.lpSection {
     padding: 3% 17%;
