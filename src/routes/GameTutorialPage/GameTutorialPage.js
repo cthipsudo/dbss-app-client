@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import StartScreenGif from '../../images/startScreen.gif'
+import CharSelectGif from '../../images/charSelectScreen.gif';
+import CharCreateScreenGif from '../../images/charCreateScreen.gif';
+import PlayScreenGif from '../../images/playScreen.gif';
+import ScoreboardScreenGif from '../../images/scoreboardScreen.gif';
+
 export default class GameTutorialPage extends Component {
     constructor(props) {
         super(props)
@@ -25,14 +30,14 @@ export default class GameTutorialPage extends Component {
                 </section>
                 <section className="lpSection">
                     <h3>Character Select</h3>
-                    <p>In Character select you can select or make a character.</p>
+                    <p>In Character select you can select, edit or make a character.</p>
                     <p>Once you have made a character, you can select one to start the game.</p>
-                    <p>[gif here]</p>
+                    <img src={CharSelectGif} alt="Selectscreen Onboarding"></img>
                 </section>
                 <section className="lpSection">
-                    <h3>Character Create</h3>
-                    <p>From here you can create a character using the character form.</p>
-                    <p>[gif here]</p>
+                    <h3>Character Create/Edit</h3>
+                    <p>From here you can create or edit a character using the character form.</p>
+                    <img src={CharCreateScreenGif} alt="Createscreen Onboarding"></img>
                 </section>
                 <section className="lpSection">
                     <h3>Playscreen</h3>
@@ -42,12 +47,12 @@ export default class GameTutorialPage extends Component {
                         <br />
                         You can also force the question to fully render by clicking on it.
                     </p>
-                    <p>[gif here]</p>
+                    <img src={PlayScreenGif} alt="Playscreen Onboarding"></img>
                 </section>
                 <section className="lpSection">
                     <h3>Scoreboard</h3>
                     <p>At the Scoreboard you can filter the scoreboard by Top or Recent Scores.</p>
-                    <p>[gif here]</p>
+                    <img src={ScoreboardScreenGif} alt="Scorescreen Onboarding"></img>
                 </section>
             </>
         )
