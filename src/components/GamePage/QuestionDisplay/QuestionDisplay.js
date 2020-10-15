@@ -142,12 +142,14 @@ export default class QuestionDisplay extends Component {
 
 
     render() {
+        const questionNotLoaded = Object.keys(this.context.question).length === 0;
         return (
             <div className="questionDisplay">
                 <div className="questionContainer">
                     <CharacterInfo />
                     <h1 className="narrator">B.O.B.B.Y.</h1>
-                    {this.grabQuestion()}
+                    {questionNotLoaded && <p>Loading Question...</p>}
+                    { !questionNotLoaded && this.grabQuestion()}
 
                 </div>
                 <div className="choiceContainer">

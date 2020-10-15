@@ -30,6 +30,7 @@ section.startScreen h1 {
 
 #startButton:hover, #loginButton:hover {
   color: #E98731;
+  font-size: 1.1em;
 }
 
 @media all and (min-width: 460px) {

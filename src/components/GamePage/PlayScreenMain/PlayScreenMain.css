@@ -164,15 +164,20 @@
     flex-direction: column;
 }
 
+.initalsField label {
+    margin: 20px;
+}
+
 .initalsField #formInitials {
     text-transform: uppercase;
     border-style: none;
-    letter-spacing: 15px;
     text-align: center;
-    padding: 10px 0 0;
+    padding: 10px 0;
     font-size: 30px;
-    width: 40%;
+    width: 50%;
     align-self: center;
     background: none;
-    border-bottom: solid 3px #000;
+    border: solid 3px #fff;
+    background-color: #fff;
+    
 }
