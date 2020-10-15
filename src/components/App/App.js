@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import GeneralNav from '../Nav/Nav'
 import LandingPage from '../../routes/LandingPage/LandingPage'
 import GamePage from '../../routes/GamePage/GamePageRouter'
+import GameTutorialPage from '../../routes/GameTutorialPage/GameTutorialPage'
 import GeneralFooter from '../Footer/Footer'
 import './App.css';
 import ScoreBoard from '../Scoreboard/Scoreboard';
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/" component={LandingPage}></Route>
           <Route path="/game" component={GamePage}></Route>
           <Route path="/scoreboard" component={ScoreBoard}></Route>
+          <Route path="/tutorial" component={GameTutorialPage}></Route>
         </ErrorBoundary>
       </>
     )
