@@ -1,5 +1,5 @@
 section.noGameSession {
-    min-height: 90vh;
+    min-height: 100vh;
     padding: 5%;
     background-color: #bbb;
     padding-top: 2%;
@@ -7,4 +7,16 @@ section.noGameSession {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+}
+
+section.noGameSession a {
+    border-style: solid;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+section.noGameSession a:hover{
+    color: #E98731;
+    font-size: 1.1em;
 }

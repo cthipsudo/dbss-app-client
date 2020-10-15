@@ -20,18 +20,16 @@
     padding: 20px 0;
 }
 
-.displayAndQuestionContainer {
-    
-}
+.displayAndQuestionContainer {}
+
 .questionDisplay, .responseDisplay {
-    background: #bbb;
+    background: #000;
+    border: solid 2px #90EE90;
+    border-top: none;
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 90vh;
-}
-.questionDisplay{
-    
+    height: 85vh;
 }
 
 .characterInfo {
@@ -86,7 +84,6 @@
     background-color: #000;
     height: 100%;
     color: #90EE90;
-    border: solid 2px #90EE90;
     border-top: none;
     flex-grow: 1;
 }
@@ -94,11 +91,10 @@
 .questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
     margin: 0;
     padding: 0 4% 4%;
-    
 }
 
 .questionDisplay .questionContainer p.loading, .responseDisplay .responseContainer p.loading {
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
@@ -106,7 +102,7 @@
     font-weight: 500;
 }
 
-.questionDisplay .questionContainer{
+.questionDisplay .questionContainer {
     height: 0;
     flex-grow: 3;
 }
@@ -121,13 +117,23 @@
 .questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {
     border-style: none;
     width: 50%;
-    border: white solid 3px;
+    border: #90EE90 solid 1px;
     cursor: pointer;
     margin-top: 0;
+    background-color: #000;
+    color: #90EE90;
+}
+
+.questionDisplay .choiceContainer button {
+    border-color: #90EE90;
+    color: #90EE90;
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
 }
 
 .questionDisplay .choiceContainer button:hover {
-    background: #bbb;
+    box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
+    font-size: 1.1em;
 }
 
 .questionDisplay .choiceContainer div.loader {
@@ -140,11 +146,15 @@
     background-color: #000;
 }
 
-.responseContainer .continue{
+.responseContainer .noFormat, .questionContainer .noFormat {
+    font-size: 0.8em;
+}
+
+.responseContainer .continue {
     cursor: pointer;
 }
 
-.responseContainer .continue:hover{
+.responseContainer .continue:hover {
     cursor: pointer;
     color: darkgreen;
 }
@@ -154,15 +164,20 @@
     flex-direction: column;
 }
 
+.initalsField label {
+    margin: 20px;
+}
+
 .initalsField #formInitials {
     text-transform: uppercase;
     border-style: none;
-    letter-spacing: 15px;
     text-align: center;
-    padding: 10px 0 0;
+    padding: 10px 0;
     font-size: 30px;
-    width: 40%;
+    width: 50%;
     align-self: center;
     background: none;
-    border-bottom: solid 3px #000;
+    border: solid 3px #fff;
+    background-color: #fff;
+    
 }

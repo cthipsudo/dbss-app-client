@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CharSelect from './CharSelect'
+import CharSelect from './CharSelectSection'
 import { BrowserRouter } from 'react-router-dom'
 import GameContext from '../../../contexts/GameContext';
 

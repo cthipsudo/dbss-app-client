@@ -1,15 +1,46 @@
 .appNav {
-    background-color:#aaa;
+    background-color: #050d18;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    border-bottom: #fff solid 2px;
+    padding: 0 5%;
+}
+.appNav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
+    text-shadow: 2px 2px 1px #1f1f1f;
+}
+.appNav a:hover{
+    color: #E98731;
 }
 .appNav #navTitle{
-    
+    display: flex;
+    flex-direction: column;
+    font-family: 'Sansita Swashed', cursive;
+    margin: 0 20px;
 }
 ul.navList {
+    font-family: 'Sansita Swashed', cursive;
     padding-left: 0;
-    width: 100%;
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
 }
+
+ul.navList li {
+    height: auto;
+    margin: 30px 0;
+}
+
+ul.navList li.wordBreak{
+    word-break: break-word;
+}
+
+ul.navList a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8em;
+}
+

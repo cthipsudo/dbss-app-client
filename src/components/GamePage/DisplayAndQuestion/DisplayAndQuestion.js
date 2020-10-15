@@ -3,6 +3,7 @@ import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 import ResponseDisplay from '../ResponseDisplay/ResponseDisplay'
 import GameSessionContext from '../../../contexts/GameSessionContext';
 import GameMusic from '../../GameMusic/GameMusic'
+
 export default class DisplayAndQuestion extends Component {
     static contextType = GameSessionContext;
 

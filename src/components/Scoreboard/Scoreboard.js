@@ -8,6 +8,8 @@ export default class ScoreBoard extends Component {
         scoreBase: null,
         recentScoreBase: null,
         topScores: false,
+        classNameRecent: "",
+        classNameTop: "inactive",
     }
     componentDidMount() {
         //grab the scores
@@ -38,12 +40,16 @@ export default class ScoreBoard extends Component {
 
     filterScoreTop = () =>{
         this.setState({
-            topScores: true
+            topScores: true,
+            classNameRecent: "inactive",
+            classNameTop: "",
         });
     }
     filterScoreRecent = ()=> {
         this.setState({
-            topScores: false
+            topScores: false,
+            classNameRecent: "",
+            classNameTop: "inactive",
         });
     }
 
@@ -65,10 +71,10 @@ export default class ScoreBoard extends Component {
                 </header>
                 <section className="scoreSection">
                     <div className="scoreFilter">
-                        <p onClick={this.filterScoreTop}>Top Scores</p>
-                        <p onClick={this.filterScoreRecent}>Recent</p>
+                        <p onClick={this.filterScoreTop} className={this.state.classNameTop}>Top Scores</p>
+                        <p onClick={this.filterScoreRecent} className={this.state.classNameRecent}>Recent</p>
                     </div>
-                    <h2 className="underline">{title} Scores:</h2>
+                    <h2>{title} Scores</h2>
                     <div className="scoreHeader">
                         <h2 className="underline">Initals</h2>
                         <h2 className="underline">Score</h2>

@@ -7,6 +7,11 @@ import GameContext from '../../../contexts/GameContext';
 import './StartSection.css'
 
 export default class StartScreen extends Component {
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef()  
+    }
+
     static contextType = GameContext;
 
     handleLogoutClick = () => {
@@ -33,9 +38,15 @@ export default class StartScreen extends Component {
             </>
         )
     }
+
+    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop) 
+
+    componentDidMount(){
+        this.scrollToMyRef();
+    }
     render() {
         return (
-            <section className="startScreen">
+            <section className="startScreen" ref={this.myRef}>
                 <h1>Drifting Between Silence and Stardust:</h1>
                 <div className="startScreenButtons">
                     {TokenService.hasAuthToken() ? this.renderLogoutButtons(): this.renderLoginButtons()}

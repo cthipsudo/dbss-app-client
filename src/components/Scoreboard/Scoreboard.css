@@ -5,14 +5,18 @@
 .scoreFilter{
     display: flex;
     align-self: flex-end;
-    padding: 0 10px;
+    padding: 0 20px;
+    font-family: 'Sansita Swashed', cursive;
 }
 .scoreFilter p {
     margin: 3px;
     cursor: pointer;
 }
+.scoreFilter p.inactive {
+    opacity: .5;
+}
 .scoreFilter p:hover {
-    color: #fff;
+    color: #E98731;
 }
 .scoreHeader {
     display: flex;
@@ -21,7 +25,22 @@
     width: 75%
 }
 
+.scoreSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    padding-top: 3%;
+}
+
+
+.scoreSection h2{
+    font-size: 1.8em;
+    font-family: 'Sansita Swashed', cursive;
+}
+
 .scoreEntry {
+    font-family: 'Noto Sans JP', sans-serif;
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -30,13 +49,46 @@
 }
 
 .scoreEntry h2 {
-    justify-self: end;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 
-.scoreSection{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 80vh;
-    padding-top: 3%;
+.scoreEntry h3 {
+    font-size: 2em;
+}
+
+.scoreEntry h4 {
+    font-size: 1.7em;
+}
+.scoreEntry p {
+    margin: 20px 0 0;
+}
+@media all and (min-width: 640px){
+    .scoreFilter{
+        padding-right: 10%;
+        font-size: 1.5em;
+    }
+    .scoreFilter p {
+        margin: 10px;
+    }
+    .scoreSection {
+        padding-bottom: 40%;
+    }
+    .scoreSection h2{
+        font-size: 3.7em;
+    }
+    .scoreEntry h3 {
+        font-size: 3.2em;
+    }
+    .scoreEntry h4 {
+        font-size: 2.2em;
+    }
+}
+
+@media all and (min-width: 900px){
+    .scoreSection {
+        padding-bottom: 20%;
+    }
+    .scoreSection h2{
+        
+    }
 }

@@ -4,10 +4,16 @@ import CharacterSaves from '../CharacterSaves/CharacterSaves'
 import GameContext from '../../../contexts/GameContext'
 import PlayerDataService from '../../../services/player-data-service'
 import GameServerService from '../../../services/game-server-service'
-import './CharSelect.css'
+import './CharSelectSection.css'
 
 
 export default class CharSelect extends Component {
+
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef()  
+    }
+
     state = {
         error: null,
     }
@@ -65,9 +71,12 @@ export default class CharSelect extends Component {
         if (!this.context.characterSelected.exist) {
             return (<p>No Character Selected!</p>)
         } else {
+            this.scrollToMyRef();
             return (<p>{this.context.characterSelected.name} selected!</p>)
         }
     }
+
+    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop)
 
     render() {
         const { error } = this.state;
@@ -79,6 +88,7 @@ export default class CharSelect extends Component {
                 <CharacterSaves />
                 {error && <p>{error}</p>}
                 {selectedCharText}
+                <p className="hidden" ref={this.myRef}></p>
                 {selectedChar.exist && <Link to="/game/play" id="charSelectStart" onClick={() => this.context.startGameSession()}>Start!</Link>}
             </section>
         )

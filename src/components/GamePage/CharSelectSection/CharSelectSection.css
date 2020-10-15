@@ -1,0 +1,113 @@
+
+section.charSelect {
+    min-height: 100vh;
+    padding: 5%;
+    background-color: #bbb;
+    padding-top: 2%;
+}
+
+section.charSelect p {
+    margin: 40px 0;
+}
+
+section.charSelect h1 {
+    font-size: 2em;
+    font-family: 'Sansita Swashed', cursive;
+    line-height: 1.3;
+    text-shadow: 2px 2px 1px #1f1f1f;
+    margin: 2% 0 4%;
+}
+
+section.charSelect h2 {
+    font-size: 1.8em;
+}
+
+.characterSaves {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.characterContainer {
+    margin-bottom: 10%;
+}
+
+.characterContainer img {
+    max-height: 200px;
+}
+
+.characterSlot {
+    border: solid 3px #fff;
+    background: transparent;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+.characterSlot.created {
+    cursor: pointer;
+}
+.makeCharButton, .editCharButton{
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+}
+
+.makeCharButton:hover, .editCharButton:hover{
+    color: #E98731;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.deleteCharButton{
+    background: none;
+    border-style: none;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.deleteCharButton:hover{
+    color: #E98731;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+.characterSlotButtons{
+    display: flex;
+    justify-content: space-evenly;
+}
+#noChar {
+    font-size: 8em;
+    margin: 0;
+    height: 100%;
+}
+
+#startGameButton {
+    margin-top: 5%;
+}
+
+a#charSelectStart{
+    color:  #fff;
+    text-decoration: none;
+    font-size: 3em;
+    padding: 10px 15px;
+    margin: 20px;
+}
+
+a#charSelectStart:hover{
+    color: #E98731;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+@media all and (min-width: 500px) {
+    .characterContainer {
+        min-width: 32%;
+    }
+    .characterSaves {
+        flex-direction: row;
+    }
+}

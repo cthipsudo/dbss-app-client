@@ -7,9 +7,8 @@ import GameContext from '../../../contexts/GameContext';
 it('PlayScreenMain Renders without crashing', () => {
     const div = document.createElement('div');
     const value = {
-        
+        unselectCharacter: () => {},
     }
-    console.log(value);
     ReactDOM.render(
         <BrowserRouter>
             <GameContext.Provider value={value}>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PlayerProgression from '../PlayerProgress/PlayerProgress'
+import GameNav from '../GameNav/GameNav'
 import DisplayAndQuestion from '../DisplayAndQuestion/DisplayAndQuestion'
 import GameContext from '../../../contexts/GameContext';
 import GameSessionContext from '../../../contexts/GameSessionContext';
@@ -8,9 +8,15 @@ import GameFunctions from '../../../services/GameFunctions';
 import FareWellPrincess from '../../../music/farewell-princess.mp3'
 import VideoGameLand from '../../../music/video-game-land.mp3';
 import ResultScreen from '../ResultSection/ResultSection';
+
 import './PlayScreenMain.css'
 
 export default class PlayScreenMain extends Component {
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef()  
+    }
+
     static contextType = GameContext;
 
     state = {
@@ -34,7 +40,7 @@ export default class PlayScreenMain extends Component {
 
     componentDidMount() {
         //Grab the questions
-        //console.log();
+        this.scrollToMyRef();
         this.setState({
             character: this.context.characterSelected
         })
@@ -66,6 +72,10 @@ export default class PlayScreenMain extends Component {
                     error: res.error,
                 })
             })
+    }
+
+    componentWillUnmount(){
+        this.context.unselectCharacter();
     }
 
     grabNewData = () => {
@@ -142,21 +152,22 @@ export default class PlayScreenMain extends Component {
         if (this.state.gameComplete) {
             return (
                 <>
-                    <ResultScreen />
+                    <ResultScreen ref={this.myRef}/>
                 </>
             )
         } else {
             const { error } = this.state;
             return (
-                <section className="gameSpace">
+                <section className="gameSpace" ref={this.myRef}>
                     {error && <p>{error}</p>}
-                    <PlayerProgression />
+                    <GameNav />
                     <DisplayAndQuestion />
                 </section>
             )
         }
     }
 
+    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop) 
 
     render() {
         if (!this.state.question.length) {

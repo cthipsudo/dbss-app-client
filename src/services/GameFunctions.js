@@ -30,7 +30,6 @@ function grabResponse(responses, questionId, choiceAlignment) {
     return correctResponse;
 }
 function grabChoices(choiceList, charRace, charClass, question) {
-
     //We need to grab the right choices for the question asked
     const neededChoices = [];
     //Loop through
@@ -51,7 +50,6 @@ function grabChoices(choiceList, charRace, charClass, question) {
             }
         }
     }
-
     return neededChoices;
 }
 function linkQuestionsTogetherInSets(questions) {
@@ -223,7 +221,6 @@ function setUpScoreList(scores) {
 }
 
 function translateServerText(text, charName){
-    //console.log('new translation');
     let translatedText = text;
     translatedText = translatedText.replace(/\\n/g, '\n');
     translatedText = translatedText.replace(/{name}/g, `${charName}`)
