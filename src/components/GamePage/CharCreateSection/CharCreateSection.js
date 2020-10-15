@@ -178,7 +178,7 @@ export default class CharCreateSection extends Component {
                         <div className="characterPortrait">
                             <img src={this.state.characterDisplay} alt="character portrait" />
                         </div>
-                        {error && <p>{error}</p>}
+                        {error && <p className="error">{error}</p>}
                         <button type="submit">Create</button>
                     </form>
                 </div>

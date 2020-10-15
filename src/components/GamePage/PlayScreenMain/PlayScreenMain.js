@@ -74,6 +74,10 @@ export default class PlayScreenMain extends Component {
             })
     }
 
+    componentWillUnmount(){
+        this.context.unselectCharacter();
+    }
+
     grabNewData = () => {
         const newQuestion = this.state.questions[this.state.progess];
         let currentChoices = this.state.choiceBase;

@@ -6,7 +6,9 @@ export default class PlayerProgress extends Component{
     }
     render(){
         return (
-            <div className="playerProgress">Star Map/Player Progression</div>
+            <div className="playerProgress">
+                <h1>Ship Terminal</h1>
+            </div>
         )
     }
 }

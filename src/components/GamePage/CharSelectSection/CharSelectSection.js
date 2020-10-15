@@ -67,15 +67,10 @@ export default class CharSelect extends Component {
         }
     }
 
-    componentWillUnmount(){
-        //this.context.unselectCharacter();
-    }
-
     grabSelectedChar = () => {
         if (!this.context.characterSelected.exist) {
             return (<p>No Character Selected!</p>)
         } else {
-            console.log('theres a char selected');
             this.scrollToMyRef();
             return (<p>{this.context.characterSelected.name} selected!</p>)
         }

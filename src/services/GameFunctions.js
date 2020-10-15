@@ -30,7 +30,6 @@ function grabResponse(responses, questionId, choiceAlignment) {
     return correctResponse;
 }
 function grabChoices(choiceList, charRace, charClass, question) {
-
     //We need to grab the right choices for the question asked
     const neededChoices = [];
     //Loop through
@@ -51,7 +50,6 @@ function grabChoices(choiceList, charRace, charClass, question) {
             }
         }
     }
-
     return neededChoices;
 }
 function linkQuestionsTogetherInSets(questions) {

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import SeaMonster from '../../images/sea-monster.svg'
 export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +19,10 @@ export default class ErrorBoundary extends React.Component {
       // You can render any custom fallback UI
       return (
         <section className="errorBoundary">
-          <h1>Something went wrong. Please refresh the page</h1>
+          <h1>Something went wrong, Captain.</h1>
+          <p>The Kraken is attacked and broke the page</p>
+          <p>Please refresh the page</p>
+          <img src={SeaMonster} alt="Sea monster"></img>
         </section>
       )
     }
