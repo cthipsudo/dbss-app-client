@@ -154,7 +154,7 @@ export default class QuestionDisplay extends Component {
                 </div>
                 <div className="choiceContainer">
                     {this.state.counter === this.state.questionLength && this.grabChoices()}
-                    {this.state.counter !== this.state.questionLength && this.grabLoaders()}
+                    {/* {this.state.counter !== this.state.questionLength && this.grabLoaders()} */}
                 </div>
             </div>
         )
