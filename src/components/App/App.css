@@ -104,7 +104,7 @@ section.lpSection h3 {
 }
 
 section.lpSection p {
-  margin-bottom: 9%;
+  margin-bottom: 8%;
   padding: 0 2%;
 }
 
@@ -114,6 +114,7 @@ section.lpSection a {
 }
 
 section.lpSection.bottom {
+  padding-top: 2%;
   padding-bottom: 0;
   min-height: 0;
 }
@@ -127,6 +128,7 @@ section.loginSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 section.loginSection h1 {
@@ -134,7 +136,7 @@ section.loginSection h1 {
   font-family: 'Sansita Swashed', cursive;
   line-height: 1.3;
   text-shadow: 2px 2px 1px #1f1f1f;
-  margin: 50px 0;
+  margin: 0 0 50px;
 }
 
 a.playButton {
@@ -182,6 +184,9 @@ a.buttonWhite {
   }
   section.lpSection {
     padding: 3% 17%;
+  }
+  section.lpSection p{
+    margin-bottom: 5%;
   }
   .responseContainer .noFormat {
     font-size: 1em;

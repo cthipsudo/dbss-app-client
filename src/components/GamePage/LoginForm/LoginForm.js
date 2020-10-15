@@ -5,6 +5,8 @@ import AuthApiService from '../../../services/auth-api-service'
 import GameContext from '../../../contexts/GameContext'
 import { Button, Input } from '../../Utils/Utils'
 
+import './LoginForm.css'
+
 export default class LoginForm extends Component {
   static defaultProps = {
     onLoginSuccess: () => { }
@@ -40,7 +42,7 @@ export default class LoginForm extends Component {
     const { error } = this.state
     return (
       <form
-        className='LoginForm'
+        className='loginForm'
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>

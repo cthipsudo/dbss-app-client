@@ -69,10 +69,10 @@ export default class CharSelect extends Component {
 
     grabSelectedChar = () => {
         if (!this.context.characterSelected.exist) {
-            return (<p ref={this.myRef}>No Character Selected!</p>)
+            return (<p>No Character Selected!</p>)
         } else {
             this.scrollToMyRef();
-            return (<p ref={this.myRef}>{this.context.characterSelected.name} selected!</p>)
+            return (<p>{this.context.characterSelected.name} selected!</p>)
         }
     }
 
@@ -88,6 +88,7 @@ export default class CharSelect extends Component {
                 <CharacterSaves />
                 {error && <p>{error}</p>}
                 {selectedCharText}
+                <p className="hidden" ref={this.myRef}></p>
                 {selectedChar.exist && <Link to="/game/play" id="charSelectStart" onClick={() => this.context.startGameSession()}>Start!</Link>}
             </section>
         )

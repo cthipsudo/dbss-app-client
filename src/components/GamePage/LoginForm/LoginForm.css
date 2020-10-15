@@ -1,0 +1,10 @@
+form.loginForm{
+    width: 50%;
+    text-align: left;
+}
+
+@media all and (min-width: 1280px){
+    form.loginForm{
+        width: 25%;
+    }
+}
