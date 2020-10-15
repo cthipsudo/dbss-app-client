@@ -13,6 +13,7 @@ export default class Character extends Component {
     static defaultProps = {
         character: {}
     }
+    
     deleteChar = () => {
         //Check if we're logged in
         //Unselect Char if selected
@@ -39,15 +40,25 @@ export default class Character extends Component {
         )
     }
     selectCharacter = (character) =>{
+        if(this.context.characterSelected){
+            this.setState({
+                classSelected: `selected`
+            });
+        }
         this.context.selectCharacter(character)
         this.props.selectChar();
+        
     }
     renderCreatedChar() {
         const character = this.props.character;
-
+        let selectedClass = "";
+        if(this.context.characterSelected.name === character.name){
+            console.log('next style');
+            selectedClass = "selected";
+        }
         return (
             <div className="characterContainer">
-                <div className="characterSlot created" onClick={() => this.selectCharacter(character)}>
+                <div className={`characterSlot created ${selectedClass}`} onClick={() => this.selectCharacter(character)}>
                     <img src={this.grabCharPhoto(character)} alt="character"></img>
                     <h2>{character.name}</h2>
                 </div>

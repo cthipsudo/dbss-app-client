@@ -20,18 +20,18 @@ export default class GameTutorialPage extends Component {
                 </header>
                 <section className="lpSection">
                     <h3>Start Game</h3>
-                    <p>At the start screen you can login or play as a guest</p>
+                    <p>At the start screen you can login or play as a guest.</p>
                     <img src={StartScreenGif} alt="Startscreen Onboarding"></img>
                 </section>
                 <section className="lpSection">
                     <h3>Character Select</h3>
-                    <p>In Character select you can select or make a character</p>
-                    <p>Once you have made a character, you can select one to start the game</p>
+                    <p>In Character select you can select or make a character.</p>
+                    <p>Once you have made a character, you can select one to start the game.</p>
                     <p>[gif here]</p>
                 </section>
                 <section className="lpSection">
                     <h3>Character Create</h3>
-                    <p>From here you can create a character using the character form</p>
+                    <p>From here you can create a character using the character form.</p>
                     <p>[gif here]</p>
                 </section>
                 <section className="lpSection">

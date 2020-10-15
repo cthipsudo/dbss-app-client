@@ -52,6 +52,9 @@ section.charSelect h2 {
 .characterSlot.created {
     cursor: pointer;
 }
+.characterSlot.selected{
+    border: 5px solid #E98731;
+}
 .makeCharButton, .editCharButton{
     text-decoration: none;
     color: #fff;
