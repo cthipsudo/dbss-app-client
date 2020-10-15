@@ -38,12 +38,16 @@ export default class Character extends Component {
             </div>
         )
     }
+    selectCharacter = (character) =>{
+        this.context.selectCharacter(character)
+        this.props.selectChar();
+    }
     renderCreatedChar() {
         const character = this.props.character;
 
         return (
             <div className="characterContainer">
-                <div className="characterSlot created" onClick={() => this.context.selectCharacter(character)}>
+                <div className="characterSlot created" onClick={() => this.selectCharacter(character)}>
                     <img src={this.grabCharPhoto(character)} alt="character"></img>
                     <h2>{character.name}</h2>
                 </div>

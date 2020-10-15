@@ -4,6 +4,12 @@ import GameFunctions from '../../services/GameFunctions';
 import './Scoreboard.css';
 
 export default class ScoreBoard extends Component {
+
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef()  
+    }
+
     state = {
         scoreBase: null,
         recentScoreBase: null,
@@ -13,6 +19,7 @@ export default class ScoreBoard extends Component {
     }
     componentDidMount() {
         //grab the scores
+        this.scrollToMyRef();
         GameServerService.getGameScores()
             .then(res => {
                 this.setState({
@@ -53,6 +60,8 @@ export default class ScoreBoard extends Component {
         });
     }
 
+    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop) 
+
     render() {
 
         let scoreEntries = null;
@@ -66,7 +75,7 @@ export default class ScoreBoard extends Component {
         }
         return (
             <>
-                <header role="banner">
+                <header role="banner" ref={this.myRef}>
                     <h1>Hall of Fame</h1>
                 </header>
                 <section className="scoreSection">

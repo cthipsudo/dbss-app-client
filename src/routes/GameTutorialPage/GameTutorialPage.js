@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import StartScreenGif from '../../images/startScreen.gif'
 export default class GameTutorialPage extends Component {
     constructor(props) {
         super(props)
@@ -21,7 +21,7 @@ export default class GameTutorialPage extends Component {
                 <section className="lpSection">
                     <h3>Start Game</h3>
                     <p>At the start screen you can login or play as a guest</p>
-                    <p>[gif here]</p>
+                    <img src={StartScreenGif} alt="Startscreen Onboarding"></img>
                 </section>
                 <section className="lpSection">
                     <h3>Character Select</h3>

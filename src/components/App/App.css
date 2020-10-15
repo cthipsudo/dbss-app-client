@@ -217,8 +217,13 @@ a.buttonWhite {
 @media all and (min-width: 1280px) {
   .mobileHidden{
     display: initial;
-    
   }
+
+  header {
+    padding: 5% 2%;
+    border-bottom: solid 2px #fff;
+  }
+
   img.mobileHidden{
     height: 500px;
   }

@@ -67,11 +67,15 @@ export default class CharSelect extends Component {
         }
     }
 
+    selectChar = () => {
+        this.scrollToMyRef();
+    }
+
     grabSelectedChar = () => {
         if (!this.context.characterSelected.exist) {
             return (<p>No Character Selected!</p>)
         } else {
-            this.scrollToMyRef();
+            
             return (<p>{this.context.characterSelected.name} selected!</p>)
         }
     }
@@ -85,7 +89,7 @@ export default class CharSelect extends Component {
         return (
             <section className="charSelect">
                 <h1>Choose your character:</h1>
-                <CharacterSaves />
+                <CharacterSaves selectChar={this.selectChar}/>
                 {error && <p>{error}</p>}
                 {selectedCharText}
                 <p className="hidden" ref={this.myRef}></p>
