@@ -176,11 +176,19 @@ a.buttonWhite {
     font-size: 3em;
     margin-bottom: 4%;
   }
-  .responseContainer .noFormat {
+  .responseContainer .noFormat, .questionContainer .noFormat {
     font-size: 0.9em;
   }
 }
-
+@media all and (min-width: 850px){
+  .responseContainer, .questionContainer{
+    display: block;
+  }
+  .responseContainer p.noFormat, .questionContainer p.noFormat {
+    width: 50%;
+    margin: auto;
+  }
+}
 @media all and (min-width: 1280px) {
   header.lpHeader {
     height: 91vh;
@@ -191,7 +199,7 @@ a.buttonWhite {
   section.lpSection p{
     margin-bottom: 5%;
   }
-  .responseContainer .noFormat {
+  .responseContainer .noFormat, .questionContainer .noFormat {
     font-size: 1em;
   }
 }
