@@ -16,7 +16,7 @@ export default class ResultSection extends Component {
             return (
                 <section className="winScreen">
                     <h1>You lost!</h1>
-                    <Link to="/game">Play again?</Link>
+                    <Link to="/game/select-char">Play again?</Link>
                 </section>
             )
         } else if (this.state.playAgain) {
@@ -24,7 +24,7 @@ export default class ResultSection extends Component {
                 <section className="winScreen">
                     <h1>Thank you playing!</h1>
                     <Link to="/scoreboard">Go to Scoreboard</Link>
-                    <Link to="/game">Play again?</Link>
+                    <Link to="/game/select-char">Play again?</Link>
                 </section>
             )
         } else {
