@@ -53,7 +53,6 @@ export default class Character extends Component {
         const character = this.props.character;
         let selectedClass = "";
         if(this.context.characterSelected.name === character.name){
-            console.log('next style');
             selectedClass = "selected";
         }
         return (
