@@ -8,8 +8,12 @@
 }
 
 .charBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .gameSpace {
@@ -27,23 +31,38 @@
     border: solid 2px #90EE90;
     border-top: none;
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    height: 85vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 90vh;
 }
 
 .characterInfo {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin-top: -50px;
     width: 50%;
     padding-left: 2%;
 }
 
 .characterInfo .characterHealthAndName {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-left: 2%;
 }
 
@@ -53,8 +72,12 @@
 
 .characterInfo .characterName h2 {
     margin: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .characterInfo .characterHealth {
@@ -68,8 +91,12 @@
     border: solid 2px #90EE90;
     border-bottom: none;
     padding: 2% 2% 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .volumeSection .volumeIcon {
@@ -85,7 +112,7 @@
     height: 100%;
     color: #90EE90;
     border-top: none;
-    flex-grow: 1;
+    margin-bottom: 30px;
 }
 
 .questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
@@ -103,15 +130,18 @@
 }
 
 .questionDisplay .questionContainer {
-    height: 0;
-    flex-grow: 3;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
 }
 
 .questionDisplay .choiceContainer {
     height: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    flex-grow: 2;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 
 .questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {
@@ -128,18 +158,27 @@
     border-color: #90EE90;
     color: #90EE90;
     -webkit-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
     transition: all 150ms ease-in-out;
+    padding: 45px;
 }
 
 .questionDisplay .choiceContainer button:hover {
-    box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
+    -webkit-box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
+            box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
     font-size: 1.1em;
 }
 
 .questionDisplay .choiceContainer div.loader {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .questionDisplay .choiceContainer button.choices:disabled {
@@ -148,6 +187,12 @@
 
 .responseContainer .noFormat, .questionContainer .noFormat {
     font-size: 0.8em;
+}
+
+.responseDisplay .responseContainer {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
 }
 
 .responseContainer .continue {
@@ -160,8 +205,13 @@
 }
 
 .initalsField {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .initalsField label {
@@ -175,7 +225,9 @@
     padding: 10px 0;
     font-size: 30px;
     width: 50%;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     background: none;
     border: solid 3px #fff;
     background-color: #fff;
