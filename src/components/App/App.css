@@ -161,6 +161,9 @@ a.buttonWhite {
 #footer, .push {
   height: 50px;
 }
+.errorBoundary{
+  height: 100vh;
+}
 
 @media all and (min-width: 469px) {
   header h1, section.startScreen h1, section.loginSection h1 {

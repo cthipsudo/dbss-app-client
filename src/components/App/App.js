@@ -6,14 +6,17 @@ import GamePage from '../../routes/GamePage/GamePageRouter'
 import GeneralFooter from '../Footer/Footer'
 import './App.css';
 import ScoreBoard from '../Scoreboard/Scoreboard';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary'
 
 class App extends Component {
   renderMainRoutes() {
     return (
       <>
-        <Route exact path="/" component={LandingPage}></Route>
-        <Route path="/game" component={GamePage}></Route>
-        <Route path="/scoreboard" component={ScoreBoard}></Route>
+        <ErrorBoundary>
+          <Route exact path="/" component={LandingPage}></Route>
+          <Route path="/game" component={GamePage}></Route>
+          <Route path="/scoreboard" component={ScoreBoard}></Route>
+        </ErrorBoundary>
       </>
     )
   }

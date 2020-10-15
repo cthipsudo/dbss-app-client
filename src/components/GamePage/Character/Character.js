@@ -4,6 +4,9 @@ import GameContext from '../../../contexts/GameContext'
 import GameServerService from '../../../services/game-server-service'
 import PlayerDataService from '../../../services/player-data-service'
 import TokenService from '../../../services/token-service'
+import Astronaut from '../../../images/astronaut.svg';
+import Goblin from '../../../images/goblin.svg';
+import Alien from '../../../images/ufo.svg';
 
 export default class Character extends Component {
     static contextType = GameContext;
@@ -28,9 +31,8 @@ export default class Character extends Component {
     renderEmptyChar() {
         return (
             <div className="characterContainer">
-                <div className="characterSlot">
-                    <p>No Character Data</p>
-                    <p id="newChar">?</p>
+                <div className="characterSlot noChar">
+                    <p id="noChar">?</p>
                 </div>
                 <Link className="makeCharButton" to={`/game/create/slot-${this.props.slot}`}>Create</Link>
             </div>
@@ -42,16 +44,30 @@ export default class Character extends Component {
         return (
             <div className="characterContainer">
                 <div className="characterSlot created" onClick={() => this.context.selectCharacter(character)}>
-                    <p>Existing Character Picture here</p>
-                    <p>Name:{character.name}</p>
+                    <img src={this.grabCharPhoto(character)} alt="character"></img>
+                    <h2>{character.name}</h2>
                 </div>
                 <div className="characterSlotButtons">
                     <Link className="editCharButton" to={`/game/edit/slot-${this.props.slot}`} onClick={this.context.setEditingCharacterTrue}>Edit</Link>
-                    <button onClick={this.deleteChar}>Delete</button>
+                    <button className="deleteCharButton" onClick={this.deleteChar}>Delete</button>
                 </div>
             </div>
         )
     }
+
+    grabCharPhoto = (character) => {
+        switch(character.race){
+            case 'human':
+                return Astronaut;
+            case 'alien':
+                return Alien;
+            case 'goblin':
+                return Goblin;
+            default:
+                return Astronaut;
+        }
+    }
+
     render() {
         return (
             <>

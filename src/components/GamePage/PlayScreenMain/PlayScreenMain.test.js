@@ -9,7 +9,6 @@ it('PlayScreenMain Renders without crashing', () => {
     const value = {
         
     }
-    console.log(value);
     ReactDOM.render(
         <BrowserRouter>
             <GameContext.Provider value={value}>

@@ -223,7 +223,6 @@ function setUpScoreList(scores) {
 }
 
 function translateServerText(text, charName){
-    //console.log('new translation');
     let translatedText = text;
     translatedText = translatedText.replace(/\\n/g, '\n');
     translatedText = translatedText.replace(/{name}/g, `${charName}`)

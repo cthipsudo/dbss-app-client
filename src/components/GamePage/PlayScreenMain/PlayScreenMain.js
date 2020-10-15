@@ -40,7 +40,6 @@ export default class PlayScreenMain extends Component {
 
     componentDidMount() {
         //Grab the questions
-        //console.log();
         this.scrollToMyRef();
         this.setState({
             character: this.context.characterSelected

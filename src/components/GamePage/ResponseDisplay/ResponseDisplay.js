@@ -56,8 +56,6 @@ export default class ResponseDisplay extends Component {
     fullyRenderResponse = () => {
         //prevent constant rendering on click
         if(this.state.counter !== this.state.questionLength){
-            console.log('render full! response');
-            console.log();
             this.setState({
                 rendering: false,
                 responseText: this.state.fullResponse,

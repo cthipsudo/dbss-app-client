@@ -68,7 +68,6 @@ export default class QuestionDisplay extends Component {
         }
         //prevents shuffling when fully rendering question
 
-        console.log('shuffling');
         buttons = GameFunctions.shuffle(buttons);
 
         return buttons;
@@ -110,7 +109,6 @@ export default class QuestionDisplay extends Component {
     fullyRenderQuestion = () => {
         //prevent constant rendering on click
         if(this.state.counter !== this.state.questionLength){
-            console.log('render full!');
             this.setState({
                 rendering: false,
                 questionText: this.state.fullQuestion,
