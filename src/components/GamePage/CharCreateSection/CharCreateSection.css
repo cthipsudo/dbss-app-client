@@ -47,8 +47,15 @@ form.characterCreate {
 .formInputs div {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 .characterPortrait{
     margin: 10% 0;
     
+}
+
+@media all and (min-width: 1280px){
+    .characterPortrait{
+        margin: 5% 0;
+    }
 }
