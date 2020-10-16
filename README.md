@@ -40,10 +40,28 @@ As a guest, you will see blank character save slots render from the components.
 
 ![Scoreboard Recent](./readme_screenshots/CharSelectScreen2.png)
 
-### Character Create
+### Character Create/Edit
+Renders a create or edit route base on if you're editing a character or making a new one.
+You're allowed to edit your character regardless if a logged in user or guest.
 
+![Scoreboard Recent](./readme_screenshots/CharCreateScreen.png)
 
 ### Play Screen
+Renders a question display route that renders components using data pulled from the question table in the server database.
+The choice and response data are also pulled from the server database.
+
+Once they are pulled the question order is randomly shuffled for each playthrough.
+The choices are then filtered to match character data and after selecting a choice the following responses are rendered specifically to an alignment category that matches its alignment category for a choice.
+The score in context is also updated with the score value from each choice.
+
+QuestionDisplay:
+
+![Scoreboard Recent](./readme_screenshots/PlayScreenQuestion.png)
+
+ResponseDisplay:
+
+![Scoreboard Recent](./readme_screenshots/PlayScreenResponse.png)
+
 ### Lose Screen
 ### Win Screen
 
