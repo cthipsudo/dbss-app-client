@@ -97,9 +97,8 @@ Curious about setting up the game for you own personal use?
 [My Other Projects](https://oscarthipp.com/)
 
 ## Features coming soon
-
-1.Tutorial Skip
-1.Cancel Character Create
-1.More Question sets
-1.Turn-based Fighting
+1. Tutorial Skip
+1. Cancel Character Create
+1. More Question sets
+1. Turn-based Fighting
 
