@@ -12,14 +12,17 @@ This front-end client was built with using **ReactJS**, **HTML**, and **CSS**.
 
 ## Screenshots
 ### Landing Page
+
 Renders from a landing page route that pulls in its elements from src/components. 
+
 ![Landing Page Above Fold](./readme_screenshots/LandingPage1.png)
+![Landing Page Above Fold](./readme_screenshots/LandingPage2.png)
 ### Tutorial Page
 Renders from a tutorial page route, generates its components on that route, and pulls its tutorial gifs from src/images.
 ![Tutorial Page 1](./readme_screenshots/Tutorial1.png)
 ![Tutorial Page 2](./readme_screenshots/Tutorial2.png)
 ### Score Board
-![Scoreboard Recent](./readme_screenshots/ScoreboardRecent1.png)
+![Scoreboard Recent](./readme_screenshots/ScoreboardRecent.png)
 ### Character Create
 ### Character Select
 ### Play Screen
