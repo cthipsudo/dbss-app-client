@@ -74,10 +74,6 @@ p {
   margin-bottom: -50px;
 }
 
-.mobileHidden{
-  display: none;
-}
-
 header {
   padding: 12% 2% 15%;
   border-bottom: solid 2px #fff;
@@ -109,6 +105,14 @@ section.lpSection h3 {
   line-height: 1;
 }
 
+section.lpSection h4 {
+  font-family: 'Sansita Swashed', cursive;
+  font-size: 1.6em;
+  margin: 20px;
+  text-shadow: 2px 2px 1px #1f1f1f;
+  line-height: 1;
+}
+
 section.lpSection p {
   margin-bottom: 8%;
   padding: 0 2%;
@@ -117,6 +121,15 @@ section.lpSection p {
 section.lpSection a {
   text-decoration: none;
   font-size: 0.8em;
+}
+
+section.lpSection ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+section.lpSection ul li {
+  margin: 10px;
 }
 
 section.lpSection.bottom {
@@ -201,6 +214,14 @@ a.buttonWhite {
 
 .error {
   color: red;
+}
+
+.mobileHidden{
+  display: none;
+}
+
+.noMargin, section p.noMargin{
+  margin: 0;
 }
 
 @media all and (min-width: 469px) {
