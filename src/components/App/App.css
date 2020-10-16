@@ -125,6 +125,10 @@ section.lpSection.bottom {
   min-height: 0;
 }
 
+section.lpSection img {
+  width: 100%;
+}
+
 section.lpSection a:hover {
   color: #E98731;
 }
@@ -216,6 +220,10 @@ a.buttonWhite {
 }
 
 @media all and (min-width: 850px) {
+  section.lpSection img {
+    width: 50%;
+  }
+  
   .responseContainer, .questionContainer {
     display: block;
   }
