@@ -109,6 +109,7 @@ section.lpSection h4 {
   font-family: 'Sansita Swashed', cursive;
   font-size: 1.6em;
   margin: 20px;
+  margin-top: 10px;
   text-shadow: 2px 2px 1px #1f1f1f;
   line-height: 1;
 }
