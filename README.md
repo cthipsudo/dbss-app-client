@@ -1,4 +1,4 @@
-# Drifting between Silence and Stardust version 1.0 [Client](https://github.com/cthipsudo/dbss-app-client)|[Server](https://github.com/cthipsudo/dbss-server)
+# Drifting between Silence and Stardust version 1.0 [Client](https://github.com/cthipsudo/dbss-app-client) | [Server](https://github.com/cthipsudo/dbss-server)
 Drifting Between Silence and Startdust is a "Choose-your-own-Adventure" game that features character creation, randomly shuffled encounters and character specific choices for each encounter based on a selected character's traits. Winners of the game are given the option to add their initals to the scoreboard, which can by filtered by Recent or Top scores.
 
 This client was built using ReactJS to create a simple text game engine that features:
