@@ -5,13 +5,14 @@ This client was built using ReactJS to create a simple text game engine that fea
 - Character by Character Question/Response Rendering.
 - Randomly Shuffled Questions sets for each playthrough.
 - Character specific choices for each question.
-- Game specific responses for based on an alignment chart that correlates to a choice's aligment. 
+- Game specific responses based on an alignment chart that correlates to a choice's aligment. 
 
 # [Play now!](https://dbss-client.vercel.app/)
 This front-end client was built with using **ReactJS**, **HTML**, and **CSS**.
 
 ## Screenshots
 ### Landing Page
+![Landing Page Above Fold](./readme_screenshots/LandingPage1.png)
 ### Tutorial Page
 ### Score Board
 ### Character Create
