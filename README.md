@@ -51,7 +51,7 @@ Renders a question display route that renders components using data pulled from 
 The choice and response data are also pulled from the server database.
 
 Once they are pulled the question order is randomly shuffled for each playthrough.
-The choices are then filtered to match character data and after selecting a choice the following responses are rendered specifically to an alignment category that matches its alignment category for a choice.
+The choices are then filtered to match character data and after selecting a choice the following responses are rendered specifically to an alignment category that matches the alignment category for the selected choice.
 The score in context is also updated with the score value from each choice.
 
 QuestionDisplay:
@@ -63,7 +63,20 @@ ResponseDisplay:
 ![Scoreboard Recent](./readme_screenshots/PlayScreenResponse.png)
 
 ### Lose Screen
+Upon reaching a response that results in a game end. The client renders a result-screen route that renders the losing components.
+
+![Scoreboard Recent](./readme_screenshots/LoseScreen.png)
+
 ### Win Screen
+Upon reaching a response that results in a game win. The client renders a result-screen route that renders the winning components.
+
+A player is prompted to enter their initals.
+
+![Scoreboard Recent](./readme_screenshots/WinScreen1.png)
+
+After submitting the initals.
+
+![Scoreboard Recent](./readme_screenshots/WinScreen2.png)
 
 ## Set up (for local use)
 Curious about setting up the game for you own personal use?
@@ -77,12 +90,12 @@ Curious about setting up the game for you own personal use?
 
 
 ## About Me
+[Github](https://github.com/cthipsudo)
+[LinkedIn](https://www.linkedin.com/in/chanpasong-thipphakhinkeo/)
 
 ## Features coming soon
-Your README should include:
-A description of your app **check**
-A link to a deployed version **check**
-Screenshots and your tech stack
-It should also briefly describe:
-      -  Where each of the components of the project live in your codebase, and
-      -  If your app is meant to be re-used by other developers, then it should include instructions on how to get the app up and running.
+1.Tutorial Skip
+1.Cancel Character Create
+1.More Question sets
+1.Turn-based Fighting
+
