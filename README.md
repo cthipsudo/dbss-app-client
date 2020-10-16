@@ -24,12 +24,21 @@ Renders from a tutorial page route, generates its components on that route, and 
 ![Tutorial Page 2](./readme_screenshots/Tutorial2.png)
 
 ### Score Board
-Renders from a scoreboard page route and renders its components on the page from a scoreboard table by pull data filtered from the server. 
+Renders from a scoreboard page route and renders its components on the page from a scoreboard table by pulling data filtered from the server. 
 
 ![Scoreboard Recent](./readme_screenshots/ScoreboardRecent.png)
 ![Scoreboard Recent](./readme_screenshots/ScoreboardTop.png)
 
 ### Character Select
+Renders from a char-select route however it renders the components differently if you were a logged in user or playing as a guest.
+
+As a logged in user, it will pull the data from the character saves table linked with your user account.
+
+![Scoreboard Recent](./readme_screenshots/CharSelectScreen1.png)
+
+As a guest, you will see blank character save slots render from the components.
+
+![Scoreboard Recent](./readme_screenshots/CharSelectScreen2.png)
 
 ### Character Create
 
