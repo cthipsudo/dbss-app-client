@@ -8,8 +8,17 @@ This client was built using ReactJS to create a simple text game engine that fea
 - Game specific responses for based on an alignment chart that correlates to a choice's aligment. 
 
 # [Play now!](https://dbss-client.vercel.app/)
+This front-end client was built with using **ReactJS**, **HTML**, and **CSS**.
 
 ## Screenshots
+### Landing Page
+### Tutorial Page
+### Score Board
+### Character Create
+### Character Select
+### Play Screen
+### Lose Screen
+### Win Screen
 
 ## Set up (for local use)
 Curious about setting up the game for you own personal use?
@@ -19,7 +28,7 @@ Curious about setting up the game for you own personal use?
 1. create a .env file with two variables, a token that matches the server token and a endpoint address that points to your local server address.
       1. `REACT_APP_GAME_TOKEN="any token here"`
       1. `REACT_APP_API_ENDPOINT="http://somelocalhost:1337/api"`
-1. run `npm start to launch the client`
+1. run `npm start` to launch the client.
 
 
 ## About Me
