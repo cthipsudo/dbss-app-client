@@ -10,6 +10,16 @@ This client was built using ReactJS to create a simple text game engine that fea
 # [Play now!](https://dbss-client.vercel.app/)
 This front-end client was built with using **ReactJS**, **HTML**, and **CSS**.
 
+## Set up (for local use)
+Curious about setting up the game for you own personal use?
+1. clone this client to a directory
+1. run `npm install` to ensure all dependencies are installed.
+1. download and run the dbss server and follow it's instructions
+1. create a .env file with two variables, a token that matches the server token and a endpoint address that points to your local server address.
+      1. `REACT_APP_GAME_TOKEN="any token here"`
+      1. `REACT_APP_API_ENDPOINT="http://somelocalhost:1337/api"`
+1. run `npm start` to launch the client.
+
 ## Screenshots
 ### Landing Page
 Renders from a landing page route that pulls in its elements from src/components. 
@@ -77,17 +87,6 @@ A player is prompted to enter their initals.
 After submitting the initals.
 
 ![Scoreboard Recent](./readme_screenshots/WinScreen2.png)
-
-## Set up (for local use)
-Curious about setting up the game for you own personal use?
-1. clone this client to a directory
-1. run `npm install` to ensure all dependencies are installed.
-1. download and run the dbss server and follow it's instructions
-1. create a .env file with two variables, a token that matches the server token and a endpoint address that points to your local server address.
-      1. `REACT_APP_GAME_TOKEN="any token here"`
-      1. `REACT_APP_API_ENDPOINT="http://somelocalhost:1337/api"`
-1. run `npm start` to launch the client.
-
 
 ## About Me
 [Github](https://github.com/cthipsudo)
