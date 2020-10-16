@@ -8,14 +8,14 @@ import ScoreboardScreenGif from '../../images/scoreboardScreen.gif';
 export default class GameTutorialPage extends Component {
     constructor(props) {
         super(props)
-        this.myRef = React.createRef()  
+        this.myRef = React.createRef()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.scrollToMyRef();
     }
 
-    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop) 
+    scrollToMyRef = () => window.scrollTo(0, this.myRef.current.offsetTop)
 
     render() {
         return (
@@ -42,7 +42,7 @@ export default class GameTutorialPage extends Component {
                 <section className="lpSection">
                     <h3>Playscreen</h3>
                     <p>Once you have started the game. Your in-game AI will start debriefing you with a starter question.
-                        <br/>
+                        <br />
                         You can choose various choices that are catered to your character according to the current question.
                         <br />
                         You can also force the question to fully render by clicking on it.
@@ -53,6 +53,14 @@ export default class GameTutorialPage extends Component {
                     <h3>Scoreboard</h3>
                     <p>At the Scoreboard you can filter the scoreboard by Top or Recent Scores.</p>
                     <img src={ScoreboardScreenGif} alt="Scorescreen Onboarding"></img>
+                </section>
+                <section className="lpSection">
+                    <h3>Need a test login?</h3>
+                    <div className="testLogin">
+                        <p>Login with these credentials:</p>
+                        <p>Username: park</p>
+                        <p>Password: banana</p>
+                    </div>
                 </section>
             </>
         )

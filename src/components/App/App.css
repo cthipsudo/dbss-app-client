@@ -226,6 +226,11 @@ a.buttonWhite {
   margin: 0;
 }
 
+section.lpSection .testLogin p {
+  margin-bottom: 0;
+  margin: 10px;
+}
+
 @media all and (min-width: 469px) {
   header h1, section.startScreen h1, section.loginSection h1 {
     font-size: 4em;
