@@ -10,7 +10,7 @@ export default class CharacterInfo extends Component {
         return (
             <div className="characterInfo">
                 <div className="characterHealthAndName">
-                    <h3 className="characterHealth">{this.context.health}</h3>
+                    <h3 className="characterHealth">{this.context.score}</h3>
                     <CharacterName />
                 </div>
             </div>
