@@ -32,7 +32,7 @@ export default class ResultSection extends Component {
             return (
                 <section className="winScreen">
                     <h1>You won!</h1>
-                    <form className="submitInitials" onSubmit={(event) => { this.submitInitals(event) }}>
+                    <form className="submitInitials" onSubmit={(event) => { this.submitInitials(event) }}>
                         {error && <p>{error}</p>}
                         <div className="initalsField">
                             <label htmlFor="initials">Enter your Initals:</label>
@@ -44,7 +44,7 @@ export default class ResultSection extends Component {
         }
     }
 
-    submitInitals = (ev) => {
+    submitInitials = (ev) => {
         ev.preventDefault()
         this.setState({ error: null })
         const score = {

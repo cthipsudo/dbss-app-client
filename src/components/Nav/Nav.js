@@ -6,14 +6,14 @@ export default class GeneralNav extends Component {
     render() {
         return (
             <nav className='appNav'>
-                <ul className="navList" id="menu">
+                <ul className="navList">
                     <li><Link to='/game'>Play!</Link></li>
                 </ul>
                 <Link to='/' id="navTitle">
                     <p>Drifting Between</p>
                     <p>Silence and Stardust</p>
                 </Link>
-                <ul className="navList" id="menu">
+                <ul className="navList">
                     <li className=""><Link to='/scoreboard'>Scores</Link></li>
                 </ul>
 
