@@ -1,235 +1,247 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap");
 .noFormat {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .narrator {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .charBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .gameSpace {
-    padding: 0;
+  padding: 0;
 }
 
 .playerProgress {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
-.displayAndQuestionContainer {}
+.displayAndQuestionContainer {
+}
 
-.questionDisplay, .responseDisplay {
-    background: #000;
-    border: solid 2px #90EE90;
-    border-top: none;
-    width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    height: 90vh;
+.questionDisplay,
+.responseDisplay {
+  background: #000;
+  border: solid 2px #90ee90;
+  border-top: none;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 70vh;
+  justify-content: space-between;
 }
 
 .characterInfo {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin-top: -50px;
-    width: 50%;
-    padding-left: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: -50px;
+  width: 50%;
+  padding-left: 2%;
 }
 
 .characterInfo .characterHealthAndName {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-left: 2%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 2%;
 }
 
 .characterInfo .characterName {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .characterInfo .characterName h2 {
-    margin: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .characterInfo .characterHealth {
-    margin: 0;
-    font-size: 2em;
+  margin: 0;
+  font-size: 2em;
 }
 
 .volumeSection {
-    background-color: #000;
-    color: #90EE90;
-    border: solid 2px #90EE90;
-    border-bottom: none;
-    padding: 2% 2% 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+  background-color: #000;
+  color: #90ee90;
+  border: solid 2px #90ee90;
+  border-bottom: none;
+  padding: 2% 2% 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .volumeSection .volumeIcon {
-    font-size: 2em;
-    cursor: pointer;
+  font-size: 2em;
+  cursor: pointer;
 }
 
-.questionDisplay .questionContainer, .responseDisplay .responseContainer {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 300;
-    padding: 0;
-    background-color: #000;
-    height: 100%;
-    color: #90EE90;
-    border-top: none;
-    margin-bottom: 30px;
+.questionDisplay .questionContainer,
+.responseDisplay .responseContainer {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+  padding: 0;
+  background-color: #000;
+  height: 100%;
+  color: #90ee90;
+  border-top: none;
+  margin-bottom: 30px;
 }
 
-.questionDisplay .questionContainer p, .responseDisplay .responseContainer p {
-    margin: 0;
-    padding: 0 4% 4%;
+.questionDisplay .questionContainer p,
+.responseDisplay .responseContainer p {
+  margin: 0;
+  padding: 0 4% 4%;
 }
 
-.questionDisplay .questionContainer p.loading, .responseDisplay .responseContainer p.loading {
-    cursor: pointer;
+.questionDisplay .questionContainer p.loading,
+.responseDisplay .responseContainer p.loading {
+  cursor: pointer;
 }
 
-.questionDisplay .questionContainer h1.narrator, .responseDisplay .responseContainer h1.narrator {
-    margin: 1% 0;
-    font-weight: 500;
+.questionDisplay .questionContainer h1.narrator,
+.responseDisplay .responseContainer h1.narrator {
+  margin: 1% 0;
+  font-weight: 500;
 }
 
 .questionDisplay .questionContainer {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .questionDisplay .choiceContainer {
-    height: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.questionDisplay .choiceContainer button, .questionDisplay .choiceContainer div.loader {
-    border-style: none;
-    width: 50%;
-    border: #90EE90 solid 1px;
-    cursor: pointer;
-    margin-top: 0;
-    background-color: #000;
-    color: #90EE90;
+.questionDisplay .choiceContainer button,
+.questionDisplay .choiceContainer div.loader {
+  border-style: none;
+  width: 50%;
+  border: #90ee90 solid 1px;
+  cursor: pointer;
+  margin-top: 0;
+  background-color: #000;
+  color: #90ee90;
 }
 
 .questionDisplay .choiceContainer button {
-    border-color: #90EE90;
-    color: #90EE90;
-    -webkit-transition: all 150ms ease-in-out;
-    -o-transition: all 150ms ease-in-out;
-    transition: all 150ms ease-in-out;
-    padding: 45px;
+  border-color: #90ee90;
+  color: #90ee90;
+  -webkit-transition: all 150ms ease-in-out;
+  -o-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  padding: 45px;
 }
 
 .questionDisplay .choiceContainer button:hover {
-    -webkit-box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
-            box-shadow: 0 0 10px 0#90EE90 inset, 0 0 10px 4px #90EE90;
-    font-size: 1.1em;
+  -webkit-box-shadow:
+    0 0 10px 0#90EE90 inset,
+    0 0 10px 4px #90ee90;
+  box-shadow:
+    0 0 10px 0#90EE90 inset,
+    0 0 10px 4px #90ee90;
+  font-size: 1.1em;
 }
 
 .questionDisplay .choiceContainer div.loader {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .questionDisplay .choiceContainer button.choices:disabled {
-    background-color: #000;
+  background-color: #000;
 }
 
-.responseContainer .noFormat, .questionContainer .noFormat {
-    font-size: 0.8em;
+.responseContainer .noFormat,
+.questionContainer .noFormat {
+  font-size: 0.8em;
 }
 
 .responseDisplay .responseContainer {
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .responseContainer .continue {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .responseContainer .continue:hover {
-    cursor: pointer;
-    color: darkgreen;
+  cursor: pointer;
+  color: darkgreen;
 }
 
 .initalsField {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .initalsField label {
-    margin: 20px;
+  margin: 20px;
 }
 
 .initalsField #formInitials {
-    text-transform: uppercase;
-    border-style: none;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 30px;
-    width: 50%;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    background: none;
-    border: solid 3px #fff;
-    background-color: #fff;
-    
+  text-transform: uppercase;
+  border-style: none;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+  width: 50%;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  background: none;
+  border: solid 3px #fff;
+  background-color: #fff;
 }
